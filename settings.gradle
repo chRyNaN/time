@@ -1,0 +1,5 @@
+rootProject.name = 'time'
+
+include ":core"
+
+enableFeaturePreview('GRADLE_METADATA')
