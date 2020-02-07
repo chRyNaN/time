@@ -21,4 +21,8 @@ inline class Minutes(private val amount: Long) {
      */
     val duration: Duration
         get() = amount.minutes
+
+    operator fun plus(other: Minutes): Minutes = Minutes(amount + other.amount)
+
+    operator fun minus(other: Minutes): Minutes = Minutes(amount - other.amount)
 }

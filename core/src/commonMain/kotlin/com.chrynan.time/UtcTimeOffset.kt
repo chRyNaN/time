@@ -2,8 +2,15 @@ package com.chrynan.time
 
 import kotlin.time.ExperimentalTime
 
+/**
+ * An enum class representing a group of common UTC [TimeOffset]s. The [offset] value returns the actual [TimeOffset].
+ * Note that this may not be a comprehensive list and for offsets that are not provided by this enum class, use the
+ * [TimeOffset] class directly.
+ *
+ * @author chRyNaN
+ */
 @ExperimentalTime
-enum class UtcTimeOffsets(val offset: TimeOffset) {
+enum class UtcTimeOffset(val offset: TimeOffset) {
 
     MINUS_1_HOUR(offset = TimeOffset(Hours(-1))),
     MINUS_2_HOURS(offset = TimeOffset(Hours(-2))),

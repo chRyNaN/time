@@ -21,4 +21,8 @@ inline class Hours(private val amount: Long) {
      */
     val duration: Duration
         get() = amount.hours
+
+    operator fun plus(other: Hours): Hours = Hours(amount + other.amount)
+
+    operator fun minus(other: Hours): Hours = Hours(amount - other.amount)
 }
