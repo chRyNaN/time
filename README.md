@@ -5,6 +5,11 @@ This library expands on the experimental Kotlin `Duration` in the stdlib by prov
 
 **Note:** This library is in the very early stages of development and currently only has implementations for the JVM target.
 
+An early look into the development of this library is discussed in [this article](https://chrynan.codes/its-about-time/) which was featured in Android Weekly issue [#401](https://androidweekly.net/issues/issue-401).
+<a href="https://androidweekly.net/issues/issue-401" title="Android Weekly Issue 401">
+<img alt="Badge" src="https://androidweekly.net/issues/issue-401/badge" height="20px"></img>
+</a>
+
 ## Library
 The entry point to getting a `Moment` is through the `TimeProvider` interface. There are different implementations depending on the target platform (ex: JVM) and implementation library used (ex: Java Time).
 
