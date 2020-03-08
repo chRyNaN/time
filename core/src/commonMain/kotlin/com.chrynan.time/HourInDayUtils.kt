@@ -1,5 +1,12 @@
 package com.chrynan.time
 
+/**
+ * Converts this [HourInDay] instance to a [HourIn24HourClock]. If this [HourInDay] is already a [HourIn24HourClock],
+ * then this is returned but scoped appropriately. Otherwise a conversion is performed from [HourIn12HourClock] to
+ * [HourIn24HourClock].
+ *
+ * @author chRyNaN
+ */
 fun HourInDay.convertTo24HourClock(): HourIn24HourClock =
     if (this is HourIn24HourClock) {
         this
@@ -15,6 +22,13 @@ fun HourInDay.convertTo24HourClock(): HourIn24HourClock =
         HourIn24HourClock(value = value)
     }
 
+/**
+ * Converts this [HourInDay] instance to a [HourIn12HourClock]. If this [HourInDay] is already a [HourIn12HourClock],
+ * then this is returned but scoped appropriately. Otherwise a conversion is performed from [HourIn24HourClock] to
+ * [HourIn12HourClock].
+ *
+ * @author chRyNaN
+ */
 fun HourInDay.convertTo12HourClock(): HourIn12HourClock {
     return if (this is HourIn12HourClock) {
         this

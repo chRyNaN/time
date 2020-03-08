@@ -114,3 +114,23 @@ fun TimeProvider.moment(
         timeOfDay = calendarDateAndTime.timeOfDay,
         regionId = regionId
     )
+
+/**
+ * Retrieves a [MomentFormatter] for the provided [pattern] for converting [Moment]s into [String]s. This is a
+ * convenience function that converts the provided [pattern] [String] to a [MomentFormatPattern], and then calls the
+ * [TimeProvider.formatter] function.
+ *
+ * @author chRyNaN
+ */
+@ExperimentalTime
+fun TimeProvider.formatter(pattern: String): MomentFormatter = formatter(pattern = MomentFormatPattern(pattern))
+
+/**
+ * Retrieves a [MomentParser] for the provided [pattern] for converting [String]s into [Moment]s. This is a
+ * convenience function that converts the provided [pattern] [String] to a [MomentFormatPattern], and then calls the
+ * [TimeProvider.parser] function.
+ *
+ * @author chRyNaN
+ */
+@ExperimentalTime
+fun TimeProvider.parser(pattern: String): MomentParser = parser(pattern = MomentFormatPattern(pattern))

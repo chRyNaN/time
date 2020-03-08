@@ -1,5 +1,12 @@
 package com.chrynan.time
 
+/**
+ * An enum containing a finite set of supported default timezones.
+ *
+ * @property [regionId] The [TimeZoneRegionId] that this default timezone represents.
+ *
+ * @author chRyNaN
+ */
 enum class DefaultTimeZoneRegionId(val regionId: TimeZoneRegionId) {
 
     NEW_YORK(regionId = TimeZoneRegionId(id = "America/New_York")),

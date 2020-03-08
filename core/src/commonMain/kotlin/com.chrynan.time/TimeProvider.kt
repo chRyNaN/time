@@ -56,7 +56,17 @@ interface TimeProvider {
      */
     fun now(regionId: TimeZoneRegionId = timeZoneOffsetProvider.defaultTimeZoneRegionId): Moment
 
+    /**
+     * Retrieves a [MomentFormatter] for the provided [MomentFormatPattern] for converting [Moment]s into [String]s.
+     *
+     * @author chRyNaN
+     */
     fun formatter(pattern: MomentFormatPattern): MomentFormatter
 
+    /**
+     * Retrieves a [MomentParser] for the provided [MomentFormatPattern] for converting [String]s into [Moment]s.
+     *
+     * @author chRyNaN
+     */
     fun parser(pattern: MomentFormatPattern): MomentParser
 }

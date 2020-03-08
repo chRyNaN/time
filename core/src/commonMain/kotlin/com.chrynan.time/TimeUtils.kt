@@ -1,5 +1,10 @@
 package com.chrynan.time
 
+/**
+ * Convenience utilities for converting between different time intervals.
+ *
+ * @author chRyNaN
+ */
 object TimeUtils {
 
     const val NANOSECONDS_IN_MICROSECOND = 1_000L
