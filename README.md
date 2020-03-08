@@ -1,7 +1,7 @@
 # time
 A Kotlin multi-platform time library.
 
-This library expands on the experimental Kotlin `Duration` in the stdlib by providing a `Moment` class. This class represents an instance on the timeline which may or may not be localized with a `TimeZoneRegionId` and a calculated `TimeOffset` from UTC/GMT time.
+This library expands on the experimental Kotlin [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/) by providing a `Moment` class. This class represents an instance on the timeline which may or may not be localized with a `TimeZoneRegionId` and a calculated `TimeOffset` from UTC/GMT time.
 
 **Note:** This library is in the very early stages of development and currently only has implementations for the JVM target.
 
@@ -10,17 +10,51 @@ An early look into the development of this library is discussed in [this article
 <img alt="Badge" src="https://androidweekly.net/issues/issue-401/badge" height="20px"></img>
 </a>
 
-## Library
+## Using the Library
 The entry point to getting a `Moment` is through the `TimeProvider` interface. There are different implementations depending on the target platform (ex: JVM) and implementation library used (ex: Java Time).
 
-When an instance of the `TimeProvider` is created, `Moment`s can be obtained:
+### TimeProvider
+Creating a Java Time instance of the `TimeProvider` interface can be done like so:
 ```kotlin
-// Moment representing the current time instance
+val timeProvider = JavaTimeProvider()
+```
+
+The `JavaTimeProvider` defaults to using `Locale.getDefault()`, but another `Locale` can be provided. The `Locale` is important for formatting and parsing.
+```kotlin
+val timeProvider = JavaTimeProvider(locale = Locale.US)
+``` 
+
+### TimeZoneOffsetProvider
+The `JavaTimeProvider` takes a `TimeZoneOffsetProvider` as a constructor parameter. This defaults to the `JavaTimeZoneOffsetProvider` which delegates to the Java Time library.
+
+The `TimeZoneOffsetProvider` is responsible for retrieving `TimeOffset` from UTC for a particular time and region. The `TimeOffset` is dependent on both time and region due to factors, such as, Daylight Savings Time.
+
+A custom `TimeZoneOffsetProvider` can be provided to the `JavaTimeProvider` constructor.
+```kotlin
+val timeProvider = JavaTimeProvider(timeZoneOffsetProvider = myTimeZoneOffsetProvider, locale = Locale.US)
+```
+
+### Moment
+The `Moment` interface represents an instance of time on the timeline with respect to UTC. A `Moment` has a `TimeOffset` (which is zero for UTC) and may contain a `TimeZoneRegionId`. A `TimeProvider` instance is used to retrieve `Moment`s in time.
+
+Retrieve the current `Moment` in time for the default `TimeZoneRegionId`:
+```kotlin
 timeProvider.now()
+``` 
 
-// Moment for 2,000 days after the epoch
-timeProvider.moment(durationSinceTheEpoch = 2000.days)
+Retrieve the current `Moment` in time for UTC/GMT:
+```kotlin
+timeProvider.utc()
+```
 
+Retrieve a particular `Moment`:
+```kotlin
+val momentInDefaultRegion = timeProvider.moment(durationSinceTheEpoch = 2_000.days)
+val momentInNY = timeProvider.moment(durationSinceTheEpoch = 2_000.days, regionId = TimeZoneRegionId("America/New_York"))
+```
+
+Using `TimeProvider` extension functions:
+```kotlin
 // Moment for the start of the current day
 timeProvider.today()
 
@@ -32,16 +66,17 @@ timeProvider.tomorrow()
 
 // Retrieves the static epoch value at UTC/GMT
 timeProvider.epoch()
-
-// Retrieves the current time instance at UTC/GMT
-timeProvider.utc()
 ```
 
-Specific regions can be supplied to get a localized time `Moment`:
+Retrieving a `Duration` between two `Moment`s:
 ```kotlin
-// Moment representing the current time instance at the specified region
-timeProvider.now(TimeZoneRegionId("America/New_York"))
+now to tomorrow
+```
 
-// Moment for 2,000 days after the epoch at the specified region
-timeProvider.moment(durationSinceTheEpoch = 2000.days, regionId = TimeZoneRegionId("America/New_York"))
+Retrieving a new `Moment` by adding or subtracting a `Duration`:
+```kotlin
+val now = timeProvider.now()
+
+val twentyMinutesLater = now + 20.minutes
+val oneHourBefore = now - 1.hour
 ```
