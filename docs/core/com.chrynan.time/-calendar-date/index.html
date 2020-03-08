@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CalendarDate - core</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">core</a>&nbsp;/&nbsp;<a href="../index.html">com.chrynan.time</a>&nbsp;/&nbsp;<a href="./index.html">CalendarDate</a><br/>
+<br/>
+<h1>CalendarDate</h1>
+(JVM, COMMON) <code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CalendarDate</span></code>
+<p>A class that represents a Date within a Calendar with no reference to exact time, such as, minutes or hours, or a
+region. Note multiple <a href="./index.html">CalendarDate</a>s may be considered equal if their values are the same, even though the
+<a href="../-moment/index.html">Moment</a>s they came from may be in different regions, so technically they do not represent the same time. This is
+because a <a href="./index.html">CalendarDate</a> has no reference to a region.</p>
+<p><strong>Author</strong><br/>
+chRyNaN</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A class that represents a Date within a Calendar with no reference to exact time, such as, minutes or hours, or a
+region. Note multiple <a href="./index.html">CalendarDate</a>s may be considered equal if their values are the same, even though the
+<a href="../-moment/index.html">Moment</a>s they came from may be in different regions, so technically they do not represent the same time. This is
+because a <a href="./index.html">CalendarDate</a> has no reference to a region.</p>
+<code><span class="identifier">CalendarDate</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time.CalendarDate$<init>(com.chrynan.time.Year, com.chrynan.time.Month, com.chrynan.time.DayInYear, com.chrynan.time.DayInMonth, com.chrynan.time.DayOfWeek)/year">year</span><span class="symbol">:</span>&nbsp;<a href="../-year/index.html"><span class="identifier">Year</span></a><span class="symbol">, </span><span class="identifier" id="com.chrynan.time.CalendarDate$<init>(com.chrynan.time.Year, com.chrynan.time.Month, com.chrynan.time.DayInYear, com.chrynan.time.DayInMonth, com.chrynan.time.DayOfWeek)/month">month</span><span class="symbol">:</span>&nbsp;<a href="../-month/index.html"><span class="identifier">Month</span></a><span class="symbol">, </span><span class="identifier" id="com.chrynan.time.CalendarDate$<init>(com.chrynan.time.Year, com.chrynan.time.Month, com.chrynan.time.DayInYear, com.chrynan.time.DayInMonth, com.chrynan.time.DayOfWeek)/dayInYear">dayInYear</span><span class="symbol">:</span>&nbsp;<a href="../-day-in-year/index.html"><span class="identifier">DayInYear</span></a><span class="symbol">, </span><span class="identifier" id="com.chrynan.time.CalendarDate$<init>(com.chrynan.time.Year, com.chrynan.time.Month, com.chrynan.time.DayInYear, com.chrynan.time.DayInMonth, com.chrynan.time.DayOfWeek)/dayInMonth">dayInMonth</span><span class="symbol">:</span>&nbsp;<a href="../-day-in-month/index.html"><span class="identifier">DayInMonth</span></a><span class="symbol">, </span><span class="identifier" id="com.chrynan.time.CalendarDate$<init>(com.chrynan.time.Year, com.chrynan.time.Month, com.chrynan.time.DayInYear, com.chrynan.time.DayInMonth, com.chrynan.time.DayOfWeek)/dayOfWeek">dayOfWeek</span><span class="symbol">:</span>&nbsp;<a href="../-day-of-week/index.html"><span class="identifier">DayOfWeek</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="day-in-month.html">dayInMonth</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">dayInMonth</span><span class="symbol">: </span><a href="../-day-in-month/index.html"><span class="identifier">DayInMonth</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="day-in-year.html">dayInYear</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">dayInYear</span><span class="symbol">: </span><a href="../-day-in-year/index.html"><span class="identifier">DayInYear</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="day-of-week.html">dayOfWeek</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">dayOfWeek</span><span class="symbol">: </span><a href="../-day-of-week/index.html"><span class="identifier">DayOfWeek</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="month.html">month</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">month</span><span class="symbol">: </span><a href="../-month/index.html"><span class="identifier">Month</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="year.html">year</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">year</span><span class="symbol">: </span><a href="../-year/index.html"><span class="identifier">Year</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="../to-local-date.html">toLocalDate</a></h4>
+</td>
+<td>
+<p>Converts this <a href="./index.html">CalendarDate</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html">LocalDate</a>.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">CalendarDate</span></a><span class="symbol">.</span><span class="identifier">toLocalDate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

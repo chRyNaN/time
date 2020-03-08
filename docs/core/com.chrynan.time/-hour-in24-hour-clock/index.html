@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>HourIn24HourClock - core</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">core</a>&nbsp;/&nbsp;<a href="../index.html">com.chrynan.time</a>&nbsp;/&nbsp;<a href="./index.html">HourIn24HourClock</a><br/>
+<br/>
+<h1>HourIn24HourClock</h1>
+(JVM, COMMON) <code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">HourIn24HourClock</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-hour-in-day/index.html"><span class="identifier">HourInDay</span></a></code>
+<p>Represents a <a href="../-hour-in-day/index.html">HourInDay</a> for a twenty four hour clock.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Represents a <a href="../-hour-in-day/index.html">HourInDay</a> for a twenty four hour clock.</p>
+<code><span class="identifier">HourIn24HourClock</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time.HourIn24HourClock$<init>(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="value.html">value</a></h4>
+</td>
+<td>
+<p>An <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> indicating the hour, 0 to 23.</p>
+<code><span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="../convert-to12-hour-clock.html">convertTo12HourClock</a></h4>
+</td>
+<td>
+<p>Converts this <a href="../-hour-in-day/index.html">HourInDay</a> instance to a <a href="../-hour-in12-hour-clock/index.html">HourIn12HourClock</a>. If this <a href="../-hour-in-day/index.html">HourInDay</a> is already a <a href="../-hour-in12-hour-clock/index.html">HourIn12HourClock</a>,
+then this is returned but scoped appropriately. Otherwise a conversion is performed from <a href="./index.html">HourIn24HourClock</a> to
+<a href="../-hour-in12-hour-clock/index.html">HourIn12HourClock</a>.</p>
+<code><span class="keyword">fun </span><a href="../-hour-in-day/index.html"><span class="identifier">HourInDay</span></a><span class="symbol">.</span><span class="identifier">convertTo12HourClock</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-hour-in12-hour-clock/index.html"><span class="identifier">HourIn12HourClock</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="../convert-to24-hour-clock.html">convertTo24HourClock</a></h4>
+</td>
+<td>
+<p>Converts this <a href="../-hour-in-day/index.html">HourInDay</a> instance to a <a href="./index.html">HourIn24HourClock</a>. If this <a href="../-hour-in-day/index.html">HourInDay</a> is already a <a href="./index.html">HourIn24HourClock</a>,
+then this is returned but scoped appropriately. Otherwise a conversion is performed from <a href="../-hour-in12-hour-clock/index.html">HourIn12HourClock</a> to
+<a href="./index.html">HourIn24HourClock</a>.</p>
+<code><span class="keyword">fun </span><a href="../-hour-in-day/index.html"><span class="identifier">HourInDay</span></a><span class="symbol">.</span><span class="identifier">convertTo24HourClock</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">HourIn24HourClock</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

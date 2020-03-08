@@ -1,0 +1,84 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TimeZoneRegionId - core</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">core</a>&nbsp;/&nbsp;<a href="../index.html">com.chrynan.time</a>&nbsp;/&nbsp;<a href="./index.html">TimeZoneRegionId</a><br/>
+<br/>
+<h1>TimeZoneRegionId</h1>
+(JVM, COMMON) <code><span class="keyword">inline</span> <span class="keyword">class </span><span class="identifier">TimeZoneRegionId</span></code>
+<p>A class representing a time zone region identifier, such as "America/Phoenix". Note that this class does not contain
+any information about UTC offsets or time. Also, note that no checks are performed to assert a valid input when
+constructing an instance of this class.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A class representing a time zone region identifier, such as "America/Phoenix". Note that this class does not contain
+any information about UTC offsets or time. Also, note that no checks are performed to assert a valid input when
+constructing an instance of this class.</p>
+<code><span class="identifier">TimeZoneRegionId</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time.TimeZoneRegionId$<init>(kotlin.String)/id">id</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="city.html">city</a></h4>
+</td>
+<td>
+<p>Retrieves the city part of the time zone id. For example, for the id "America/Argentina/Buenos_Aires", the city
+would be "Buenos_Aires". For an id of "America/Anchorage", the city would be "Anchorage". Note that the returned
+value might not be an actual city name. Also note that not all time zone ids have a city because some may
+represent a UTC offset. For example, for an id of "-5:00", null would be returned.</p>
+<code><span class="keyword">val </span><span class="identifier">city</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<p>The identifier of the time zone. For example, "America/Phoenix".</p>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="region.html">region</a></h4>
+</td>
+<td>
+<p>Retrieves the region part of the time zone id. For example, for the id "America/Argentina/Buenos_Aires", the
+region would be "America/Argentina". For an id of "America/Anchorage", the region would be "America". Note that
+not all time zone ids have a region because some may represent a UTC offset. For example, for an id of "-05:00",
+null would be returned.</p>
+<code><span class="keyword">val </span><span class="identifier">region</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="../to-zone-id.html">toZoneId</a></h4>
+</td>
+<td>
+<p>Converts this <a href="./index.html">TimeZoneRegionId</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html">ZoneId</a>.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">TimeZoneRegionId</span></a><span class="symbol">.</span><span class="identifier">toZoneId</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html"><span class="identifier">ZoneId</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

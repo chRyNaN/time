@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>epoch - core</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">core</a>&nbsp;/&nbsp;<a href="index.html">com.chrynan.time</a>&nbsp;/&nbsp;<a href="./epoch.html">epoch</a><br/>
+<br/>
+<h1>epoch</h1>
+(JVM, COMMON) <a name="com.chrynan.time$epoch(com.chrynan.time.TimeProvider, com.chrynan.time.TimeZoneRegionId)"></a>
+<code><span class="identifier">@ExperimentalTime</span> <span class="keyword">fun </span><a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a><span class="symbol">.</span><span class="identifier">epoch</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$epoch(com.chrynan.time.TimeProvider, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</span><span class="symbol">:</span>&nbsp;<a href="-time-zone-region-id/index.html"><span class="identifier">TimeZoneRegionId</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DefaultTimeZoneRegionId.UTC.regionId<span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code>
+<p>Retrieves the <a href="-moment/index.html">Moment</a> that represents the epoch at UTC/GMT (January 1, 1970 <a href="midnight UTC/GMT">midnight UTC/GMT</a>, not counting
+leap seconds <a href="#">in ISO 8601:1970-01-01T00:00:00Z</a>). This is a static value. This is different from the <a href="utc.html">utc</a>
+function which retrieves the current <a href="-moment/index.html">Moment</a> at UTC/GMT. This <a href="./epoch.html">epoch</a> function retrieves the static <a href="-moment/index.html">Moment</a>
+representing the epoch. The value returned is offset by the provided <a href="epoch.html#com.chrynan.time$epoch(com.chrynan.time.TimeProvider, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</a>. If no <a href="epoch.html#com.chrynan.time$epoch(com.chrynan.time.TimeProvider, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</a> is provided
+then the <a href="-default-time-zone-region-id/region-id.html">DefaultTimeZoneRegionId.UTC.regionId</a> is used.</p>
+<p><strong>Author</strong><br/>
+chRyNaN</p>
+</BODY>
+</HTML>

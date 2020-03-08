@@ -1,0 +1,892 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.chrynan.time - core</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">core</a>&nbsp;/&nbsp;<a href="./index.html">com.chrynan.time</a><br/>
+<br/>
+<h2>Package com.chrynan.time</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-calendar-date/index.html">CalendarDate</a></h4>
+</td>
+<td>
+<p>A class that represents a Date within a Calendar with no reference to exact time, such as, minutes or hours, or a
+region. Note multiple <a href="-calendar-date/index.html">CalendarDate</a>s may be considered equal if their values are the same, even though the
+<a href="-moment/index.html">Moment</a>s they came from may be in different regions, so technically they do not represent the same time. This is
+because a <a href="-calendar-date/index.html">CalendarDate</a> has no reference to a region.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CalendarDate</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-calendar-date-and-time/index.html">CalendarDateAndTime</a></h4>
+</td>
+<td>
+<p>A convenience data wrapper class around <a href="-calendar-date/index.html">CalendarDate</a> and <a href="-time-of-day/index.html">TimeOfDay</a>.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CalendarDateAndTime</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-clock-convention/index.html">ClockConvention</a></h4>
+</td>
+<td>
+<p>An enum class representing the different supported clock formats (twelve or twenty four hour).</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">ClockConvention</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-day-in-month/index.html">DayInMonth</a></h4>
+</td>
+<td>
+<p>Represents a day in a Calendar Month. Days in a Calendar Month start with one and go up until 31. A value of one
+means that it is the first day of the month. Months have different amounts of days in them and some vary
+(Ex: February during a leap year). Note that no check is done to assert that the provided <a href="-day-in-month/value.html">value</a> is valid when
+constructing an instance of this class.</p>
+<code><span class="keyword">class </span><span class="identifier">DayInMonth</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-day-in-year/index.html">DayInYear</a></h4>
+</td>
+<td>
+<p>Represents a day in a Calendar Year. Days in a Calendar Year start at one and go up to 366. A value of 366 means it
+is a leap year and a value of 365 means it is not a leap year. Note that no check is done to assert that the
+provided <a href="-day-in-year/value.html">value</a> is valid when constructing an instance of this class.</p>
+<code><span class="keyword">class </span><span class="identifier">DayInYear</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-day-of-week/index.html">DayOfWeek</a></h4>
+</td>
+<td>
+<p>An enum class representing the different days of a week. This enum consists of the days Sunday, Monday, Tuesday,
+Wednesday, Thursday, Friday, and Saturday. This enum class has no reference to a particular time or <a href="-moment/index.html">Moment</a>,
+instead it is just an indicator of the named day.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">DayOfWeek</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-default-time-zone-region-id/index.html">DefaultTimeZoneRegionId</a></h4>
+</td>
+<td>
+<p>An enum containing a finite set of supported default timezones.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">DefaultTimeZoneRegionId</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-hour-in12-hour-clock/index.html">HourIn12HourClock</a></h4>
+</td>
+<td>
+<p>Represents a <a href="-hour-in-day/index.html">HourInDay</a> for a twelve hour clock.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">HourIn12HourClock</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-hour-in-day/index.html"><span class="identifier">HourInDay</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-hour-in24-hour-clock/index.html">HourIn24HourClock</a></h4>
+</td>
+<td>
+<p>Represents a <a href="-hour-in-day/index.html">HourInDay</a> for a twenty four hour clock.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">HourIn24HourClock</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-hour-in-day/index.html"><span class="identifier">HourInDay</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-hour-in-day/index.html">HourInDay</a></h4>
+</td>
+<td>
+<p>Represents an hour within a Calendar Day. This is an class wrapper around a numerical representation of a
+hour. This could represent an hour within a 12-hour clock period, in which case it would be in the range of 1 to 12
+with both 1 and 12 being inclusive, or this could represent an hour within a 24-hour clock period, in which case it
+would be in the range of 0 to 24 with 0 being inclusive and 24 being exclusive. Note that no check is performed to
+assert that the provided value is valid. Also, note that this class is different from the <a href="-hours/index.html">Hours</a> class. Where the
+<a href="-hours/index.html">Hours</a> class denotes an amount of time or duration, this class denotes an exact hour within a day.</p>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">HourInDay</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-hours/index.html">Hours</a></h4>
+</td>
+<td>
+<p>Represents an amount of hours as in a duration.</p>
+<code><span class="keyword">class </span><span class="identifier">Hours</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-java-moment/index.html">JavaMoment</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">JavaMoment</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-moment/index.html"><span class="identifier">Moment</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-java-moment-formatter-and-parser/index.html">JavaMomentFormatterAndParser</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">JavaMomentFormatterAndParser</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-moment-formatter/index.html"><span class="identifier">MomentFormatter</span></a><span class="symbol">, </span><a href="-moment-parser/index.html"><span class="identifier">MomentParser</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-java-time-provider/index.html">JavaTimeProvider</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">JavaTimeProvider</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-java-time-zone-offset-provider/index.html">JavaTimeZoneOffsetProvider</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">JavaTimeZoneOffsetProvider</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-time-zone-offset-provider/index.html"><span class="identifier">TimeZoneOffsetProvider</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-meridiem-period/index.html">MeridiemPeriod</a></h4>
+</td>
+<td>
+<p>An enum representing the two periods of a 24 hour day for the 12-hour clock time convention. Those two periods are
+a.m. (from Latin "ante meridiem", translating to before midday), or AM, and p.m. (from Latin "post meridiem"
+translating to after midday), or PM.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">MeridiemPeriod</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-millisecond-in-second/index.html">MillisecondInSecond</a></h4>
+</td>
+<td>
+<p>Represents the millisecond within a second for a Calendar day. This is an inline class wrapper around a numerical
+representation of a millisecond. This could be a value starting from, and including, 0, up to, and excluding, 1,000.
+Note that no check is performed to assert that the provided value is valid when instantiating an instance of this
+class.</p>
+<code><span class="keyword">class </span><span class="identifier">MillisecondInSecond</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-minute-in-hour/index.html">MinuteInHour</a></h4>
+</td>
+<td>
+<p>Represents the minute within an hour for a Calendar day. This is an inline class wrapper around a numerical
+representation of a hour. This could be a value starting from, and including, 0, up to, and excluding, 60. Note that
+no check is performed to assert that the provided value is valid. Also, note that this class is different from the
+<a href="-minutes/index.html">Minutes</a> class. Where the <a href="-minutes/index.html">Minutes</a> class denotes an amount of time or duration, this class denotes an exact minute
+within an hour.</p>
+<code><span class="keyword">class </span><span class="identifier">MinuteInHour</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-minutes/index.html">Minutes</a></h4>
+</td>
+<td>
+<p>Represents an amount of minutes as in a duration.</p>
+<code><span class="keyword">class </span><span class="identifier">Minutes</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-moment/index.html">Moment</a></h4>
+</td>
+<td>
+<p>Represents an exact moment of time. This uses the unix epoch as a reference and the amount of time from the epoch
+can be obtained using the <a href="-moment/duration-since-the-epoch.html">durationSinceTheEpoch</a> property.</p>
+<code><span class="keyword">interface </span><span class="identifier">Moment</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-moment-format-pattern/index.html">MomentFormatPattern</a></h4>
+</td>
+<td>
+<p>An inline class that contains the format used by <a href="-moment-formatter/index.html">MomentFormatter</a> and <a href="-moment-parser/index.html">MomentParser</a> for formatting and parsing.</p>
+<code><span class="keyword">class </span><span class="identifier">MomentFormatPattern</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-moment-formatter/index.html">MomentFormatter</a></h4>
+</td>
+<td>
+<p>This interface represents a utility that can convert a <a href="-moment/index.html">Moment</a> into a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> representation. The format for the
+<a href="-moment/index.html">Moment</a> to be converted to is defined by the <a href="-moment-formatter/pattern.html">pattern</a> property.</p>
+<code><span class="keyword">interface </span><span class="identifier">MomentFormatter</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-moment-parser/index.html">MomentParser</a></h4>
+</td>
+<td>
+<p>This interface represents a utility that can convert a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> into a <a href="-moment/index.html">Moment</a>. The format for the input is defined
+by the <a href="-moment-parser/pattern.html">pattern</a> property.</p>
+<code><span class="keyword">interface </span><span class="identifier">MomentParser</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-month/index.html">Month</a></h4>
+</td>
+<td>
+<p>An enum class representing the different months in a year. This enum consists of January, February, March, April,
+May, June, July, August, September, October, November, and December. This enum class has no reference to a
+particular time or <a href="-moment/index.html">Moment</a>, instead it is just an indicator of the named month.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">Month</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-second-in-minute/index.html">SecondInMinute</a></h4>
+</td>
+<td>
+<p>Represents the second within a minute for a Calendar day. This is an inline class wrapper around a numerical
+representation of a second. This could be a value starting from, and including, 0, up to, and excluding, 60. Note
+that no check is performed to assert that the provided value is valid when instantiating an instance of this class.</p>
+<code><span class="keyword">class </span><span class="identifier">SecondInMinute</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-seconds/index.html">Seconds</a></h4>
+</td>
+<td>
+<p>Represents an amount of seconds as in a duration.</p>
+<code><span class="keyword">class </span><span class="identifier">Seconds</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-time-of-day/index.html">TimeOfDay</a></h4>
+</td>
+<td>
+<p>A class that represents the exact time within a Calendar date. This represents a moment of time and not an elapsed
+time value like a duration. This class has properties that represent the exact time down to millisecond precision
+within a calendar day. Note that this class has no reference to the calendar date or region.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">TimeOfDay</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-time-offset/index.html">TimeOffset</a></h4>
+</td>
+<td>
+<p>A class representing an offset of time in hours and minutes. This class is useful for representing a time offset
+with respect to UTC time for a particular <a href="-moment/index.html">Moment</a> in time. This allows specifying a UTC <a href="-moment/index.html">Moment</a> in terms to a more
+local time. Note that regions of the world don't necessarily have static <a href="-time-offset/index.html">TimeOffset</a>s from UTC time. An example of
+a non-static time offset is in regions that observe daylight savings time, where their time offsets from UTC change
+multiple times a year.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">TimeOffset</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-time-provider/index.html">TimeProvider</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">TimeProvider</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-time-utils/index.html">TimeUtils</a></h4>
+</td>
+<td>
+<p>Convenience utilities for converting between different time intervals.</p>
+<code><span class="keyword">object </span><span class="identifier">TimeUtils</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-time-zone-offset-provider/index.html">TimeZoneOffsetProvider</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">TimeZoneOffsetProvider</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-time-zone-region-id/index.html">TimeZoneRegionId</a></h4>
+</td>
+<td>
+<p>A class representing a time zone region identifier, such as "America/Phoenix". Note that this class does not contain
+any information about UTC offsets or time. Also, note that no checks are performed to assert a valid input when
+constructing an instance of this class.</p>
+<code><span class="keyword">class </span><span class="identifier">TimeZoneRegionId</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-utc-time-offset/index.html">UtcTimeOffset</a></h4>
+</td>
+<td>
+<p>An enum class representing a group of common UTC <a href="-time-offset/index.html">TimeOffset</a>s. The <a href="-utc-time-offset/offset.html">offset</a> value returns the actual <a href="-time-offset/index.html">TimeOffset</a>.
+Note that this may not be a comprehensive list and for offsets that are not provided by this enum class, use the
+<a href="-time-offset/index.html">TimeOffset</a> class directly.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">UtcTimeOffset</span></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="-year/index.html">Year</a></h4>
+</td>
+<td>
+<p>Represents a Calendar Year. This is an inline class wrapper around a numerical representation of a year. A negative
+value denotes a year within the Before Common Era period. A value of zero is not a valid year with respect to the
+Common Era but can be used if using with a different calendar era. Note that this is not a duration, this does not
+represent an amount of years, but rather, represents an exact year within a calendar.</p>
+<code><span class="keyword">class </span><span class="identifier">Year</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="java.time.-day-of-week/index.html">java.time.DayOfWeek</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="java.time.-local-date/index.html">java.time.LocalDate</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="java.time.-local-date-time/index.html">java.time.LocalDateTime</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="java.time.-local-time/index.html">java.time.LocalTime</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="java.time.-month/index.html">java.time.Month</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="java.time.-offset-date-time/index.html">java.time.OffsetDateTime</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="java.time.-zoned-date-time/index.html">java.time.ZonedDateTime</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="java.time.-zone-id/index.html">java.time.ZoneId</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="java.time.-zone-offset/index.html">java.time.ZoneOffset</a></h4>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-april.html">isApril</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="-month/index.html"><span class="identifier">Month</span></a><span class="symbol">.</span><span class="identifier">isApril</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-august.html">isAugust</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="-month/index.html"><span class="identifier">Month</span></a><span class="symbol">.</span><span class="identifier">isAugust</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-december.html">isDecember</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="-month/index.html"><span class="identifier">Month</span></a><span class="symbol">.</span><span class="identifier">isDecember</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-february.html">isFebruary</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="-month/index.html"><span class="identifier">Month</span></a><span class="symbol">.</span><span class="identifier">isFebruary</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-friday.html">isFriday</a></h4>
+</td>
+<td>
+<p>Returns true if this <a href="-day-of-week/index.html">DayOfWeek</a> equals <a href="-day-of-week/-f-r-i-d-a-y.html">DayOfWeek.FRIDAY</a>, otherwise false.</p>
+<code><span class="keyword">val </span><a href="-day-of-week/index.html"><span class="identifier">DayOfWeek</span></a><span class="symbol">.</span><span class="identifier">isFriday</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-january.html">isJanuary</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="-month/index.html"><span class="identifier">Month</span></a><span class="symbol">.</span><span class="identifier">isJanuary</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-july.html">isJuly</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="-month/index.html"><span class="identifier">Month</span></a><span class="symbol">.</span><span class="identifier">isJuly</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-june.html">isJune</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="-month/index.html"><span class="identifier">Month</span></a><span class="symbol">.</span><span class="identifier">isJune</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-march.html">isMarch</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="-month/index.html"><span class="identifier">Month</span></a><span class="symbol">.</span><span class="identifier">isMarch</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-may.html">isMay</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="-month/index.html"><span class="identifier">Month</span></a><span class="symbol">.</span><span class="identifier">isMay</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-monday.html">isMonday</a></h4>
+</td>
+<td>
+<p>Returns true if this <a href="-day-of-week/index.html">DayOfWeek</a> equals <a href="-day-of-week/-m-o-n-d-a-y.html">DayOfWeek.MONDAY</a>, otherwise false.</p>
+<code><span class="keyword">val </span><a href="-day-of-week/index.html"><span class="identifier">DayOfWeek</span></a><span class="symbol">.</span><span class="identifier">isMonday</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-november.html">isNovember</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="-month/index.html"><span class="identifier">Month</span></a><span class="symbol">.</span><span class="identifier">isNovember</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-october.html">isOctober</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="-month/index.html"><span class="identifier">Month</span></a><span class="symbol">.</span><span class="identifier">isOctober</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-saturday.html">isSaturday</a></h4>
+</td>
+<td>
+<p>Returns true if this <a href="-day-of-week/index.html">DayOfWeek</a> equals <a href="-day-of-week/-s-a-t-u-r-d-a-y.html">DayOfWeek.SATURDAY</a>, otherwise false.</p>
+<code><span class="keyword">val </span><a href="-day-of-week/index.html"><span class="identifier">DayOfWeek</span></a><span class="symbol">.</span><span class="identifier">isSaturday</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-september.html">isSeptember</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="-month/index.html"><span class="identifier">Month</span></a><span class="symbol">.</span><span class="identifier">isSeptember</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-sunday.html">isSunday</a></h4>
+</td>
+<td>
+<p>Returns true if this <a href="-day-of-week/index.html">DayOfWeek</a> equals <a href="-day-of-week/-s-u-n-d-a-y.html">DayOfWeek.SUNDAY</a>, otherwise false.</p>
+<code><span class="keyword">val </span><a href="-day-of-week/index.html"><span class="identifier">DayOfWeek</span></a><span class="symbol">.</span><span class="identifier">isSunday</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-thursday.html">isThursday</a></h4>
+</td>
+<td>
+<p>Returns true if this <a href="-day-of-week/index.html">DayOfWeek</a> equals <a href="-day-of-week/-t-h-u-r-s-d-a-y.html">DayOfWeek.THURSDAY</a>, otherwise false.</p>
+<code><span class="keyword">val </span><a href="-day-of-week/index.html"><span class="identifier">DayOfWeek</span></a><span class="symbol">.</span><span class="identifier">isThursday</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-tuesday.html">isTuesday</a></h4>
+</td>
+<td>
+<p>Returns true if this <a href="-day-of-week/index.html">DayOfWeek</a> equals <a href="-day-of-week/-t-u-e-s-d-a-y.html">DayOfWeek.TUESDAY</a>, otherwise false.</p>
+<code><span class="keyword">val </span><a href="-day-of-week/index.html"><span class="identifier">DayOfWeek</span></a><span class="symbol">.</span><span class="identifier">isTuesday</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-wednesday.html">isWednesday</a></h4>
+</td>
+<td>
+<p>Returns true if this <a href="-day-of-week/index.html">DayOfWeek</a> equals <a href="-day-of-week/-w-e-d-n-e-s-d-a-y.html">DayOfWeek.WEDNESDAY</a>, otherwise false.</p>
+<code><span class="keyword">val </span><a href="-day-of-week/index.html"><span class="identifier">DayOfWeek</span></a><span class="symbol">.</span><span class="identifier">isWednesday</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="compare-to.html">compareTo</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">compareTo</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$compareTo(com.chrynan.time.Moment, com.chrynan.time.Moment)/other">other</span><span class="symbol">:</span>&nbsp;<a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="convert-to12-hour-clock.html">convertTo12HourClock</a></h4>
+</td>
+<td>
+<p>Converts this <a href="-hour-in-day/index.html">HourInDay</a> instance to a <a href="-hour-in12-hour-clock/index.html">HourIn12HourClock</a>. If this <a href="-hour-in-day/index.html">HourInDay</a> is already a <a href="-hour-in12-hour-clock/index.html">HourIn12HourClock</a>,
+then this is returned but scoped appropriately. Otherwise a conversion is performed from <a href="-hour-in24-hour-clock/index.html">HourIn24HourClock</a> to
+<a href="-hour-in12-hour-clock/index.html">HourIn12HourClock</a>.</p>
+<code><span class="keyword">fun </span><a href="-hour-in-day/index.html"><span class="identifier">HourInDay</span></a><span class="symbol">.</span><span class="identifier">convertTo12HourClock</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="-hour-in12-hour-clock/index.html"><span class="identifier">HourIn12HourClock</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="convert-to24-hour-clock.html">convertTo24HourClock</a></h4>
+</td>
+<td>
+<p>Converts this <a href="-hour-in-day/index.html">HourInDay</a> instance to a <a href="-hour-in24-hour-clock/index.html">HourIn24HourClock</a>. If this <a href="-hour-in-day/index.html">HourInDay</a> is already a <a href="-hour-in24-hour-clock/index.html">HourIn24HourClock</a>,
+then this is returned but scoped appropriately. Otherwise a conversion is performed from <a href="-hour-in12-hour-clock/index.html">HourIn12HourClock</a> to
+<a href="-hour-in24-hour-clock/index.html">HourIn24HourClock</a>.</p>
+<code><span class="keyword">fun </span><a href="-hour-in-day/index.html"><span class="identifier">HourInDay</span></a><span class="symbol">.</span><span class="identifier">convertTo24HourClock</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="-hour-in24-hour-clock/index.html"><span class="identifier">HourIn24HourClock</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="duration-since-epoch.html">durationSinceEpoch</a></h4>
+</td>
+<td>
+<p>A convenience function for obtaining the duration since the epoch by calling <a href="unix.html">TimeProvider.unix</a> and then
+<a href="-moment/duration-since-the-epoch.html">Moment.durationSinceTheEpoch</a>.</p>
+<code><span class="keyword">fun </span><a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a><span class="symbol">.</span><span class="identifier">durationSinceEpoch</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html"><span class="identifier">Duration</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="epoch.html">epoch</a></h4>
+</td>
+<td>
+<p>Retrieves the <a href="-moment/index.html">Moment</a> that represents the epoch at UTC/GMT (January 1, 1970 <a href="midnight UTC/GMT">midnight UTC/GMT</a>, not counting
+leap seconds <a href="#">in ISO 8601:1970-01-01T00:00:00Z</a>). This is a static value. This is different from the <a href="utc.html">utc</a>
+function which retrieves the current <a href="-moment/index.html">Moment</a> at UTC/GMT. This <a href="epoch.html">epoch</a> function retrieves the static <a href="-moment/index.html">Moment</a>
+representing the epoch. The value returned is offset by the provided <a href="epoch.html#com.chrynan.time$epoch(com.chrynan.time.TimeProvider, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</a>. If no <a href="epoch.html#com.chrynan.time$epoch(com.chrynan.time.TimeProvider, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</a> is provided
+then the <a href="-default-time-zone-region-id/region-id.html">DefaultTimeZoneRegionId.UTC.regionId</a> is used.</p>
+<code><span class="keyword">fun </span><a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a><span class="symbol">.</span><span class="identifier">epoch</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$epoch(com.chrynan.time.TimeProvider, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</span><span class="symbol">:</span>&nbsp;<a href="-time-zone-region-id/index.html"><span class="identifier">TimeZoneRegionId</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DefaultTimeZoneRegionId.UTC.regionId<span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="formatter.html">formatter</a></h4>
+</td>
+<td>
+<p>Retrieves a <a href="-moment-formatter/index.html">MomentFormatter</a> for the provided <a href="formatter.html#com.chrynan.time$formatter(com.chrynan.time.TimeProvider, kotlin.String)/pattern">pattern</a> for converting <a href="-moment/index.html">Moment</a>s into <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>s. This is a
+convenience function that converts the provided <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">pattern</a> to a <a href="-moment-format-pattern/index.html">MomentFormatPattern</a>, and then calls the
+<a href="-time-provider/formatter.html">TimeProvider.formatter</a> function.</p>
+<code><span class="keyword">fun </span><a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a><span class="symbol">.</span><span class="identifier">formatter</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$formatter(com.chrynan.time.TimeProvider, kotlin.String)/pattern">pattern</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-moment-formatter/index.html"><span class="identifier">MomentFormatter</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-same-date-as.html">isSameDateAs</a></h4>
+</td>
+<td>
+<p>Determines whether this <a href="-moment/index.html">Moment</a> and the provided <a href="is-same-date-as.html#com.chrynan.time$isSameDateAs(com.chrynan.time.Moment, com.chrynan.time.Moment)/other">other</a> are the same <a href="-calendar-date/index.html">CalendarDate</a>. This is a convenience
+function for comparing the <a href="-moment/calendar-date.html">Moment.calendarDate</a> fields of both of the <a href="-moment/index.html">Moment</a>s.
+TODO consider the offset because two calendar dates may be the same but at different regions, so technically not the same</p>
+<code><span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">isSameDateAs</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$isSameDateAs(com.chrynan.time.Moment, com.chrynan.time.Moment)/other">other</span><span class="symbol">:</span>&nbsp;<a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="is-today.html">isToday</a></h4>
+</td>
+<td>
+<p>Determines whether the provided <a href="is-today.html#com.chrynan.time$isToday(com.chrynan.time.TimeProvider, com.chrynan.time.Moment, com.chrynan.time.TimeZoneRegionId)/moment">moment</a> is the same date as today. This is a convenience function for calling
+<a href="-time-provider/now.html">TimeProvider.now</a> and then calling <a href="is-same-date-as.html">Moment.isSameDateAs</a> on that and the provided value to determine if they are
+the same date.</p>
+<code><span class="keyword">fun </span><a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a><span class="symbol">.</span><span class="identifier">isToday</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$isToday(com.chrynan.time.TimeProvider, com.chrynan.time.Moment, com.chrynan.time.TimeZoneRegionId)/moment">moment</span><span class="symbol">:</span>&nbsp;<a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">, </span><span class="identifier" id="com.chrynan.time$isToday(com.chrynan.time.TimeProvider, com.chrynan.time.Moment, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</span><span class="symbol">:</span>&nbsp;<a href="-time-zone-region-id/index.html"><span class="identifier">TimeZoneRegionId</span></a>&nbsp;<span class="symbol">=</span>&nbsp;timeZoneOffsetProvider.defaultTimeZoneRegionId<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="minus.html">minus</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">minus</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$minus(com.chrynan.time.Moment, com.chrynan.time.Hours)/hours">hours</span><span class="symbol">:</span>&nbsp;<a href="-hours/index.html"><span class="identifier">Hours</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code><br/>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">minus</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$minus(com.chrynan.time.Moment, com.chrynan.time.Minutes)/minutes">minutes</span><span class="symbol">:</span>&nbsp;<a href="-minutes/index.html"><span class="identifier">Minutes</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code><br/>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">minus</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$minus(com.chrynan.time.Moment, com.chrynan.time.Seconds)/seconds">seconds</span><span class="symbol">:</span>&nbsp;<a href="-seconds/index.html"><span class="identifier">Seconds</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code><br/>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">minus</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$minus(com.chrynan.time.Moment, com.chrynan.time.TimeOffset)/timeOffset">timeOffset</span><span class="symbol">:</span>&nbsp;<a href="-time-offset/index.html"><span class="identifier">TimeOffset</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="moment.html">moment</a></h4>
+</td>
+<td>
+<p>Retrieves the <a href="-moment/index.html">Moment</a> from the provided <a href="-calendar-date-and-time/index.html">CalendarDateAndTime</a> and <a href="moment.html#com.chrynan.time$moment(com.chrynan.time.TimeProvider, com.chrynan.time.CalendarDateAndTime, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</a>. This is a convenience function for
+calling <a href="-time-provider/moment.html">TimeProvider.moment</a>.</p>
+<code><span class="keyword">fun </span><a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a><span class="symbol">.</span><span class="identifier">moment</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$moment(com.chrynan.time.TimeProvider, com.chrynan.time.CalendarDateAndTime, com.chrynan.time.TimeZoneRegionId)/calendarDateAndTime">calendarDateAndTime</span><span class="symbol">:</span>&nbsp;<a href="-calendar-date-and-time/index.html"><span class="identifier">CalendarDateAndTime</span></a><span class="symbol">, </span><span class="identifier" id="com.chrynan.time$moment(com.chrynan.time.TimeProvider, com.chrynan.time.CalendarDateAndTime, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</span><span class="symbol">:</span>&nbsp;<a href="-time-zone-region-id/index.html"><span class="identifier">TimeZoneRegionId</span></a>&nbsp;<span class="symbol">=</span>&nbsp;timeZoneOffsetProvider.defaultTimeZoneRegionId<span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="offset.html">offset</a></h4>
+</td>
+<td>
+<p>Retrieves the <a href="-moment/index.html">Moment</a> from offsetting the <a href="-time-offset/index.html">TimeOffset</a> obtained from the <a href="offset.html#com.chrynan.time$offset(com.chrynan.time.TimeProvider, com.chrynan.time.Moment, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</a>.</p>
+<code><span class="keyword">fun </span><a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a><span class="symbol">.</span><span class="identifier">offset</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$offset(com.chrynan.time.TimeProvider, com.chrynan.time.Moment, com.chrynan.time.TimeZoneRegionId)/moment">moment</span><span class="symbol">:</span>&nbsp;<a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">, </span><span class="identifier" id="com.chrynan.time$offset(com.chrynan.time.TimeProvider, com.chrynan.time.Moment, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</span><span class="symbol">:</span>&nbsp;<a href="-time-zone-region-id/index.html"><span class="identifier">TimeZoneRegionId</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="parser.html">parser</a></h4>
+</td>
+<td>
+<p>Retrieves a <a href="-moment-parser/index.html">MomentParser</a> for the provided <a href="parser.html#com.chrynan.time$parser(com.chrynan.time.TimeProvider, kotlin.String)/pattern">pattern</a> for converting <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>s into <a href="-moment/index.html">Moment</a>s. This is a
+convenience function that converts the provided <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">pattern</a> to a <a href="-moment-format-pattern/index.html">MomentFormatPattern</a>, and then calls the
+<a href="-time-provider/parser.html">TimeProvider.parser</a> function.</p>
+<code><span class="keyword">fun </span><a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a><span class="symbol">.</span><span class="identifier">parser</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$parser(com.chrynan.time.TimeProvider, kotlin.String)/pattern">pattern</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-moment-parser/index.html"><span class="identifier">MomentParser</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="plus.html">plus</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">plus</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$plus(com.chrynan.time.Moment, com.chrynan.time.Hours)/hours">hours</span><span class="symbol">:</span>&nbsp;<a href="-hours/index.html"><span class="identifier">Hours</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code><br/>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">plus</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$plus(com.chrynan.time.Moment, com.chrynan.time.Minutes)/minutes">minutes</span><span class="symbol">:</span>&nbsp;<a href="-minutes/index.html"><span class="identifier">Minutes</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code><br/>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">plus</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$plus(com.chrynan.time.Moment, com.chrynan.time.Seconds)/seconds">seconds</span><span class="symbol">:</span>&nbsp;<a href="-seconds/index.html"><span class="identifier">Seconds</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code><br/>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">plus</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$plus(com.chrynan.time.Moment, com.chrynan.time.TimeOffset)/timeOffset">timeOffset</span><span class="symbol">:</span>&nbsp;<a href="-time-offset/index.html"><span class="identifier">TimeOffset</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="to.html">to</a></h4>
+</td>
+<td>
+<p>Retrieves the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html">Duration</a> from this <a href="-moment/index.html">Moment</a> to the <a href="to.html#com.chrynan.time$to(com.chrynan.time.Moment, com.chrynan.time.Moment)/other">other</a> provided <a href="-moment/index.html">Moment</a>. This is equivalent to subtracting this
+<a href="-moment/index.html">Moment</a>s <a href="-moment/duration-since-the-epoch.html">Moment.durationSinceTheEpoch</a> value from the <a href="to.html#com.chrynan.time$to(com.chrynan.time.Moment, com.chrynan.time.Moment)/other">other</a> moments <a href="-moment/duration-since-the-epoch.html">Moment.durationSinceTheEpoch</a>.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">to</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$to(com.chrynan.time.Moment, com.chrynan.time.Moment)/other">other</span><span class="symbol">:</span>&nbsp;<a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html"><span class="identifier">Duration</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="to-date.html">toDate</a></h4>
+</td>
+<td>
+<p>Converts this <a href="-moment/index.html">Moment</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html">Instant</a> by first converting this <a href="-moment/index.html">Moment</a> to a UTC time.</p>
+<code><span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">toDate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html"><span class="identifier">Date</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="today.html">today</a></h4>
+</td>
+<td>
+<p>Retrieves the <a href="-moment/index.html">Moment</a> representing the start of today. This is a convenience function for calling
+<a href="-time-provider/now.html">TimeProvider.now</a> followed by <a href="-moment/start-of-day.html">Moment.startOfDay</a>.</p>
+<code><span class="keyword">fun </span><a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a><span class="symbol">.</span><span class="identifier">today</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$today(com.chrynan.time.TimeProvider, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</span><span class="symbol">:</span>&nbsp;<a href="-time-zone-region-id/index.html"><span class="identifier">TimeZoneRegionId</span></a>&nbsp;<span class="symbol">=</span>&nbsp;timeZoneOffsetProvider.defaultTimeZoneRegionId<span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="to-instant.html">toInstant</a></h4>
+</td>
+<td>
+<p>Converts this <a href="-moment/index.html">Moment</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html">Instant</a> by first converting this <a href="-moment/index.html">Moment</a> to a UTC time.</p>
+<code><span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">toInstant</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="to-java-day-of-week.html">toJavaDayOfWeek</a></h4>
+</td>
+<td>
+<p>Converts this <a href="-day-of-week/index.html">DayOfWeek</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/DayOfWeek.html">java.time.DayOfWeek</a>.</p>
+<code><span class="keyword">fun </span><a href="-day-of-week/index.html"><span class="identifier">DayOfWeek</span></a><span class="symbol">.</span><span class="identifier">toJavaDayOfWeek</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/DayOfWeek.html"><span class="identifier">DayOfWeek</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="to-java-month.html">toJavaMonth</a></h4>
+</td>
+<td>
+<p>Converts this <a href="-month/index.html">Month</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Month.html">java.time.Month</a>.</p>
+<code><span class="keyword">fun </span><a href="-month/index.html"><span class="identifier">Month</span></a><span class="symbol">.</span><span class="identifier">toJavaMonth</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Month.html"><span class="identifier">Month</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="to-local-date.html">toLocalDate</a></h4>
+</td>
+<td>
+<p>Converts this <a href="-calendar-date/index.html">CalendarDate</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html">LocalDate</a>.</p>
+<code><span class="keyword">fun </span><a href="-calendar-date/index.html"><span class="identifier">CalendarDate</span></a><span class="symbol">.</span><span class="identifier">toLocalDate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a></code>
+<p>Converts this <a href="-calendar-date-and-time/index.html">CalendarDateAndTime</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html">LocalDate</a>.</p>
+<code><span class="keyword">fun </span><a href="-calendar-date-and-time/index.html"><span class="identifier">CalendarDateAndTime</span></a><span class="symbol">.</span><span class="identifier">toLocalDate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="to-local-date-time.html">toLocalDateTime</a></h4>
+</td>
+<td>
+<p>Converts this <a href="-calendar-date-and-time/index.html">CalendarDateAndTime</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html">LocalDateTime</a>.</p>
+<code><span class="keyword">fun </span><a href="-calendar-date-and-time/index.html"><span class="identifier">CalendarDateAndTime</span></a><span class="symbol">.</span><span class="identifier">toLocalDateTime</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html"><span class="identifier">LocalDateTime</span></a></code>
+<p>Converts this <a href="-moment/index.html">Moment</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html">LocalDateTime</a>.</p>
+<code><span class="keyword">fun </span><a href="-moment/index.html"><span class="identifier">Moment</span></a><span class="symbol">.</span><span class="identifier">toLocalDateTime</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html"><span class="identifier">LocalDateTime</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="to-local-time.html">toLocalTime</a></h4>
+</td>
+<td>
+<p>Converts this <a href="-time-of-day/index.html">TimeOfDay</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html">LocalTime</a>.</p>
+<code><span class="keyword">fun </span><a href="-time-of-day/index.html"><span class="identifier">TimeOfDay</span></a><span class="symbol">.</span><span class="identifier">toLocalTime</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html"><span class="identifier">LocalTime</span></a></code>
+<p>Converts this <a href="-calendar-date-and-time/index.html">CalendarDateAndTime</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html">LocalTime</a>.</p>
+<code><span class="keyword">fun </span><a href="-calendar-date-and-time/index.html"><span class="identifier">CalendarDateAndTime</span></a><span class="symbol">.</span><span class="identifier">toLocalTime</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html"><span class="identifier">LocalTime</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="tomorrow.html">tomorrow</a></h4>
+</td>
+<td>
+<p>Retrieves the <a href="-moment/index.html">Moment</a> representing the start of the day after today. This is a convenience function for calling
+<a href="-time-provider/now.html">TimeProvider.now</a> followed by <a href="-moment/start-of-day.html">Moment.startOfDay</a> and then adding a one day <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html">Duration</a>.</p>
+<code><span class="keyword">fun </span><a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a><span class="symbol">.</span><span class="identifier">tomorrow</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$tomorrow(com.chrynan.time.TimeProvider, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</span><span class="symbol">:</span>&nbsp;<a href="-time-zone-region-id/index.html"><span class="identifier">TimeZoneRegionId</span></a>&nbsp;<span class="symbol">=</span>&nbsp;timeZoneOffsetProvider.defaultTimeZoneRegionId<span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="to-zone-id.html">toZoneId</a></h4>
+</td>
+<td>
+<p>Converts this <a href="-time-zone-region-id/index.html">TimeZoneRegionId</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html">ZoneId</a>.</p>
+<code><span class="keyword">fun </span><a href="-time-zone-region-id/index.html"><span class="identifier">TimeZoneRegionId</span></a><span class="symbol">.</span><span class="identifier">toZoneId</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html"><span class="identifier">ZoneId</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="to-zone-offset.html">toZoneOffset</a></h4>
+</td>
+<td>
+<p>Converts this <a href="-time-offset/index.html">TimeOffset</a> to a Java Time <a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneOffset.html">ZoneOffset</a>.</p>
+<code><span class="keyword">fun </span><a href="-time-offset/index.html"><span class="identifier">TimeOffset</span></a><span class="symbol">.</span><span class="identifier">toZoneOffset</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneOffset.html"><span class="identifier">ZoneOffset</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="unix.html">unix</a></h4>
+</td>
+<td>
+<p>An alias for the <a href="utc.html">TimeProvider.utc</a> function.</p>
+<code><span class="keyword">fun </span><a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a><span class="symbol">.</span><span class="identifier">unix</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="utc.html">utc</a></h4>
+</td>
+<td>
+<p>Retrieves the <a href="-moment/index.html">Moment</a> that represents the unix epoch time, or the time that has elapsed at UTC since the epoch
+(January 1, 1970 <a href="midnight UTC/GMT">midnight UTC/GMT</a>, not counting leap seconds <a href="#">in ISO 8601:1970-01-01T00:00:00Z</a>). The region
+for this time is static at UTC/GMT.</p>
+<code><span class="keyword">fun </span><a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a><span class="symbol">.</span><span class="identifier">utc</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code></td>
+</tr>
+<tr>
+<td>
+(JVM, COMMON) 
+<h4><a href="yesterday.html">yesterday</a></h4>
+</td>
+<td>
+<p>Retrieves the <a href="-moment/index.html">Moment</a> representing the start of the day prior to today. This is a convenience function for calling
+<a href="-time-provider/now.html">TimeProvider.now</a> followed by <a href="-moment/start-of-day.html">Moment.startOfDay</a> and then subtracting a one day <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html">Duration</a>.</p>
+<code><span class="keyword">fun </span><a href="-time-provider/index.html"><span class="identifier">TimeProvider</span></a><span class="symbol">.</span><span class="identifier">yesterday</span><span class="symbol">(</span><span class="identifier" id="com.chrynan.time$yesterday(com.chrynan.time.TimeProvider, com.chrynan.time.TimeZoneRegionId)/regionId">regionId</span><span class="symbol">:</span>&nbsp;<a href="-time-zone-region-id/index.html"><span class="identifier">TimeZoneRegionId</span></a>&nbsp;<span class="symbol">=</span>&nbsp;timeZoneOffsetProvider.defaultTimeZoneRegionId<span class="symbol">)</span><span class="symbol">: </span><a href="-moment/index.html"><span class="identifier">Moment</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
