@@ -360,3 +360,13 @@ footer {
         color: #FFFFFF !important;
     }
 }
+
+@media only screen and (max-device-width: 768px){
+    th, td {
+        display: block !important;
+    }
+
+    tr:first-child {
+        margin-top: 2em !important;
+    }
+}
