@@ -1,0 +1,50 @@
+apply plugin: 'kotlin-multiplatform'
+apply plugin: 'maven-publish'
+
+group rootProject.libraryGroup
+version rootProject.libraryVersion
+
+kotlin {
+    targets {
+        jvm()
+    }
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation "org.jetbrains.kotlin:kotlin-stdlib-common"
+
+                implementation project(":core")
+
+                implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.3.5"
+            }
+        }
+        jvmMain {
+            dependencies {
+                implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+                implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5"
+            }
+        }
+        all {
+            languageSettings.enableLanguageFeature("InlineClasses")
+        }
+    }
+}
+
+configurations {
+    compileClasspath
+}
+
+publishing {
+    publications {
+        kotlinMultiplatform {
+            artifactId = "time-coroutines"
+        }
+        jvm {
+            artifactId = "time-coroutines-jvm"
+        }
+        metadata {
+            artifactId = "time-coroutines-metadata"
+        }
+    }
+}
