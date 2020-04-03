@@ -15,13 +15,13 @@ group rootProject.libraryGroup
 version rootProject.libraryVersion
 
 buildscript {
-    ext.kotlin_version = '1.3.61'
+    ext.kotlin_version = '1.3.71'
     repositories {
         mavenCentral()
         jcenter()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.71"
         classpath 'digital.wup:android-maven-publish:3.6.2'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.10.1"
