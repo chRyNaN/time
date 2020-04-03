@@ -2,6 +2,7 @@ package com.chrynan.time
 
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
+import kotlin.time.TimeSource
 import kotlin.time.days
 
 /**
@@ -134,3 +135,11 @@ fun TimeProvider.formatter(pattern: String): MomentFormatter = formatter(pattern
  */
 @ExperimentalTime
 fun TimeProvider.parser(pattern: String): MomentParser = parser(pattern = MomentFormatPattern(pattern))
+
+/**
+ * A convenience function for accessing the [TimeSource.Monotonic] [TimeSource] to track elapsed time.
+ *
+ * @author chRyNaN
+ */
+@ExperimentalTime
+fun TimeProvider.monotonic(): TimeSource = TimeSource.Monotonic
