@@ -10,6 +10,10 @@ An early look into the development of this library is discussed in [this article
 <img alt="Badge" src="https://androidweekly.net/issues/issue-401/badge" height="20px"></img>
 </a>
 
+## Status of the Project
+This project is no longer going to be maintained since there's a new [kotlinx-datetime](https://github.com/Kotlin/kotlinx-datetime) library which handles much of this functionality.
+Since the kotlinx-datetime library is an official Kotlin extension library, it should be more stable when it is officially released.
+
 ## Using the Library
 The entry point to getting a `Moment` is through the `TimeProvider` interface. There are different implementations depending on the target platform (ex: JVM) and implementation library used (ex: Java Time).
 
