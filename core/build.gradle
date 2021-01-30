@@ -10,6 +10,8 @@ version LibraryConstants.versionName
 kotlin {
     targets {
         jvm()
+        ios()
+        js()
     }
     sourceSets {
         all {
@@ -20,7 +22,7 @@ kotlin {
                 implementation "org.jetbrains.kotlin:kotlin-stdlib-common"
 
                 api "org.jetbrains.kotlinx:kotlinx-datetime:0.1.1"
-                api "org.jetbrains.kotlinx:kotlinx-serialization-api:1.0.1"
+                api "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1"
             }
         }
     }
@@ -37,6 +39,15 @@ publishing {
         }
         jvm {
             artifactId = "time-core-jvm"
+        }
+        js {
+            artifactId = "time-core-js"
+        }
+        iosArm64 {
+            artifactId = "time-core-ios-arm64"
+        }
+        iosX64 {
+            artifactId = "time-core-ios-x64"
         }
     }
 }

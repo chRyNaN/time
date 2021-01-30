@@ -9,6 +9,8 @@ version LibraryConstants.versionName
 kotlin {
     targets {
         jvm()
+        ios()
+        js()
     }
     sourceSets {
         all {
@@ -37,6 +39,15 @@ publishing {
         }
         jvm {
             artifactId = "time-coroutines-jvm"
+        }
+        js {
+            artifactId = "time-coroutines-js"
+        }
+        iosArm64 {
+            artifactId = "time-coroutines-ios-arm64"
+        }
+        iosX64 {
+            artifactId = "time-coroutines-ios-x64"
         }
     }
 }
