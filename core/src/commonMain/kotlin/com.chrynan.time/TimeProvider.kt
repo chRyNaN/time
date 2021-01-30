@@ -7,3 +7,17 @@ import kotlin.time.TimeSource
 @ExperimentalTime
 interface TimeProvider : TimeSource,
     Clock
+
+@ExperimentalTime
+class TimeProviderSource(
+    timeSource: TimeSource = TimeSource.Monotonic,
+    clock: Clock = Clock.System
+) : TimeProvider,
+    TimeSource by timeSource,
+    Clock by clock
+
+@ExperimentalTime
+fun TimeProvider(
+    timeSource: TimeSource = TimeSource.Monotonic,
+    clock: Clock = Clock.System
+): TimeProvider = TimeProviderSource(timeSource = timeSource, clock = clock)
