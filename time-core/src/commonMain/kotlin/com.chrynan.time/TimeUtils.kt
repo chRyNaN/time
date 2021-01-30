@@ -58,6 +58,14 @@ fun LocalDate.toStartOfDayDateTimeString(timeZone: TimeZone = TimeZone.currentSy
 fun Clock.nowDateTimeString(): DateTimeString = now().toDateTimeString()
 
 @ExperimentalTime
+infix fun Instant.durationTo(other: Instant): Duration =
+    (other.toEpochMilliseconds() - toEpochMilliseconds()).milliseconds
+
+@ExperimentalTime
+infix fun DateTimeString.durationTo(other: DateTimeString): Duration =
+    (other.millisecondsSinceEpoch - millisecondsSinceEpoch).milliseconds
+
+@ExperimentalTime
 operator fun DateTimeString.compareTo(other: DateTimeString): Int =
     when {
         this.durationSinceEpoch < other.durationSinceEpoch -> -1

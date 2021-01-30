@@ -1,12 +1,10 @@
+@file:Suppress("unused")
+
 package com.chrynan.time
 
-import kotlinx.coroutines.TimeoutCancellationException
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.channelFlow
-import kotlinx.coroutines.flow.produceIn
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
+import kotlinx.datetime.Clock
 import kotlin.time.*
 
 /**
@@ -18,7 +16,8 @@ import kotlin.time.*
  *
  * @author chRyNaN
  */
-@UseExperimental(ExperimentalTime::class)
+@ExperimentalCoroutinesApi
+@ExperimentalTime
 fun intervalFlow(initialDelay: Duration = 0.milliseconds, period: Duration): Flow<Long> = channelFlow {
     var count = 0L
 
@@ -38,7 +37,8 @@ fun intervalFlow(initialDelay: Duration = 0.milliseconds, period: Duration): Flo
  *
  * @author chRyNaN
  */
-@UseExperimental(ExperimentalTime::class)
+@ExperimentalTime
+@ExperimentalCoroutinesApi
 fun timerFlow(delay: Duration): Flow<Unit> = channelFlow {
     delay(delay)
 
@@ -46,25 +46,36 @@ fun timerFlow(delay: Duration): Flow<Unit> = channelFlow {
 }
 
 /**
- * Retrieves a [Flow] of [Unit] that emits at the provided [moment] and then finishes.
+ * Retrieves a [Flow] of [Unit] that emits at the provided [dateTime] and then finishes.
  *
- * @param [moment] The [Moment] when the returned [Flow] should emit a [Unit] value then finish.
- * @param [timeProvider] The [TimeProvider] used to obtain the current [Moment].
+ * @param [dateTime] The [DateTimeString] when the returned [Flow] should emit a [Unit] value then finish.
+ * @param [clock] The [TimeProvider] used to obtain the current [DateTimeString].
  *
  * @author chRyNaN
  */
-@UseExperimental(ExperimentalTime::class)
-fun scheduleFlow(moment: Moment, timeProvider: TimeProvider): Flow<Unit> {
-    val nowUtc = timeProvider.utc()
+@ExperimentalCoroutinesApi
+@ExperimentalTime
+fun scheduleFlow(dateTime: DateTimeString, clock: Clock = Clock.System): Flow<Unit> {
+    val nowUtc = clock.now().toDateTimeString()
 
-    val duration = nowUtc to moment
+    val duration = nowUtc durationTo dateTime
 
     return if (duration < 0.nanoseconds) {
-        throw IllegalArgumentException("Moment provided to the scheduleFlow function must not be in the past.")
+        throw IllegalArgumentException("DateTimeString provided to the scheduleFlow function must not be in the past. DateTimeString = $dateTime")
     } else {
         timerFlow(delay = duration)
     }
 }
+
+/**
+ * A convenience function for calling [scheduleFlow] with a [TimeProvider].
+ *
+ * @see [scheduleFlow]
+ */
+@ExperimentalCoroutinesApi
+@ExperimentalTime
+fun scheduleFlow(dateTime: DateTimeString, timeProvider: TimeProvider): Flow<Unit> =
+    scheduleFlow(dateTime = dateTime, clock = timeProvider)
 
 /**
  * Retrieves a [Flow] that emits the items of the source [Flow] but applies a timeout policy for each emitted item. If
@@ -75,7 +86,9 @@ fun scheduleFlow(moment: Moment, timeProvider: TimeProvider): Flow<Unit> {
  *
  * @author chRyNaN
  */
-@UseExperimental(ExperimentalTime::class)
+@ExperimentalCoroutinesApi
+@FlowPreview
+@ExperimentalTime
 fun <T> Flow<T>.timeout(duration: Duration): Flow<T> = channelFlow {
     val channel = produceIn(this)
 
@@ -92,7 +105,9 @@ fun <T> Flow<T>.timeout(duration: Duration): Flow<T> = channelFlow {
  *
  * @author chRyNaN
  */
-@UseExperimental(ExperimentalTime::class)
+@ExperimentalCoroutinesApi
+@FlowPreview
+@ExperimentalTime
 fun <T> Flow<T>.timedValue(): Flow<TimedValue<T>> = channelFlow {
     val channel = produceIn(this)
 
@@ -100,5 +115,60 @@ fun <T> Flow<T>.timedValue(): Flow<TimedValue<T>> = channelFlow {
         val timedValue = measureTimedValue { channel.receive() }
 
         send(timedValue)
+    }
+}
+
+/**
+ * A sealed class that indicates an approach to polling. Each approach determines how the upstream
+ * and downstream behaves. The available strategies are [Latest], [Merge], and [Concat].
+ */
+@FlowPreview
+sealed class PollingStrategy {
+
+    /**
+     * Equivalent to the [Flow.flatMapLatest] function.
+     *
+     * @see [flatMapLatest]
+     */
+    object Latest : PollingStrategy()
+
+    /**
+     * Equivalent to the [Flow.flatMapMerge] function.
+     *
+     * @property [limit] The amount of concurrently running flat-mapped [Flow]s. The default value
+     * is set to [DEFAULT_CONCURRENCY].
+     *
+     * @see [flatMapMerge]
+     */
+    data class Merge(val limit: Int = DEFAULT_CONCURRENCY) : PollingStrategy()
+
+    /**
+     * Equivalent to the [Flow.flatMapConcat] function.
+     *
+     * @see [flatMapConcat]
+     */
+    object Concat : PollingStrategy()
+}
+
+/**
+ * Polls the [Flow] retrieved via the provided [flowGetter] function, by invoking the [flowGetter]
+ * function after the provided [initialDelay] and then consistently after the provided [period],
+ * and using the provided polling [strategy].
+ */
+@FlowPreview
+@ExperimentalCoroutinesApi
+@ExperimentalTime
+fun <T> poll(
+    initialDelay: Duration = 0.seconds,
+    period: Duration,
+    strategy: PollingStrategy = PollingStrategy.Latest,
+    flowGetter: suspend (Long) -> Flow<T>
+): Flow<T> {
+    val intervalFlow = intervalFlow(initialDelay = initialDelay, period = period)
+
+    return when (strategy) {
+        is PollingStrategy.Latest -> intervalFlow.flatMapLatest { flowGetter(it) }
+        is PollingStrategy.Merge -> intervalFlow.flatMapMerge(concurrency = strategy.limit) { flowGetter(it) }
+        is PollingStrategy.Concat -> intervalFlow.flatMapConcat { flowGetter(it) }
     }
 }
