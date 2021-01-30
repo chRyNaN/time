@@ -20,14 +20,7 @@ kotlin {
 
                 implementation project(":core")
 
-                implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.3.5"
-            }
-        }
-        jvmMain {
-            dependencies {
-                implementation "org.jetbrains.kotlin:kotlin-stdlib"
-
-                implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5"
+                api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
             }
         }
     }
@@ -44,9 +37,6 @@ publishing {
         }
         jvm {
             artifactId = "time-coroutines-jvm"
-        }
-        metadata {
-            artifactId = "time-coroutines-metadata"
         }
     }
 }

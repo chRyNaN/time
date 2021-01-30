@@ -2,6 +2,7 @@ import com.chrynan.time.buildSrc.LibraryConstants
 
 apply plugin: "kotlin-multiplatform"
 apply plugin: "maven-publish"
+apply plugin: "kotlinx-serialization"
 
 group LibraryConstants.group
 version LibraryConstants.versionName
@@ -16,12 +17,10 @@ kotlin {
         }
         commonMain {
             dependencies {
-                implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
-            }
-        }
-        jvmMain {
-            dependencies {
-                implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+                implementation "org.jetbrains.kotlin:kotlin-stdlib-common"
+
+                api "org.jetbrains.kotlinx:kotlinx-datetime:0.1.1"
+                api "org.jetbrains.kotlinx:kotlinx-serialization-api:1.0.1"
             }
         }
     }
@@ -38,9 +37,6 @@ publishing {
         }
         jvm {
             artifactId = "time-core-jvm"
-        }
-        metadata {
-            artifactId = "time-core-metadata"
         }
     }
 }
