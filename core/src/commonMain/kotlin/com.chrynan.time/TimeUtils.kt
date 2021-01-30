@@ -1,44 +1,67 @@
+@file:Suppress("unused")
+
 package com.chrynan.time
 
+import kotlinx.datetime.*
+import kotlin.time.Duration
+import kotlin.time.ExperimentalTime
+import kotlin.time.milliseconds
+
 /**
- * Convenience utilities for converting between different time intervals.
+ * Known issues:
+ * https://github.com/Kotlin/kotlinx-datetime/issues/67
+ * https://github.com/Kotlin/kotlinx-datetime/issues/56
  *
- * @author chRyNaN
+ * Made this an expect/actual to attempt to overcome the limitations of those issues but ran into
+ * limitations of the Java Time API not being available on older Android versions.
  */
-object TimeUtils {
+expect fun DateTimeString.toInstant(): Instant
 
-    const val NANOSECONDS_IN_MICROSECOND = 1_000L
-    const val MICROSECONDS_IN_MILLISECOND = 1_000L
-    const val MILLISECONDS_IN_SECOND = 1_000L
-    const val SECONDS_IN_MINUTE = 60L
-    const val MINUTES_IN_HOUR = 60L
-    const val HOURS_IN_DAY = 24L
-    const val DAYS_IN_WEEK = 7L
+@ExperimentalTime
+val Instant.durationSinceEpoch: Duration
+    get() = toEpochMilliseconds().milliseconds
 
-    const val NANOSECONDS_IN_MILLISECOND = NANOSECONDS_IN_MICROSECOND * MICROSECONDS_IN_MILLISECOND
-    const val NANOSECONDS_IN_SECOND = MILLISECONDS_IN_SECOND * NANOSECONDS_IN_MILLISECOND
-    const val NANOSECONDS_IN_MINUTE = SECONDS_IN_MINUTE * NANOSECONDS_IN_SECOND
-    const val NANOSECONDS_IN_HOUR = MINUTES_IN_HOUR * NANOSECONDS_IN_MINUTE
-    const val NANOSECONDS_IN_DAY = HOURS_IN_DAY * NANOSECONDS_IN_HOUR
-    const val NANOSECONDS_IN_WEEK = DAYS_IN_WEEK * NANOSECONDS_IN_DAY
+fun Instant.toDateTimeString(): DateTimeString = DateTimeString(toString())
 
-    const val MICROSECONDS_IN_SECOND = MICROSECONDS_IN_MILLISECOND * MILLISECONDS_IN_SECOND
-    const val MICROSECONDS_IN_MINUTE = SECONDS_IN_MINUTE * MICROSECONDS_IN_SECOND
-    const val MICROSECONDS_IN_HOUR = MINUTES_IN_HOUR * MICROSECONDS_IN_MINUTE
-    const val MICROSECONDS_IN_DAY = HOURS_IN_DAY * MICROSECONDS_IN_HOUR
-    const val MICROSECONDS_IN_WEEK = DAYS_IN_WEEK * MICROSECONDS_IN_DAY
+@ExperimentalTime
+val DateTimeString.durationSinceEpoch: Duration
+    get() = toInstant().durationSinceEpoch
 
-    const val MILLISECONDS_IN_MINUTE = SECONDS_IN_MINUTE * MILLISECONDS_IN_SECOND
-    const val MILLISECONDS_IN_HOUR = MINUTES_IN_HOUR * MILLISECONDS_IN_MINUTE
-    const val MILLISECONDS_IN_DAY = HOURS_IN_DAY * MILLISECONDS_IN_HOUR
-    const val MILLISECONDS_IN_WEEK = DAYS_IN_WEEK * MILLISECONDS_IN_DAY
+@ExperimentalTime
+val DateTimeString.millisecondsSinceEpoch: Long
+    get() = durationSinceEpoch.toLongMilliseconds()
 
-    const val SECONDS_IN_HOUR = MINUTES_IN_HOUR * SECONDS_IN_MINUTE
-    const val SECONDS_IN_DAY = HOURS_IN_DAY * SECONDS_IN_HOUR
-    const val SECONDS_IN_WEEK = DAYS_IN_WEEK * SECONDS_IN_DAY
+@ExperimentalTime
+fun Duration.toInstantSinceEpoch(): Instant = Instant.fromEpochMilliseconds(this.toLongMilliseconds())
 
-    const val MINUTES_IN_DAY = HOURS_IN_DAY * MINUTES_IN_HOUR
-    const val MINUTES_IN_WEEK = DAYS_IN_WEEK * MINUTES_IN_DAY
+@ExperimentalTime
+fun Long.toInstantFromMillisecondsSinceEpoch(): Instant = milliseconds.toInstantSinceEpoch()
 
-    const val HOURS_IN_WEEK = DAYS_IN_WEEK * HOURS_IN_DAY
-}
+@ExperimentalTime
+fun Duration.toDateTimeString(): DateTimeString = DateTimeString(toInstantSinceEpoch().toString())
+
+@ExperimentalTime
+fun Long.toDateTimeStringFromMillisecondsSinceEpoch(): DateTimeString = milliseconds.toDateTimeString()
+
+fun DateTimeString.toLocalDateTime(timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalDateTime =
+    toInstant().toLocalDateTime(timeZone)
+
+fun LocalDateTime.toDateTimeString(timeZone: TimeZone = TimeZone.currentSystemDefault()): DateTimeString =
+    toInstant(timeZone).toDateTimeString()
+
+fun DateTimeString.toLocalDate(timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalDate =
+    toInstant().toLocalDateTime(timeZone).date
+
+fun LocalDate.toStartOfDayDateTimeString(timeZone: TimeZone = TimeZone.currentSystemDefault()): DateTimeString =
+    this.atStartOfDayIn(timeZone).toDateTimeString()
+
+fun Clock.nowDateTimeString(): DateTimeString = now().toDateTimeString()
+
+@ExperimentalTime
+operator fun DateTimeString.compareTo(other: DateTimeString): Int =
+    when {
+        this.durationSinceEpoch < other.durationSinceEpoch -> -1
+        this.durationSinceEpoch > other.durationSinceEpoch -> 1
+        this.durationSinceEpoch == other.durationSinceEpoch -> 0
+        else -> 0
+    }
