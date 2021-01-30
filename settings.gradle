@@ -1,6 +1,7 @@
 rootProject.name = "time"
 
 include ":time-core"
+include ":time-core-android"
 include ":time-coroutines"
 
 enableFeaturePreview("GRADLE_METADATA")

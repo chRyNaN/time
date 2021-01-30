@@ -1,0 +1,48 @@
+import com.chrynan.time.buildSrc.LibraryConstants
+
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+apply plugin: "digital.wup.android-maven-publish"
+
+group LibraryConstants.group
+version LibraryConstants.versionName
+
+android {
+    compileSdkVersion LibraryConstants.androidCompileSdkVersion
+
+    defaultConfig {
+        minSdkVersion LibraryConstants.androidMinSdkVersion
+        targetSdkVersion LibraryConstants.androidTargetSdkVersion
+        versionCode LibraryConstants.versionCode
+        versionName LibraryConstants.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    api project(":time-core")
+}
+
+publishing {
+    publications {
+        MavenPub(MavenPublication) {
+            from(components.android)
+            artifactId "time-core-android"
+        }
+    }
+}
