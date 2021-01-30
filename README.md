@@ -2,6 +2,8 @@
 
 A Kotlin multi-platform time library.
 
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/chRyNaN/time)
+
 This library expands on the experimental
 Kotlin [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/)
 and [kotlinx.datetime](https://github.com/Kotlin/kotlinx-datetime) library.
