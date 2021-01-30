@@ -20,7 +20,7 @@ kotlin {
             dependencies {
                 implementation "org.jetbrains.kotlin:kotlin-stdlib-common"
 
-                implementation project(":core")
+                implementation project(":time-core")
 
                 api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
             }
