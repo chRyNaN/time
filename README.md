@@ -1,86 +1,166 @@
 # time
+
 A Kotlin multi-platform time library.
 
-This library expands on the experimental Kotlin [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/) by providing a `Moment` class. This class represents an instance on the timeline which may or may not be localized with a `TimeZoneRegionId` and a calculated `TimeOffset` from UTC/GMT time.
+This library expands on the experimental
+Kotlin [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/)
+and [kotlinx.datetime](https://github.com/Kotlin/kotlinx-datetime) library.
 
-**Note:** This library is in the very early stages of development and currently only has implementations for the JVM target.
-
-An early look into the development of this library is discussed in [this article](https://chrynan.codes/its-about-time/) which was featured in Android Weekly issue [#401](https://androidweekly.net/issues/issue-401).
+An early look into the development of this library is discussed in [this article](https://chrynan.codes/its-about-time/)
+which was featured in Android Weekly issue [#401](https://androidweekly.net/issues/issue-401).
 <a href="https://androidweekly.net/issues/issue-401" title="Android Weekly Issue 401">
 <img alt="Badge" src="https://androidweekly.net/issues/issue-401/badge" height="20px"></img>
 </a>
 
-## Status of the Project
-This project is no longer going to be maintained since there's a new [kotlinx-datetime](https://github.com/Kotlin/kotlinx-datetime) library which handles much of this functionality.
-Since the kotlinx-datetime library is an official Kotlin extension library, it should be more stable when it is officially released.
+Note that this library has changed focus since [this article](https://chrynan.codes/its-about-time/) was written, since
+the [kotlinx.datetime](https://github.com/Kotlin/kotlinx-datetime) library has been introduced since then.
 
 ## Using the Library
-The entry point to getting a `Moment` is through the `TimeProvider` interface. There are different implementations depending on the target platform (ex: JVM) and implementation library used (ex: Java Time).
+
+This library introduces a `DateTimeString` class which is an [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
+formatted String wrapper. The `DateTimeStringSerializer` class is used to handle serialization/deserialization of
+the `DateTimeString` class for [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization). This allows the
+use of `DateTimeString` in `@Serializable` models:
+
+### DateTimeString
+
+```kotlin
+@Serializable
+data class MyModel(
+    val created: DateTimeString,
+    val updated: DateTimeString
+)
+```
+
+The `DateTimeString` can be converted to and from a Kotlin `Instant`:
+
+```kotlin
+val instant = myModel.created.toInstant()
+
+instant.toDateTimeString()
+```
+
+The `Duration` elapsed since the epoch can be obtained from a `DateTimeString`:
+
+```kotlin
+val duration = myModel.created.durationSinceEpoch
+```
+
+The `Duration` between two `DateTimeStrings` can be obtained using the `durationTo` function:
+
+```kotlin
+val duration = myModel.created durationTo myModel.updated
+```
+
+The "now" `DateTimeString` can be obtained using the `Clock.nowDateTimeString` function:
+
+```kotlin
+val now = Clock.System.nowDateTimeString()
+```
+
+On the JVM, Java Time Components can be converted to `DateTimeStrings` and Kotlin `Instants`:
+
+```kotlin
+val instant = myDate.toKotlinInstant()
+val dateTimeString = myDate.toDateTimeString()
+```
 
 ### TimeProvider
-Creating a Java Time instance of the `TimeProvider` interface can be done like so:
+
+This library introduces a `TimeProvider` interface which extends from `kotlin.time.TimeSource`
+and `kotlinx.datetime.Clock`. This may provide additional functionality in the future. A `TimeProvider` can be obtained
+via the `TimeProvider` function:
+
 ```kotlin
-val timeProvider = JavaTimeProvider()
+val timeProvider = TimeProvider()
 ```
 
-The `JavaTimeProvider` defaults to using `Locale.getDefault()`, but another `Locale` can be provided. The `Locale` is important for formatting and parsing.
+### TimeFormatter
+
+The `TimeFormatter` interface provides functions to convert `DateTimeStrings` to common output time formats:
+
 ```kotlin
-val timeProvider = JavaTimeProvider(locale = Locale.US)
-``` 
-
-### TimeZoneOffsetProvider
-The `JavaTimeProvider` takes a `TimeZoneOffsetProvider` as a constructor parameter. This defaults to the `JavaTimeZoneOffsetProvider` which delegates to the Java Time library.
-
-The `TimeZoneOffsetProvider` is responsible for retrieving `TimeOffset` from UTC for a particular time and region. The `TimeOffset` is dependent on both time and region due to factors, such as, Daylight Savings Time.
-
-A custom `TimeZoneOffsetProvider` can be provided to the `JavaTimeProvider` constructor.
-```kotlin
-val timeProvider = JavaTimeProvider(timeZoneOffsetProvider = myTimeZoneOffsetProvider, locale = Locale.US)
+timeFormatter.formatPastRelativeToNow(timeProvider.nowDateTimeString())
 ```
 
-### Moment
-The `Moment` interface represents an instance of time on the timeline with respect to UTC. A `Moment` has a `TimeOffset` (which is zero for UTC) and may contain a `TimeZoneRegionId`. A `TimeProvider` instance is used to retrieve `Moment`s in time.
+`TimeFormatter` implementations are platform specific. Currently, only one for Android exists, `AndroidTimeFormatter`,
+which uses the Android `DateUtils` class:
 
-Retrieve the current `Moment` in time for the default `TimeZoneRegionId`:
 ```kotlin
-timeProvider.now()
-``` 
-
-Retrieve the current `Moment` in time for UTC/GMT:
-```kotlin
-timeProvider.utc()
+val timeFormatter = AndroidTimeFormatter()
 ```
 
-Retrieve a particular `Moment`:
+**Note:** That this requires the `time-core-android` dependency.
+
+### Coroutines
+
+The `time-coroutines` dependency provides common time based utilities, such as the following:
+
 ```kotlin
-val momentInDefaultRegion = timeProvider.moment(durationSinceTheEpoch = 2_000.days)
-val momentInNY = timeProvider.moment(durationSinceTheEpoch = 2_000.days, regionId = TimeZoneRegionId("America/New_York"))
+intervalFlow(period = 30.seconds)
+
+timerFlow(duration = 2.minutes)
+
+scheduleFlow(dateTimeString)
+
+myFlow.timeout(30.seconds)
+
+myFlow.timedValue()
+
+poll(period = 10.seconds) { myFlow }
 ```
 
-Using `TimeProvider` extension functions:
-```kotlin
-// Moment for the start of the current day
-timeProvider.today()
+Refer to the `FlowUtils` Kotlin file in the `time-coroutines` package for more information on the functions.
 
-// Moment for the start of the previous day
-timeProvider.yesterday()
+## Building
 
-// Moment for the start of the next day
-timeProvider.tomorrow()
+The library is provided through [Bintray](https://bintray.com/). Refer to
+the [releases page](https://github.com/chRyNaN/time/releases) for the latest version.
 
-// Retrieves the static epoch value at UTC/GMT
-timeProvider.epoch()
+### Repository
+
+```groovy
+repositories {
+    maven {
+        url = uri("https://dl.bintray.com/chrynan/chrynan")
+    }
+}
 ```
 
-Retrieving a `Duration` between two `Moment`s:
-```kotlin
-now to tomorrow
+### Dependencies
+
+#### Core
+
+```groovy
+implementation "com.chrynan.time:time-core:$VERSION"
 ```
 
-Retrieving a new `Moment` by adding or subtracting a `Duration`:
-```kotlin
-val now = timeProvider.now()
+#### Android Core
 
-val twentyMinutesLater = now + 20.minutes
-val oneHourBefore = now - 1.hour
+```groovy
+implementation "com.chrynan.time:time-core-android:$VERSION"
+```
+
+#### Coroutines
+
+```groovy
+implementation "com.chrynan.time:time-coroutines:$VERSION"
+```
+
+## License
+
+```
+Copyright 2020 chRyNaN
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 ```
