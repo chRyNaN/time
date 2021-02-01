@@ -12,7 +12,7 @@ interface TimeProvider : TimeSource,
 }
 
 @ExperimentalTime
-class TimeProviderSource(
+internal class TimeProviderSource(
     timeSource: TimeSource = TimeSource.Monotonic,
     clock: Clock = Clock.System
 ) : TimeProvider,
