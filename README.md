@@ -20,9 +20,10 @@ the [kotlinx.datetime](https://github.com/Kotlin/kotlinx-datetime) library has b
 ## Using the Library
 
 This library introduces a `DateTimeString` class which is an [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
-formatted String wrapper. The `DateTimeStringSerializer` class is used to handle serialization/deserialization of
-the `DateTimeString` class for [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization). This allows the
-use of `DateTimeString` in `@Serializable` models:
+formatted String wrapper, and a `DateTimeLong` class which is a wrapper around a `Long` value indicating milliseconds
+since the UTC Epoch. The `DateTimeStringSerializer` class is used to handle serialization/deserialization of the
+`DateTimeString` class for [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization). This allows the use
+of `DateTimeString` in `@Serializable` models:
 
 ### DateTimeString
 
