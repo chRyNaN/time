@@ -49,7 +49,7 @@ fun timerFlow(delay: Duration): Flow<Unit> = channelFlow {
  * Retrieves a [Flow] of [Unit] that emits at the provided [dateTime] and then finishes.
  *
  * @param [dateTime] The [DateTimeString] when the returned [Flow] should emit a [Unit] value then finish.
- * @param [clock] The [TimeProvider] used to obtain the current [DateTimeString].
+ * @param [clock] The [Clock] used to obtain the current [DateTimeString].
  *
  * @author chRyNaN
  */
@@ -68,6 +68,28 @@ fun scheduleFlow(dateTime: DateTimeString, clock: Clock = Clock.System): Flow<Un
 }
 
 /**
+ * Retrieves a [Flow] of [Unit] that emits at the provided [dateTime] and then finishes.
+ *
+ * @param [dateTime] The [DateTimeLong] when the returned [Flow] should emit a [Unit] value then finish.
+ * @param [clock] The [Clock] used to obtain the current [DateTimeLong].
+ *
+ * @author chRyNaN
+ */
+@ExperimentalCoroutinesApi
+@ExperimentalTime
+fun scheduleFlow(dateTime: DateTimeLong, clock: Clock = Clock.System): Flow<Unit> {
+    val nowUtc = clock.now().toDateTimeLongFromDurationSinceEpoch()
+
+    val duration = nowUtc durationTo dateTime
+
+    return if (duration < 0.nanoseconds) {
+        throw IllegalArgumentException("DateTimeString provided to the scheduleFlow function must not be in the past. DateTimeString = $dateTime")
+    } else {
+        timerFlow(delay = duration)
+    }
+}
+
+/**
  * A convenience function for calling [scheduleFlow] with a [TimeProvider].
  *
  * @see [scheduleFlow]
@@ -75,6 +97,16 @@ fun scheduleFlow(dateTime: DateTimeString, clock: Clock = Clock.System): Flow<Un
 @ExperimentalCoroutinesApi
 @ExperimentalTime
 fun scheduleFlow(dateTime: DateTimeString, timeProvider: TimeProvider): Flow<Unit> =
+    scheduleFlow(dateTime = dateTime, clock = timeProvider)
+
+/**
+ * A convenience function for calling [scheduleFlow] with a [TimeProvider].
+ *
+ * @see [scheduleFlow]
+ */
+@ExperimentalCoroutinesApi
+@ExperimentalTime
+fun scheduleFlow(dateTime: DateTimeLong, timeProvider: TimeProvider): Flow<Unit> =
     scheduleFlow(dateTime = dateTime, clock = timeProvider)
 
 /**
