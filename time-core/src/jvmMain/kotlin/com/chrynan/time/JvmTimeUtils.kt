@@ -41,9 +41,13 @@ fun Date.toKotlinInstant(): Instant = Instant.fromEpochMilliseconds(time)
 
 fun Date.toDateTimeString(): DateTimeString = toKotlinInstant().toDateTimeStringFromDurationSinceEpoch()
 
+fun Date.toDateTimeLong(): DateTimeLong = toKotlinInstant().toDateTimeLongFromDurationSinceEpoch()
+
 fun Instant.toDate(): Date = Date(toEpochMilliseconds())
 
 fun DateTimeString.toDate(): Date = toInstant().toDate()
+
+fun DateTimeLong.toDate(): Date = toInstant().toDate()
 
 fun Date.toCalendar(): Calendar = Calendar.getInstance().apply { time = this@toCalendar }
 
@@ -55,4 +59,8 @@ fun Calendar.toKotlinInstant(): Instant = toDate().toKotlinInstant()
 
 fun DateTimeString.toCalendar(): Calendar = toDate().toCalendar()
 
+fun DateTimeLong.toCalendar(): Calendar = toDate().toCalendar()
+
 fun Calendar.toDateTimeString(): DateTimeString = toDate().toDateTimeString()
+
+fun Calendar.toDateTimeLong(): DateTimeLong = toDate().toDateTimeLong()
