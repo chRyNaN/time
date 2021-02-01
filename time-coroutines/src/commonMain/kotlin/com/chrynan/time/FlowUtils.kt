@@ -56,7 +56,7 @@ fun timerFlow(delay: Duration): Flow<Unit> = channelFlow {
 @ExperimentalCoroutinesApi
 @ExperimentalTime
 fun scheduleFlow(dateTime: DateTimeString, clock: Clock = Clock.System): Flow<Unit> {
-    val nowUtc = clock.now().toDateTimeString()
+    val nowUtc = clock.now().toDateTimeStringFromDurationSinceEpoch()
 
     val duration = nowUtc durationTo dateTime
 

@@ -39,7 +39,7 @@ actual fun DateTimeString.toInstant(): Instant = try {
 
 fun Date.toKotlinInstant(): Instant = Instant.fromEpochMilliseconds(time)
 
-fun Date.toDateTimeString(): DateTimeString = toKotlinInstant().toDateTimeString()
+fun Date.toDateTimeString(): DateTimeString = toKotlinInstant().toDateTimeStringFromDurationSinceEpoch()
 
 fun Instant.toDate(): Date = Date(toEpochMilliseconds())
 
