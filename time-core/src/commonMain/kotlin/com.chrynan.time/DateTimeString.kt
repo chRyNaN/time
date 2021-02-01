@@ -3,7 +3,7 @@ package com.chrynan.time
 import kotlinx.serialization.Serializable
 
 /**
- * A Type Alias for [String] that indicates that this [String] value is in ISO-8601 format.
+ * A wrapper class for a [String] value that indicates that this [String] value is in ISO-8601 format.
  *
  * For more information refer to the following:
  * https://en.wikipedia.org/wiki/ISO_8601
