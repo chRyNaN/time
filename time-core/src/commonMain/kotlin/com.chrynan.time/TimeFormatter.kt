@@ -20,4 +20,6 @@ interface TimeFormatter {
     fun formatFutureDurationRelativeToNow(futureDuration: Duration): CharSequence
 
     fun formatElapsedTime(duration: Duration): CharSequence
+
+    companion object
 }

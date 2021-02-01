@@ -6,7 +6,10 @@ import kotlin.time.TimeSource
 
 @ExperimentalTime
 interface TimeProvider : TimeSource,
-    Clock
+    Clock {
+
+    companion object
+}
 
 @ExperimentalTime
 class TimeProviderSource(
