@@ -12,4 +12,6 @@ import kotlinx.serialization.Serializable
 data class DateTimeLong(val value: Long) {
 
     override fun toString(): String = value.toString()
+
+    companion object
 }

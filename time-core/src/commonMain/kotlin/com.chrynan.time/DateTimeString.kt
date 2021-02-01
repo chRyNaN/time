@@ -15,4 +15,6 @@ import kotlinx.serialization.Serializable
 data class DateTimeString(val value: String) {
 
     override fun toString(): String = value
+
+    companion object
 }
