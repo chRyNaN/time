@@ -1,0 +1,20 @@
+$dokka.format:gfm-v1
+$dokka.linkExtension:md
+$dokka.location:com.chrynan.time////PointingToDeclaration/time-coroutines/com.chrynan.time/index.md
+$dokka.location:com.chrynan.time//intervalFlow/#kotlin.time.Duration#kotlin.time.Duration/PointingToDeclaration/time-coroutines/com.chrynan.time/interval-flow.md
+$dokka.location:com.chrynan.time//poll/#kotlin.time.Duration#kotlin.time.Duration#com.chrynan.time.PollingStrategy#kotlin.coroutines.SuspendFunction1[kotlin.Long,kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]]/PointingToDeclaration/time-coroutines/com.chrynan.time/poll.md
+$dokka.location:com.chrynan.time//scheduleFlow/#com.chrynan.time.DateTimeLong#com.chrynan.time.TimeProvider/PointingToDeclaration/time-coroutines/com.chrynan.time/schedule-flow.md
+$dokka.location:com.chrynan.time//scheduleFlow/#com.chrynan.time.DateTimeLong#kotlinx.datetime.Clock/PointingToDeclaration/time-coroutines/com.chrynan.time/schedule-flow.md
+$dokka.location:com.chrynan.time//scheduleFlow/#com.chrynan.time.DateTimeString#com.chrynan.time.TimeProvider/PointingToDeclaration/time-coroutines/com.chrynan.time/schedule-flow.md
+$dokka.location:com.chrynan.time//scheduleFlow/#com.chrynan.time.DateTimeString#kotlinx.datetime.Clock/PointingToDeclaration/time-coroutines/com.chrynan.time/schedule-flow.md
+$dokka.location:com.chrynan.time//timedValue/kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#/PointingToDeclaration/time-coroutines/com.chrynan.time/timed-value.md
+$dokka.location:com.chrynan.time//timeout/kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#kotlin.time.Duration/PointingToDeclaration/time-coroutines/com.chrynan.time/timeout.md
+$dokka.location:com.chrynan.time//timerFlow/#kotlin.time.Duration/PointingToDeclaration/time-coroutines/com.chrynan.time/timer-flow.md
+$dokka.location:com.chrynan.time/PollingStrategy.Concat///PointingToDeclaration/time-coroutines/com.chrynan.time/-polling-strategy/-concat/index.md
+$dokka.location:com.chrynan.time/PollingStrategy.Latest///PointingToDeclaration/time-coroutines/com.chrynan.time/-polling-strategy/-latest/index.md
+$dokka.location:com.chrynan.time/PollingStrategy.Merge///PointingToDeclaration/time-coroutines/com.chrynan.time/-polling-strategy/-merge/index.md
+$dokka.location:com.chrynan.time/PollingStrategy.Merge/Merge/#kotlin.Int/PointingToDeclaration/time-coroutines/com.chrynan.time/-polling-strategy/-merge/-merge.md
+$dokka.location:com.chrynan.time/PollingStrategy.Merge/limit/#/PointingToDeclaration/time-coroutines/com.chrynan.time/-polling-strategy/-merge/limit.md
+$dokka.location:com.chrynan.time/PollingStrategy///PointingToDeclaration/time-coroutines/com.chrynan.time/-polling-strategy/index.md
+com.chrynan.time
+

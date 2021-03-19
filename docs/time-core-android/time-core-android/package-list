@@ -1,0 +1,12 @@
+$dokka.format:gfm-v1
+$dokka.linkExtension:md
+$dokka.location:com.chrynan.time.android////PointingToDeclaration/time-core-android/com.chrynan.time.android/index.md
+$dokka.location:com.chrynan.time.android/AndroidTimeFormatter///PointingToDeclaration/time-core-android/com.chrynan.time.android/-android-time-formatter/index.md
+$dokka.location:com.chrynan.time.android/AndroidTimeFormatter/AndroidTimeFormatter/#com.chrynan.time.TimeProvider/PointingToDeclaration/time-core-android/com.chrynan.time.android/-android-time-formatter/-android-time-formatter.md
+$dokka.location:com.chrynan.time.android/AndroidTimeFormatter/formatElapsedTime/#kotlin.time.Duration/PointingToDeclaration/time-core-android/com.chrynan.time.android/-android-time-formatter/format-elapsed-time.md
+$dokka.location:com.chrynan.time.android/AndroidTimeFormatter/formatFutureDurationRelativeToNow/#kotlin.time.Duration/PointingToDeclaration/time-core-android/com.chrynan.time.android/-android-time-formatter/format-future-duration-relative-to-now.md
+$dokka.location:com.chrynan.time.android/AndroidTimeFormatter/formatFutureRelativeToNow/#com.chrynan.time.DateTimeString/PointingToDeclaration/time-core-android/com.chrynan.time.android/-android-time-formatter/format-future-relative-to-now.md
+$dokka.location:com.chrynan.time.android/AndroidTimeFormatter/formatPastDurationRelativeToNow/#kotlin.time.Duration/PointingToDeclaration/time-core-android/com.chrynan.time.android/-android-time-formatter/format-past-duration-relative-to-now.md
+$dokka.location:com.chrynan.time.android/AndroidTimeFormatter/formatPastRelativeToNow/#com.chrynan.time.DateTimeString/PointingToDeclaration/time-core-android/com.chrynan.time.android/-android-time-formatter/format-past-relative-to-now.md
+com.chrynan.time.android
+
