@@ -1,8 +1,8 @@
 # time
 
-A Kotlin multi-platform time library.
+A Kotlin multi-platform time library. <br/>
 
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/chRyNaN/time)
+<img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/chRyNaN/time">
 
 This library expands on the experimental
 Kotlin [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/)
@@ -14,16 +14,16 @@ which was featured in Android Weekly issue [#401](https://androidweekly.net/issu
 <img alt="Badge" src="https://androidweekly.net/issues/issue-401/badge" height="20px"></img>
 </a>
 
-Note that this library has changed focus since [this article](https://chrynan.codes/its-about-time/) was written, since
-the [kotlinx.datetime](https://github.com/Kotlin/kotlinx-datetime) library has been introduced since then.
+Note that this library has changed focus since [this article](https://chrynan.codes/its-about-time/) was written,
+because the [kotlinx.datetime](https://github.com/Kotlin/kotlinx-datetime) library has been introduced since then.
 
 ## Using the Library
 
 This library introduces a `DateTimeString` class which is an [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
 formatted String wrapper, and a `DateTimeLong` class which is a wrapper around a `Long` value indicating milliseconds
 since the UTC Epoch. The `DateTimeStringSerializer` class is used to handle serialization/deserialization of the
-`DateTimeString` class for [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization). This allows the use
-of `DateTimeString` in `@Serializable` models:
+`DateTimeString` class for [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization). This allows for the
+use of `DateTimeString` in `@Serializable` models:
 
 ### DateTimeString
 
@@ -117,16 +117,15 @@ Refer to the `FlowUtils` Kotlin file in the `time-coroutines` package for more i
 
 ## Building
 
-The library is provided through [Bintray](https://bintray.com/). Refer to
-the [releases page](https://github.com/chRyNaN/time/releases) for the latest version.
+The library is provided through [repsy](https://repsy.io). Refer to
+the [releases page](https://github.com/chRyNaN/time/releases) for the latest version. <br/>
+<img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/chRyNaN/time">
 
 ### Repository
 
 ```groovy
 repositories {
-    maven {
-        url = uri("https://dl.bintray.com/chrynan/chrynan")
-    }
+    maven { url = "https://repo.repsy.io/mvn/chrynan/public" }
 }
 ```
 
@@ -150,10 +149,14 @@ implementation "com.chrynan.time:time-core-android:$VERSION"
 implementation "com.chrynan.time:time-coroutines:$VERSION"
 ```
 
+## Documentation
+
+Refer to the [docs](docs) folder for documentation and more information about the library.
+
 ## License
 
 ```
-Copyright 2020 chRyNaN
+Copyright 2021 chRyNaN
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
