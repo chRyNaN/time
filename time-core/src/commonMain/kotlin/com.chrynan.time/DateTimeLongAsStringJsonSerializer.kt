@@ -4,7 +4,7 @@ package com.chrynan.time
 
 import kotlinx.serialization.json.*
 
-object DateTimeLongAsStringJsonSerializer : JsonTransformingSerializer<DateTimeString>(DateTimeStringSerializer) {
+object DateTimeLongAsStringJsonSerializer : JsonTransformingSerializer<DateTimeString>(DateTimeString.serializer()) {
 
     override fun transformDeserialize(element: JsonElement): JsonElement {
         if (element is JsonNull) return element
