@@ -23,10 +23,10 @@ kotlin {
                 implementation "org.jetbrains.kotlin:kotlin-stdlib-common"
 
                 // Kotlinx date-time
-                api "org.jetbrains.kotlinx:kotlinx-datetime:0.1.1"
+                api "org.jetbrains.kotlinx:kotlinx-datetime:0.2.0"
 
                 // Kotlinx Serialization
-                api "org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0"
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1"
             }
         }
     }
