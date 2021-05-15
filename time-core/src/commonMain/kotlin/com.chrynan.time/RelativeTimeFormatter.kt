@@ -6,10 +6,10 @@ import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
 /**
- * A Utility interface to format [DateTimeString]s to UI text.
+ * A Utility interface to format time values to UI text relative to the current time.
  */
 @ExperimentalTime
-interface TimeFormatter {
+interface RelativeTimeFormatter {
 
     fun formatPastRelativeToNow(pastTime: DateTimeString): CharSequence
 

@@ -4,7 +4,7 @@ package com.chrynan.time.android
 
 import android.text.format.DateUtils
 import com.chrynan.time.DateTimeString
-import com.chrynan.time.TimeFormatter
+import com.chrynan.time.RelativeTimeFormatter
 import com.chrynan.time.TimeProvider
 import com.chrynan.time.millisecondsSinceEpoch
 import kotlin.time.Duration
@@ -13,7 +13,7 @@ import kotlin.time.ExperimentalTime
 @ExperimentalTime
 class AndroidTimeFormatter(
     private val timeProvider: TimeProvider = TimeProvider()
-) : TimeFormatter {
+) : RelativeTimeFormatter {
 
     override fun formatPastRelativeToNow(pastTime: DateTimeString): CharSequence =
         DateUtils.getRelativeTimeSpanString(
@@ -27,7 +27,7 @@ class AndroidTimeFormatter(
         val now = timeProvider.now().toEpochMilliseconds()
 
         return DateUtils.getRelativeTimeSpanString(
-            now - pastDuration.toLongMilliseconds(),
+            now - pastDuration.inWholeMilliseconds,
             now,
             0L,
             DateUtils.FORMAT_ABBREV_ALL
@@ -45,12 +45,12 @@ class AndroidTimeFormatter(
         val now = timeProvider.now().toEpochMilliseconds()
 
         return DateUtils.getRelativeTimeSpanString(
-            now + futureDuration.toLongMilliseconds(),
+            now + futureDuration.inWholeMilliseconds,
             now,
             DateUtils.MINUTE_IN_MILLIS
         )
     }
 
     override fun formatElapsedTime(duration: Duration): CharSequence =
-        DateUtils.formatElapsedTime(duration.inSeconds.toLong())
+        DateUtils.formatElapsedTime(duration.inWholeSeconds)
 }

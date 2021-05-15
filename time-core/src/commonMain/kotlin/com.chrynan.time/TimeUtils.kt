@@ -5,7 +5,7 @@ package com.chrynan.time
 import kotlinx.datetime.*
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
-import kotlin.time.milliseconds
+import com.chrynan.time.milliseconds
 
 /**
  * Known issues:
@@ -39,14 +39,14 @@ val DateTimeLong.durationSinceEpoch: Duration
 
 @ExperimentalTime
 val DateTimeString.millisecondsSinceEpoch: Long
-    get() = durationSinceEpoch.toLongMilliseconds()
+    get() = durationSinceEpoch.inWholeMilliseconds
 
 @ExperimentalTime
 val DateTimeLong.millisecondsSinceEpoch: Long
-    get() = durationSinceEpoch.toLongMilliseconds()
+    get() = durationSinceEpoch.inWholeMilliseconds
 
 @ExperimentalTime
-fun Duration.toInstantSinceEpoch(): Instant = Instant.fromEpochMilliseconds(this.toLongMilliseconds())
+fun Duration.toInstantSinceEpoch(): Instant = Instant.fromEpochMilliseconds(this.inWholeMilliseconds)
 
 @ExperimentalTime
 fun Long.toInstantFromMillisecondsSinceEpoch(): Instant = milliseconds.toInstantSinceEpoch()
