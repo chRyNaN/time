@@ -5,6 +5,8 @@
 # nowDateTimeString  
 [common]  
 Content  
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()  
+  
 fun Clock.[nowDateTimeString](now-date-time-string.md)(): [DateTimeString](-date-time-string/index.md)  
 
 
