@@ -3,7 +3,9 @@
 package com.chrynan.time
 
 import kotlinx.serialization.json.*
+import kotlin.time.ExperimentalTime
 
+@ExperimentalTime
 object DateTimeLongAsStringJsonSerializer : JsonTransformingSerializer<DateTimeString>(DateTimeString.serializer()) {
 
     override fun transformDeserialize(element: JsonElement): JsonElement {
