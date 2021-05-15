@@ -5,6 +5,7 @@ package com.chrynan.time
 import kotlinx.datetime.Instant
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.time.ExperimentalTime
 
 private val utcTimezone = TimeZone.getTimeZone("UTC")
 
@@ -23,15 +24,16 @@ private val dateFormat: SimpleDateFormat
  * https://github.com/Kotlin/kotlinx-datetime/issues/67
  * https://github.com/Kotlin/kotlinx-datetime/issues/56
  */
-actual fun DateTimeString.toInstant(): Instant = try {
-    Instant.parse(value)
+@ExperimentalTime
+actual fun convertDateTimeStringToInstant(value: DateTimeString): Instant = try {
+    Instant.parse(value.value)
 } catch (exception: Exception) {
     try {
-        val date = iso8601DateFormat.parse(value)
+        val date = iso8601DateFormat.parse(value.value)
 
         Instant.fromEpochMilliseconds(date.time)
     } catch (exception: Exception) {
-        val date = dateFormat.parse(value)
+        val date = dateFormat.parse(value.value)
 
         Instant.fromEpochMilliseconds(date.time)
     }
@@ -39,14 +41,18 @@ actual fun DateTimeString.toInstant(): Instant = try {
 
 fun Date.toKotlinInstant(): Instant = Instant.fromEpochMilliseconds(time)
 
+@ExperimentalTime
 fun Date.toDateTimeString(): DateTimeString = toKotlinInstant().toDateTimeStringFromDurationSinceEpoch()
 
+@ExperimentalTime
 fun Date.toDateTimeLong(): DateTimeLong = toKotlinInstant().toDateTimeLongFromDurationSinceEpoch()
 
 fun Instant.toDate(): Date = Date(toEpochMilliseconds())
 
+@ExperimentalTime
 fun DateTimeString.toDate(): Date = toInstant().toDate()
 
+@ExperimentalTime
 fun DateTimeLong.toDate(): Date = toInstant().toDate()
 
 fun Date.toCalendar(): Calendar = Calendar.getInstance().apply { time = this@toCalendar }
@@ -57,10 +63,14 @@ fun Instant.toCalendar(): Calendar = toDate().toCalendar()
 
 fun Calendar.toKotlinInstant(): Instant = toDate().toKotlinInstant()
 
+@ExperimentalTime
 fun DateTimeString.toCalendar(): Calendar = toDate().toCalendar()
 
+@ExperimentalTime
 fun DateTimeLong.toCalendar(): Calendar = toDate().toCalendar()
 
+@ExperimentalTime
 fun Calendar.toDateTimeString(): DateTimeString = toDate().toDateTimeString()
 
+@ExperimentalTime
 fun Calendar.toDateTimeLong(): DateTimeLong = toDate().toDateTimeLong()

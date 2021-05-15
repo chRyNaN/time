@@ -15,35 +15,24 @@ import com.chrynan.time.milliseconds
  * Made this an expect/actual to attempt to overcome the limitations of those issues but ran into
  * limitations of the Java Time API not being available on older Android versions.
  */
-expect fun DateTimeString.toInstant(): Instant
-
-fun DateTimeLong.toInstant(): Instant = Instant.fromEpochMilliseconds(value)
+@ExperimentalTime
+internal expect fun convertDateTimeStringToInstant(value: DateTimeString): Instant
 
 @ExperimentalTime
 val Instant.durationSinceEpoch: Duration
     get() = toEpochMilliseconds().milliseconds
 
+@ExperimentalTime
 fun Instant.toDateTimeStringFromDurationSinceEpoch(): DateTimeString = DateTimeString(toString())
 
+@ExperimentalTime
 fun Instant.toDateTimeLongFromDurationSinceEpoch(): DateTimeLong = toDateTimeLong()
 
+@ExperimentalTime
 fun Instant.toDateTimeLong(): DateTimeLong = DateTimeLong(toEpochMilliseconds())
 
 @ExperimentalTime
-val DateTimeString.durationSinceEpoch: Duration
-    get() = toInstant().durationSinceEpoch
-
-@ExperimentalTime
-val DateTimeLong.durationSinceEpoch: Duration
-    get() = toInstant().durationSinceEpoch
-
-@ExperimentalTime
-val DateTimeString.millisecondsSinceEpoch: Long
-    get() = durationSinceEpoch.inWholeMilliseconds
-
-@ExperimentalTime
-val DateTimeLong.millisecondsSinceEpoch: Long
-    get() = durationSinceEpoch.inWholeMilliseconds
+fun Instant.toInstantPointInTime(): InstantPointInTime = InstantPointInTime(this)
 
 @ExperimentalTime
 fun Duration.toInstantSinceEpoch(): Instant = Instant.fromEpochMilliseconds(this.inWholeMilliseconds)
@@ -62,66 +51,43 @@ fun Duration.toDateTimeLongFromDurationSinceEpoch(): DateTimeLong =
 fun Long.toDateTimeStringFromMillisecondsSinceEpoch(): DateTimeString =
     milliseconds.toDateTimeStringFromDurationSinceEpoch()
 
+@ExperimentalTime
 fun Long.toDateTimeLongFromMillisecondsSinceEpoch(): DateTimeLong =
     Instant.fromEpochMilliseconds(this).toDateTimeLong()
 
-fun DateTimeString.toLocalDateTime(timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalDateTime =
-    toInstant().toLocalDateTime(timeZone)
-
-fun DateTimeLong.toLocalDateTime(timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalDateTime =
-    toInstant().toLocalDateTime(timeZone)
-
+@ExperimentalTime
 fun LocalDateTime.toDateTimeStringFromDurationSinceEpoch(timeZone: TimeZone = TimeZone.currentSystemDefault()): DateTimeString =
     toInstant(timeZone).toDateTimeStringFromDurationSinceEpoch()
 
+@ExperimentalTime
 fun LocalDateTime.toDateTimeLongFromDurationSinceEpoch(timeZone: TimeZone = TimeZone.currentSystemDefault()): DateTimeLong =
     toInstant(timeZone).toDateTimeLongFromDurationSinceEpoch()
 
+@ExperimentalTime
 fun DateTimeString.toLocalDate(timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalDate =
     toInstant().toLocalDateTime(timeZone).date
 
+@ExperimentalTime
 fun DateTimeLong.toLocalDate(timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalDate =
     toInstant().toLocalDateTime(timeZone).date
 
+@ExperimentalTime
 fun LocalDate.toStartOfDayDateTimeString(timeZone: TimeZone = TimeZone.currentSystemDefault()): DateTimeString =
     this.atStartOfDayIn(timeZone).toDateTimeStringFromDurationSinceEpoch()
 
+@ExperimentalTime
 fun LocalDate.toStartOfDayDateTimeLong(timeZone: TimeZone = TimeZone.currentSystemDefault()): DateTimeLong =
     this.atStartOfDayIn(timeZone).toDateTimeLongFromDurationSinceEpoch()
 
+@ExperimentalTime
 fun Clock.nowDateTimeString(): DateTimeString = now().toDateTimeStringFromDurationSinceEpoch()
 
+@ExperimentalTime
 fun Clock.nowDateTimeLong(): DateTimeLong = now().toDateTimeLongFromDurationSinceEpoch()
 
-fun DateTimeString.toDateTimeLong(): DateTimeLong = toInstant().toDateTimeLong()
-
-fun DateTimeLong.toDateTimeString(): DateTimeString = toInstant().toDateTimeStringFromDurationSinceEpoch()
+@ExperimentalTime
+fun Clock.nowInstantPointInTime(): InstantPointInTime = now().toInstantPointInTime()
 
 @ExperimentalTime
 infix fun Instant.durationTo(other: Instant): Duration =
     (other.toEpochMilliseconds() - toEpochMilliseconds()).milliseconds
-
-@ExperimentalTime
-infix fun DateTimeString.durationTo(other: DateTimeString): Duration =
-    (other.millisecondsSinceEpoch - millisecondsSinceEpoch).milliseconds
-
-@ExperimentalTime
-infix fun DateTimeLong.durationTo(other: DateTimeLong): Duration =
-    (other.millisecondsSinceEpoch - millisecondsSinceEpoch).milliseconds
-
-@ExperimentalTime
-operator fun DateTimeString.compareTo(other: DateTimeString): Int =
-    when {
-        this.durationSinceEpoch < other.durationSinceEpoch -> -1
-        this.durationSinceEpoch > other.durationSinceEpoch -> 1
-        this.durationSinceEpoch == other.durationSinceEpoch -> 0
-        else -> 0
-    }
-
-@ExperimentalTime
-operator fun DateTimeLong.compareTo(other: DateTimeLong): Int =
-    when {
-        this.durationSinceEpoch < other.durationSinceEpoch -> -1
-        this.durationSinceEpoch > other.durationSinceEpoch -> 1
-        else -> 0
-    }

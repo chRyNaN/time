@@ -6,12 +6,11 @@ import android.text.format.DateUtils
 import com.chrynan.time.DateTimeString
 import com.chrynan.time.RelativeTimeFormatter
 import com.chrynan.time.TimeProvider
-import com.chrynan.time.millisecondsSinceEpoch
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
-class AndroidTimeFormatter(
+class AndroidRelativeTimeFormatter(
     private val timeProvider: TimeProvider = TimeProvider()
 ) : RelativeTimeFormatter {
 
