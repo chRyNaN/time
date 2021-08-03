@@ -1,11 +1,8 @@
 @file:Suppress("unused")
 
-package com.chrynan.time.android
+package com.chrynan.time
 
 import android.text.format.DateUtils
-import com.chrynan.time.DateTimeString
-import com.chrynan.time.RelativeTimeFormatter
-import com.chrynan.time.TimeProvider
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
