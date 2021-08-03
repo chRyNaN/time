@@ -23,7 +23,7 @@ value class DateTimeString(val value: String) : PointInTime {
 
     override fun toDateTimeString(): DateTimeString = this
 
-    override fun toDateTimeLong(): DateTimeLong = toInstant().toDateTimeLong()
+    override fun toUtcMillisSinceEpoch(): UtcMillisSinceEpoch = toInstant().toUtcMillisSinceEpoch()
 
     override fun toString(): String = value
 

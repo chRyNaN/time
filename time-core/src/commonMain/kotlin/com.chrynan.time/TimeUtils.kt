@@ -5,7 +5,6 @@ package com.chrynan.time
 import kotlinx.datetime.*
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
-import com.chrynan.time.milliseconds
 
 /**
  * Known issues:
@@ -26,10 +25,10 @@ val Instant.durationSinceEpoch: Duration
 fun Instant.toDateTimeStringFromDurationSinceEpoch(): DateTimeString = DateTimeString(toString())
 
 @ExperimentalTime
-fun Instant.toDateTimeLongFromDurationSinceEpoch(): DateTimeLong = toDateTimeLong()
+fun Instant.toDateTimeLongFromDurationSinceEpoch(): UtcMillisSinceEpoch = toUtcMillisSinceEpoch()
 
 @ExperimentalTime
-fun Instant.toDateTimeLong(): DateTimeLong = DateTimeLong(toEpochMilliseconds())
+fun Instant.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch = UtcMillisSinceEpoch(toEpochMilliseconds())
 
 @ExperimentalTime
 fun Instant.toInstantPointInTime(): InstantPointInTime = InstantPointInTime(this)
@@ -44,23 +43,23 @@ fun Long.toInstantFromMillisecondsSinceEpoch(): Instant = milliseconds.toInstant
 fun Duration.toDateTimeStringFromDurationSinceEpoch(): DateTimeString = DateTimeString(toInstantSinceEpoch().toString())
 
 @ExperimentalTime
-fun Duration.toDateTimeLongFromDurationSinceEpoch(): DateTimeLong =
-    DateTimeLong(toInstantSinceEpoch().toEpochMilliseconds())
+fun Duration.toDateTimeLongFromDurationSinceEpoch(): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(toInstantSinceEpoch().toEpochMilliseconds())
 
 @ExperimentalTime
 fun Long.toDateTimeStringFromMillisecondsSinceEpoch(): DateTimeString =
     milliseconds.toDateTimeStringFromDurationSinceEpoch()
 
 @ExperimentalTime
-fun Long.toDateTimeLongFromMillisecondsSinceEpoch(): DateTimeLong =
-    Instant.fromEpochMilliseconds(this).toDateTimeLong()
+fun Long.toDateTimeLongFromMillisecondsSinceEpoch(): UtcMillisSinceEpoch =
+    Instant.fromEpochMilliseconds(this).toUtcMillisSinceEpoch()
 
 @ExperimentalTime
 fun LocalDateTime.toDateTimeStringFromDurationSinceEpoch(timeZone: TimeZone = TimeZone.currentSystemDefault()): DateTimeString =
     toInstant(timeZone).toDateTimeStringFromDurationSinceEpoch()
 
 @ExperimentalTime
-fun LocalDateTime.toDateTimeLongFromDurationSinceEpoch(timeZone: TimeZone = TimeZone.currentSystemDefault()): DateTimeLong =
+fun LocalDateTime.toDateTimeLongFromDurationSinceEpoch(timeZone: TimeZone = TimeZone.currentSystemDefault()): UtcMillisSinceEpoch =
     toInstant(timeZone).toDateTimeLongFromDurationSinceEpoch()
 
 @ExperimentalTime
@@ -68,7 +67,7 @@ fun DateTimeString.toLocalDate(timeZone: TimeZone = TimeZone.currentSystemDefaul
     toInstant().toLocalDateTime(timeZone).date
 
 @ExperimentalTime
-fun DateTimeLong.toLocalDate(timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalDate =
+fun UtcMillisSinceEpoch.toLocalDate(timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalDate =
     toInstant().toLocalDateTime(timeZone).date
 
 @ExperimentalTime
@@ -76,14 +75,14 @@ fun LocalDate.toStartOfDayDateTimeString(timeZone: TimeZone = TimeZone.currentSy
     this.atStartOfDayIn(timeZone).toDateTimeStringFromDurationSinceEpoch()
 
 @ExperimentalTime
-fun LocalDate.toStartOfDayDateTimeLong(timeZone: TimeZone = TimeZone.currentSystemDefault()): DateTimeLong =
+fun LocalDate.toStartOfDayDateTimeLong(timeZone: TimeZone = TimeZone.currentSystemDefault()): UtcMillisSinceEpoch =
     this.atStartOfDayIn(timeZone).toDateTimeLongFromDurationSinceEpoch()
 
 @ExperimentalTime
 fun Clock.nowDateTimeString(): DateTimeString = now().toDateTimeStringFromDurationSinceEpoch()
 
 @ExperimentalTime
-fun Clock.nowDateTimeLong(): DateTimeLong = now().toDateTimeLongFromDurationSinceEpoch()
+fun Clock.nowDateTimeLong(): UtcMillisSinceEpoch = now().toDateTimeLongFromDurationSinceEpoch()
 
 @ExperimentalTime
 fun Clock.nowInstantPointInTime(): InstantPointInTime = now().toInstantPointInTime()

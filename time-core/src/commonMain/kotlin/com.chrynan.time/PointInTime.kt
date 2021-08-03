@@ -10,7 +10,7 @@ import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
 /**
- * An interface representing a point in time, like a [DateTimeString] or [DateTimeLong], which shares
+ * An interface representing a point in time, like a [DateTimeString] or [UtcMillisSinceEpoch], which shares
  * common functions.
  */
 @ExperimentalTime
@@ -29,7 +29,7 @@ interface PointInTime : Comparable<PointInTime> {
 
     fun toDateTimeString(): DateTimeString
 
-    fun toDateTimeLong(): DateTimeLong
+    fun toUtcMillisSinceEpoch(): UtcMillisSinceEpoch
 
     infix fun durationTo(other: Instant): Duration =
         (other.toEpochMilliseconds() - millisecondsSinceEpoch).milliseconds

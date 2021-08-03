@@ -70,14 +70,14 @@ fun scheduleFlow(dateTime: DateTimeString, clock: Clock = Clock.System): Flow<Un
 /**
  * Retrieves a [Flow] of [Unit] that emits at the provided [dateTime] and then finishes.
  *
- * @param [dateTime] The [DateTimeLong] when the returned [Flow] should emit a [Unit] value then finish.
- * @param [clock] The [Clock] used to obtain the current [DateTimeLong].
+ * @param [dateTime] The [UtcMillisSinceEpoch] when the returned [Flow] should emit a [Unit] value then finish.
+ * @param [clock] The [Clock] used to obtain the current [UtcMillisSinceEpoch].
  *
  * @author chRyNaN
  */
 @ExperimentalCoroutinesApi
 @ExperimentalTime
-fun scheduleFlow(dateTime: DateTimeLong, clock: Clock = Clock.System): Flow<Unit> {
+fun scheduleFlow(dateTime: UtcMillisSinceEpoch, clock: Clock = Clock.System): Flow<Unit> {
     val nowUtc = clock.now().toDateTimeLongFromDurationSinceEpoch()
 
     val duration = nowUtc durationTo dateTime
@@ -106,7 +106,7 @@ fun scheduleFlow(dateTime: DateTimeString, timeProvider: TimeProvider): Flow<Uni
  */
 @ExperimentalCoroutinesApi
 @ExperimentalTime
-fun scheduleFlow(dateTime: DateTimeLong, timeProvider: TimeProvider): Flow<Unit> =
+fun scheduleFlow(dateTime: UtcMillisSinceEpoch, timeProvider: TimeProvider): Flow<Unit> =
     scheduleFlow(dateTime = dateTime, clock = timeProvider)
 
 /**

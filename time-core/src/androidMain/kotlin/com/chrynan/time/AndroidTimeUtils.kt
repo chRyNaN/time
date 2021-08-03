@@ -46,7 +46,7 @@ fun Date.toDateTimeString(): DateTimeString =
     toKotlinInstant().toDateTimeStringFromDurationSinceEpoch()
 
 @ExperimentalTime
-fun Date.toDateTimeLong(): DateTimeLong = toKotlinInstant().toDateTimeLongFromDurationSinceEpoch()
+fun Date.toDateTimeLong(): UtcMillisSinceEpoch = toKotlinInstant().toDateTimeLongFromDurationSinceEpoch()
 
 fun Instant.toDate(): Date = Date(toEpochMilliseconds())
 
@@ -54,7 +54,7 @@ fun Instant.toDate(): Date = Date(toEpochMilliseconds())
 fun DateTimeString.toDate(): Date = toInstant().toDate()
 
 @ExperimentalTime
-fun DateTimeLong.toDate(): Date = toInstant().toDate()
+fun UtcMillisSinceEpoch.toDate(): Date = toInstant().toDate()
 
 fun Date.toCalendar(): Calendar = Calendar.getInstance().apply { time = this@toCalendar }
 
@@ -68,10 +68,10 @@ fun Calendar.toKotlinInstant(): Instant = toDate().toKotlinInstant()
 fun DateTimeString.toCalendar(): Calendar = toDate().toCalendar()
 
 @ExperimentalTime
-fun DateTimeLong.toCalendar(): Calendar = toDate().toCalendar()
+fun UtcMillisSinceEpoch.toCalendar(): Calendar = toDate().toCalendar()
 
 @ExperimentalTime
 fun Calendar.toDateTimeString(): DateTimeString = toDate().toDateTimeString()
 
 @ExperimentalTime
-fun Calendar.toDateTimeLong(): DateTimeLong = toDate().toDateTimeLong()
+fun Calendar.toDateTimeLong(): UtcMillisSinceEpoch = toDate().toDateTimeLong()
