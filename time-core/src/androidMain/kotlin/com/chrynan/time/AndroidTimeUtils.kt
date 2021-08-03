@@ -42,7 +42,8 @@ actual fun convertDateTimeStringToInstant(value: DateTimeString): Instant = try 
 fun Date.toKotlinInstant(): Instant = Instant.fromEpochMilliseconds(time)
 
 @ExperimentalTime
-fun Date.toDateTimeString(): DateTimeString = toKotlinInstant().toDateTimeStringFromDurationSinceEpoch()
+fun Date.toDateTimeString(): DateTimeString =
+    toKotlinInstant().toDateTimeStringFromDurationSinceEpoch()
 
 @ExperimentalTime
 fun Date.toDateTimeLong(): DateTimeLong = toKotlinInstant().toDateTimeLongFromDurationSinceEpoch()
