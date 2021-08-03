@@ -14,10 +14,13 @@ import kotlin.time.ExperimentalTime
 @ExperimentalTime
 @Serializable
 @JvmInline
-value class UtcMillisSinceEpoch(@Suppress("MemberVisibilityCanBePrivate") val value: Long) {
+value class UtcMillisSinceEpoch(@Suppress("MemberVisibilityCanBePrivate") val value: Long) :
+    Comparable<UtcMillisSinceEpoch> {
 
     val duration: Duration
         get() = value.milliseconds
+
+    override fun compareTo(other: UtcMillisSinceEpoch): Int = value.compareTo(other.value)
 
     fun toInstant(): Instant = Instant.fromEpochMilliseconds(value)
 
@@ -29,6 +32,46 @@ value class UtcMillisSinceEpoch(@Suppress("MemberVisibilityCanBePrivate") val va
 
     companion object
 }
+
+@ExperimentalTime
+operator fun UtcMillisSinceEpoch.plus(other: UtcMillisSinceEpoch): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(value = value + other.value)
+
+@ExperimentalTime
+operator fun UtcMillisSinceEpoch.minus(other: UtcMillisSinceEpoch): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(value = value - other.value)
+
+@ExperimentalTime
+operator fun UtcMillisSinceEpoch.plus(other: Long): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(value = value + other)
+
+@ExperimentalTime
+operator fun UtcMillisSinceEpoch.minus(other: Long): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(value = value - other)
+
+@ExperimentalTime
+operator fun UtcMillisSinceEpoch.plus(other: Duration): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(value = value + other.inWholeMilliseconds)
+
+@ExperimentalTime
+operator fun UtcMillisSinceEpoch.minus(other: Duration): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(value = value - other.inWholeMilliseconds)
+
+@ExperimentalTime
+operator fun Long.plus(other: UtcMillisSinceEpoch): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(value = this + other.value)
+
+@ExperimentalTime
+operator fun Long.minus(other: UtcMillisSinceEpoch): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(value = this - other.value)
+
+@ExperimentalTime
+operator fun Duration.plus(other: UtcMillisSinceEpoch): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(value = inWholeMilliseconds + other.value)
+
+@ExperimentalTime
+operator fun Duration.minus(other: UtcMillisSinceEpoch): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(value = inWholeMilliseconds - other.value)
 
 @ExperimentalTime
 fun Instant.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch =
