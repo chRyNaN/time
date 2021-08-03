@@ -25,15 +25,15 @@ private val dateFormat: SimpleDateFormat
  * https://github.com/Kotlin/kotlinx-datetime/issues/56
  */
 @ExperimentalTime
-actual fun convertDateTimeStringToInstant(value: DateTimeString): Instant = try {
-    Instant.parse(value.value)
+actual fun convertDateTimeStringToInstant(value: String): Instant = try {
+    Instant.parse(value)
 } catch (exception: Exception) {
     try {
-        val date = iso8601DateFormat.parse(value.value)
+        val date = iso8601DateFormat.parse(value)
 
         Instant.fromEpochMilliseconds(date!!.time)
     } catch (exception: Exception) {
-        val date = dateFormat.parse(value.value)
+        val date = dateFormat.parse(value)
 
         Instant.fromEpochMilliseconds(date!!.time)
     }
@@ -42,16 +42,10 @@ actual fun convertDateTimeStringToInstant(value: DateTimeString): Instant = try 
 fun Date.toKotlinInstant(): Instant = Instant.fromEpochMilliseconds(time)
 
 @ExperimentalTime
-fun Date.toDateTimeString(): DateTimeString =
-    toKotlinInstant().toDateTimeStringFromDurationSinceEpoch()
-
-@ExperimentalTime
-fun Date.toDateTimeLong(): UtcMillisSinceEpoch = toKotlinInstant().toDateTimeLongFromDurationSinceEpoch()
+fun Date.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch =
+    toKotlinInstant().toUtcMillisSinceEpoch()
 
 fun Instant.toDate(): Date = Date(toEpochMilliseconds())
-
-@ExperimentalTime
-fun DateTimeString.toDate(): Date = toInstant().toDate()
 
 @ExperimentalTime
 fun UtcMillisSinceEpoch.toDate(): Date = toInstant().toDate()
@@ -65,13 +59,7 @@ fun Instant.toCalendar(): Calendar = toDate().toCalendar()
 fun Calendar.toKotlinInstant(): Instant = toDate().toKotlinInstant()
 
 @ExperimentalTime
-fun DateTimeString.toCalendar(): Calendar = toDate().toCalendar()
-
-@ExperimentalTime
 fun UtcMillisSinceEpoch.toCalendar(): Calendar = toDate().toCalendar()
 
 @ExperimentalTime
-fun Calendar.toDateTimeString(): DateTimeString = toDate().toDateTimeString()
-
-@ExperimentalTime
-fun Calendar.toDateTimeLong(): UtcMillisSinceEpoch = toDate().toDateTimeLong()
+fun Calendar.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch = toDate().toUtcMillisSinceEpoch()

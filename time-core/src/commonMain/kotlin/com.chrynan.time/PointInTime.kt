@@ -27,8 +27,6 @@ interface PointInTime : Comparable<PointInTime> {
     fun toLocalDateTime(timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalDateTime =
         toInstant().toLocalDateTime(timeZone)
 
-    fun toDateTimeString(): DateTimeString
-
     fun toUtcMillisSinceEpoch(): UtcMillisSinceEpoch
 
     infix fun durationTo(other: Instant): Duration =

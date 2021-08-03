@@ -18,17 +18,18 @@ import kotlin.time.*
  */
 @ExperimentalCoroutinesApi
 @ExperimentalTime
-fun intervalFlow(initialDelay: Duration = 0.milliseconds, period: Duration): Flow<Long> = channelFlow {
-    var count = 0L
+fun intervalFlow(initialDelay: Duration = 0.milliseconds, period: Duration): Flow<Long> =
+    channelFlow {
+        var count = 0L
 
-    delay(initialDelay)
+        delay(initialDelay)
 
-    while (isActive) {
-        send(count)
-        count += 1
-        delay(period)
+        while (isActive) {
+            send(count)
+            count += 1
+            delay(period)
+        }
     }
-}
 
 /**
  * Retrieves a [Flow] of [Unit] that emits after the provided [delay] and then finishes.
@@ -48,28 +49,6 @@ fun timerFlow(delay: Duration): Flow<Unit> = channelFlow {
 /**
  * Retrieves a [Flow] of [Unit] that emits at the provided [dateTime] and then finishes.
  *
- * @param [dateTime] The [DateTimeString] when the returned [Flow] should emit a [Unit] value then finish.
- * @param [clock] The [Clock] used to obtain the current [DateTimeString].
- *
- * @author chRyNaN
- */
-@ExperimentalCoroutinesApi
-@ExperimentalTime
-fun scheduleFlow(dateTime: DateTimeString, clock: Clock = Clock.System): Flow<Unit> {
-    val nowUtc = clock.now().toDateTimeStringFromDurationSinceEpoch()
-
-    val duration = nowUtc durationTo dateTime
-
-    return if (duration < 0.nanoseconds) {
-        throw IllegalArgumentException("DateTimeString provided to the scheduleFlow function must not be in the past. DateTimeString = $dateTime")
-    } else {
-        timerFlow(delay = duration)
-    }
-}
-
-/**
- * Retrieves a [Flow] of [Unit] that emits at the provided [dateTime] and then finishes.
- *
  * @param [dateTime] The [UtcMillisSinceEpoch] when the returned [Flow] should emit a [Unit] value then finish.
  * @param [clock] The [Clock] used to obtain the current [UtcMillisSinceEpoch].
  *
@@ -78,7 +57,7 @@ fun scheduleFlow(dateTime: DateTimeString, clock: Clock = Clock.System): Flow<Un
 @ExperimentalCoroutinesApi
 @ExperimentalTime
 fun scheduleFlow(dateTime: UtcMillisSinceEpoch, clock: Clock = Clock.System): Flow<Unit> {
-    val nowUtc = clock.now().toDateTimeLongFromDurationSinceEpoch()
+    val nowUtc = clock.now().toUtcMillisSinceEpoch()
 
     val duration = nowUtc durationTo dateTime
 
@@ -88,16 +67,6 @@ fun scheduleFlow(dateTime: UtcMillisSinceEpoch, clock: Clock = Clock.System): Fl
         timerFlow(delay = duration)
     }
 }
-
-/**
- * A convenience function for calling [scheduleFlow] with a [TimeProvider].
- *
- * @see [scheduleFlow]
- */
-@ExperimentalCoroutinesApi
-@ExperimentalTime
-fun scheduleFlow(dateTime: DateTimeString, timeProvider: TimeProvider): Flow<Unit> =
-    scheduleFlow(dateTime = dateTime, clock = timeProvider)
 
 /**
  * A convenience function for calling [scheduleFlow] with a [TimeProvider].
@@ -200,7 +169,11 @@ fun <T> poll(
 
     return when (strategy) {
         is PollingStrategy.Latest -> intervalFlow.flatMapLatest { flowGetter(it) }
-        is PollingStrategy.Merge -> intervalFlow.flatMapMerge(concurrency = strategy.limit) { flowGetter(it) }
+        is PollingStrategy.Merge -> intervalFlow.flatMapMerge(concurrency = strategy.limit) {
+            flowGetter(
+                it
+            )
+        }
         is PollingStrategy.Concat -> intervalFlow.flatMapConcat { flowGetter(it) }
     }
 }

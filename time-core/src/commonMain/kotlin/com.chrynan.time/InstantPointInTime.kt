@@ -12,7 +12,5 @@ value class InstantPointInTime(val value: Instant) : PointInTime {
 
     override fun toInstant(): Instant = value
 
-    override fun toDateTimeString(): DateTimeString = value.toDateTimeStringFromDurationSinceEpoch()
-
     override fun toUtcMillisSinceEpoch(): UtcMillisSinceEpoch = value.toUtcMillisSinceEpoch()
 }

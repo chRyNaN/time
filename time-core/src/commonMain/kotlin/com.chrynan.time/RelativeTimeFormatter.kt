@@ -11,11 +11,7 @@ import kotlin.time.ExperimentalTime
 @ExperimentalTime
 interface RelativeTimeFormatter {
 
-    fun formatPastRelativeToNow(pastTime: DateTimeString): CharSequence
-
     fun formatPastDurationRelativeToNow(pastDuration: Duration): CharSequence
-
-    fun formatFutureRelativeToNow(futureTime: DateTimeString): CharSequence
 
     fun formatFutureDurationRelativeToNow(futureDuration: Duration): CharSequence
 

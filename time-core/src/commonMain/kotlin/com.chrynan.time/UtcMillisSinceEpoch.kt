@@ -21,9 +21,6 @@ value class UtcMillisSinceEpoch(val value: Long) : PointInTime {
 
     override fun toInstant(): Instant = Instant.fromEpochMilliseconds(value)
 
-    override fun toDateTimeString(): DateTimeString =
-        toInstant().toDateTimeStringFromDurationSinceEpoch()
-
     override fun toUtcMillisSinceEpoch(): UtcMillisSinceEpoch = this
 
     override fun toString(): String = value.toString()
