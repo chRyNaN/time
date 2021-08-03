@@ -2,7 +2,7 @@
 
 package com.chrynan.time
 
-import kotlinx.datetime.Instant
+import kotlinx.datetime.*
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmInline
 import kotlin.time.Duration
@@ -14,16 +14,41 @@ import kotlin.time.ExperimentalTime
 @ExperimentalTime
 @Serializable
 @JvmInline
-value class UtcMillisSinceEpoch(val value: Long) : PointInTime {
+value class UtcMillisSinceEpoch(@Suppress("MemberVisibilityCanBePrivate") val value: Long) {
 
     val duration: Duration
         get() = value.milliseconds
 
-    override fun toInstant(): Instant = Instant.fromEpochMilliseconds(value)
+    fun toInstant(): Instant = Instant.fromEpochMilliseconds(value)
 
-    override fun toUtcMillisSinceEpoch(): UtcMillisSinceEpoch = this
+    fun toLocalDateTime(timeZone: TimeZone): LocalDateTime =
+        toInstant().toLocalDateTime(timeZone = timeZone)
 
-    override fun toString(): String = value.toString()
+    fun toLocalDate(timeZone: TimeZone): LocalDate =
+        toInstant().toLocalDateTime(timeZone = timeZone).date
 
     companion object
 }
+
+@ExperimentalTime
+fun Instant.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(toEpochMilliseconds())
+
+@ExperimentalTime
+fun LocalDateTime.toUtcMillisSinceEpoch(timeZone: TimeZone): UtcMillisSinceEpoch =
+    toInstant(timeZone).toUtcMillisSinceEpoch()
+
+@ExperimentalTime
+fun LocalDate.toStartOfDayDateTimeLong(timeZone: TimeZone = TimeZone.currentSystemDefault()): UtcMillisSinceEpoch =
+    this.atStartOfDayIn(timeZone).toUtcMillisSinceEpoch()
+
+@ExperimentalTime
+fun Duration.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(toInstantSinceEpoch().toEpochMilliseconds())
+
+@ExperimentalTime
+fun Long.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch =
+    UtcMillisSinceEpoch(value = this)
+
+@ExperimentalTime
+fun Clock.nowUtcMillisSinceEpoch(): UtcMillisSinceEpoch = now().toUtcMillisSinceEpoch()
