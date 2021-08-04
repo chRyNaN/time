@@ -94,4 +94,8 @@ fun Long.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch =
     UtcMillisSinceEpoch(value = this)
 
 @ExperimentalTime
+infix fun UtcMillisSinceEpoch.durationTo(other: UtcMillisSinceEpoch): Duration =
+    (other.value - value).milliseconds
+
+@ExperimentalTime
 fun Clock.nowUtcMillisSinceEpoch(): UtcMillisSinceEpoch = now().toUtcMillisSinceEpoch()
