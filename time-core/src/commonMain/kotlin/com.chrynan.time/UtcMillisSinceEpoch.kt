@@ -34,6 +34,14 @@ value class UtcMillisSinceEpoch(@Suppress("MemberVisibilityCanBePrivate") val va
 }
 
 @ExperimentalTime
+operator fun UtcMillisSinceEpoch.compareTo(other: Instant): Int =
+    toInstant().compareTo(other = other)
+
+@ExperimentalTime
+operator fun Instant.compareTo(other: UtcMillisSinceEpoch): Int =
+    compareTo(other = other.toInstant())
+
+@ExperimentalTime
 operator fun UtcMillisSinceEpoch.plus(other: UtcMillisSinceEpoch): UtcMillisSinceEpoch =
     UtcMillisSinceEpoch(value = value + other.value)
 
