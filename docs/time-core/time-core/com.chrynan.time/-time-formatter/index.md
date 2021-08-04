@@ -1,31 +1,40 @@
 //[time-core](../../../index.md)/[com.chrynan.time](../index.md)/[TimeFormatter](index.md)
 
+# TimeFormatter
 
-
-# TimeFormatter  
- [common] @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()  
-  
+[common]\
 interface [TimeFormatter](index.md)
 
-A Utility interface to format [DateTimeString](../-date-time-string/index.md)s to UI text.
+A utility that formats a provided time value, such as an Instant, to a formatted [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) dependent on the [format](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) value.
 
-   
+Note that each target platform may have their own [format](format.md) structures. So it might be better to use expect/actual for [format](format.md) values.
 
+## See also
 
-## Types  
-  
-|  Name |  Summary | 
+common
+
+| | |
 |---|---|
-| <a name="com.chrynan.time/TimeFormatter.Companion///PointingToDeclaration/"></a>[Companion](-companion/index.md)| <a name="com.chrynan.time/TimeFormatter.Companion///PointingToDeclaration/"></a>[common]  <br>Content  <br>object [Companion](-companion/index.md)  <br><br><br>|
+| [com.chrynan.time.TimeFormatter](index.md) | For creating an instance of this interface. |
+|  | [Javascript Date Formatter Library](https://blog.stevenlevithan.com/archives/date-time-format) |
 
+## Functions
 
-## Functions  
-  
-|  Name |  Summary | 
+| Name | Summary |
 |---|---|
-| <a name="com.chrynan.time/TimeFormatter/formatElapsedTime/#kotlin.time.Duration/PointingToDeclaration/"></a>[formatElapsedTime](format-elapsed-time.md)| <a name="com.chrynan.time/TimeFormatter/formatElapsedTime/#kotlin.time.Duration/PointingToDeclaration/"></a>[common]  <br>Content  <br>abstract fun [formatElapsedTime](format-elapsed-time.md)(duration: [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)): [CharSequence](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html)  <br><br><br>|
-| <a name="com.chrynan.time/TimeFormatter/formatFutureDurationRelativeToNow/#kotlin.time.Duration/PointingToDeclaration/"></a>[formatFutureDurationRelativeToNow](format-future-duration-relative-to-now.md)| <a name="com.chrynan.time/TimeFormatter/formatFutureDurationRelativeToNow/#kotlin.time.Duration/PointingToDeclaration/"></a>[common]  <br>Content  <br>abstract fun [formatFutureDurationRelativeToNow](format-future-duration-relative-to-now.md)(futureDuration: [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)): [CharSequence](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html)  <br><br><br>|
-| <a name="com.chrynan.time/TimeFormatter/formatFutureRelativeToNow/#com.chrynan.time.DateTimeString/PointingToDeclaration/"></a>[formatFutureRelativeToNow](format-future-relative-to-now.md)| <a name="com.chrynan.time/TimeFormatter/formatFutureRelativeToNow/#com.chrynan.time.DateTimeString/PointingToDeclaration/"></a>[common]  <br>Content  <br>abstract fun [formatFutureRelativeToNow](format-future-relative-to-now.md)(futureTime: [DateTimeString](../-date-time-string/index.md)): [CharSequence](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html)  <br><br><br>|
-| <a name="com.chrynan.time/TimeFormatter/formatPastDurationRelativeToNow/#kotlin.time.Duration/PointingToDeclaration/"></a>[formatPastDurationRelativeToNow](format-past-duration-relative-to-now.md)| <a name="com.chrynan.time/TimeFormatter/formatPastDurationRelativeToNow/#kotlin.time.Duration/PointingToDeclaration/"></a>[common]  <br>Content  <br>abstract fun [formatPastDurationRelativeToNow](format-past-duration-relative-to-now.md)(pastDuration: [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)): [CharSequence](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html)  <br><br><br>|
-| <a name="com.chrynan.time/TimeFormatter/formatPastRelativeToNow/#com.chrynan.time.DateTimeString/PointingToDeclaration/"></a>[formatPastRelativeToNow](format-past-relative-to-now.md)| <a name="com.chrynan.time/TimeFormatter/formatPastRelativeToNow/#com.chrynan.time.DateTimeString/PointingToDeclaration/"></a>[common]  <br>Content  <br>abstract fun [formatPastRelativeToNow](format-past-relative-to-now.md)(pastTime: [DateTimeString](../-date-time-string/index.md)): [CharSequence](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html)  <br><br><br>|
+| [invoke](invoke.md) | [common]<br>open fun [invoke](invoke.md)(value: [TimeStamp](../-time-stamp/index.md), timeZone: TimeZone): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()<br>open fun [invoke](invoke.md)(value: [UtcMillisSinceEpoch](../-utc-millis-since-epoch/index.md), timeZone: TimeZone): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>abstract operator fun [invoke](invoke.md)(value: Instant, timeZone: TimeZone): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>open fun [invoke](invoke.md)(value: LocalDate, timeZone: TimeZone): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>open fun [invoke](invoke.md)(value: LocalDateTime, timeZone: TimeZone): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
 
+## Properties
+
+| Name | Summary |
+|---|---|
+| [format](format.md) | [common]<br>abstract val [format](format.md): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+
+## Inheritors
+
+| Name |
+|---|
+| [AndroidTimeFormatter](../-android-time-formatter/index.md) |
+| [IosTimeFormatter](../-ios-time-formatter/index.md) |
+| [JsTimeFormatter](../-js-time-formatter/index.md) |
+| [JvmTimeFormatter](../-jvm-time-formatter/index.md) |

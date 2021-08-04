@@ -1,13 +1,9 @@
 //[time-coroutines](index.md)
 
+# time-coroutines
 
+## Packages
 
-# time-coroutines  
-
-
-## Packages  
-  
-|  Name | 
+| Name |
 |---|
-| <a name="com.chrynan.time////PointingToDeclaration/"></a>[com.chrynan.time](time-coroutines/com.chrynan.time/index.md)|
-
+| [com.chrynan.time](time-coroutines/com.chrynan.time/index.md) |

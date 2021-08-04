@@ -1,13 +1,9 @@
 //[time-core](index.md)
 
+# time-core
 
+## Packages
 
-# time-core  
-
-
-## Packages  
-  
-|  Name | 
+| Name |
 |---|
-| <a name="com.chrynan.time////PointingToDeclaration/"></a>[com.chrynan.time](time-core/com.chrynan.time/index.md)|
-
+| [com.chrynan.time](time-core/com.chrynan.time/index.md) |
