@@ -7,8 +7,8 @@ import platform.Foundation.*
 
 class IosTimeFormatter(override val format: String) : TimeFormatter {
 
-    override operator fun invoke(instant: Instant, timeZone: TimeZone): String {
-        val date = NSDate.dateWithTimeIntervalSince1970(instant.epochSeconds.toDouble())
+    override operator fun invoke(value: Instant, timeZone: TimeZone): String {
+        val date = NSDate.dateWithTimeIntervalSince1970(value.epochSeconds.toDouble())
 
         return getFormatter(timeZone = timeZone).stringFromDate(date)
     }

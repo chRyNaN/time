@@ -7,8 +7,8 @@ import java.util.*
 
 class JvmTimeFormatter(override val format: String) : TimeFormatter {
 
-    override fun invoke(instant: Instant, timeZone: TimeZone): String {
-        val date = Date(instant.toEpochMilliseconds())
+    override fun invoke(value: Instant, timeZone: TimeZone): String {
+        val date = Date(value.toEpochMilliseconds())
 
         return getFormatter(timeZone = timeZone).format(date)
     }

@@ -5,7 +5,7 @@ import kotlinx.datetime.TimeZone
 
 class JsTimeFormatter(override val format: String) : TimeFormatter {
 
-    override fun invoke(instant: Instant, timeZone: TimeZone): String {
+    override fun invoke(value: Instant, timeZone: TimeZone): String {
         TODO("Js Not Yet Implemented")
     }
 }
