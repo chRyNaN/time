@@ -19,59 +19,17 @@ because the [kotlinx.datetime](https://github.com/Kotlin/kotlinx-datetime) libra
 
 ## Using the Library
 
-This library introduces a `DateTimeString` class which is an [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
-formatted String wrapper, and a `DateTimeLong` class which is a wrapper around a `Long` value indicating milliseconds
-since the UTC Epoch. The `DateTimeStringSerializer` class is used to handle serialization/deserialization of the
-`DateTimeString` class for [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization). This allows for the
-use of `DateTimeString` in `@Serializable` models:
+This library expands on the kotlinx datetime library by providing additional components and utilities, including:
 
-### DateTimeString
-
-```kotlin
-@Serializable
-data class MyModel(
-    val created: DateTimeString,
-    val updated: DateTimeString
-)
-```
-
-The `DateTimeString` can be converted to and from a Kotlin `Instant`:
-
-```kotlin
-val instant = myModel.created.toInstant()
-
-instant.toDateTimeString()
-```
-
-The `Duration` elapsed since the epoch can be obtained from a `DateTimeString`:
-
-```kotlin
-val duration = myModel.created.durationSinceEpoch
-```
-
-The `Duration` between two `DateTimeStrings` can be obtained using the `durationTo` function:
-
-```kotlin
-val duration = myModel.created durationTo myModel.updated
-```
-
-The "now" `DateTimeString` can be obtained using the `Clock.nowDateTimeString` function:
-
-```kotlin
-val now = Clock.System.nowDateTimeString()
-```
-
-On the JVM, Java Time Components can be converted to `DateTimeStrings` and Kotlin `Instants`:
-
-```kotlin
-val instant = myDate.toKotlinInstant()
-val dateTimeString = myDate.toDateTimeString()
-```
+* `UtcMillisSinceEpoch`
+* `TimeStamp`
+* `TimeProvider`
+* `TimeFormatter`
 
 ### TimeProvider
 
-This library introduces a `TimeProvider` interface which extends from `kotlin.time.TimeSource`
-and `kotlinx.datetime.Clock`. This may provide additional functionality in the future. A `TimeProvider` can be obtained
+A `TimeProvider` extends from `kotlin.time.TimeSource` and `kotlinx.datetime.Clock`. This may
+provide additional functionality in the future. A `TimeProvider` can be obtained
 via the `TimeProvider` function:
 
 ```kotlin
@@ -80,20 +38,13 @@ val timeProvider = TimeProvider()
 
 ### TimeFormatter
 
-The `TimeFormatter` interface provides functions to convert `DateTimeStrings` to common output time formats:
+The `TimeFormatter` interface provides a way to format time values:
 
 ```kotlin
-timeFormatter.formatPastRelativeToNow(timeProvider.nowDateTimeString())
+val formatter = TimeFormatter("EEEE, MMM d, yyyy")
+
+formatter.invoke(instant, timeZone)
 ```
-
-`TimeFormatter` implementations are platform specific. Currently, only one for Android exists, `AndroidTimeFormatter`,
-which uses the Android `DateUtils` class:
-
-```kotlin
-val timeFormatter = AndroidTimeFormatter()
-```
-
-**Note:** That this requires the `time-core-android` dependency.
 
 ### Coroutines
 
@@ -135,12 +86,6 @@ repositories {
 
 ```groovy
 implementation "com.chrynan.time:time-core:$VERSION"
-```
-
-#### Android Core
-
-```groovy
-implementation "com.chrynan.time:time-core-android:$VERSION"
 ```
 
 #### Coroutines
