@@ -18,7 +18,10 @@ kotlin {
         android()
         jvm()
         ios()
-        js()
+        js(BOTH) {
+            browser()
+            nodejs()
+        }
     }
     sourceSets {
         all {

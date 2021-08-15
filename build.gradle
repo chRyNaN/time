@@ -29,10 +29,6 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-
 // Documentation
 tasks.dokkaGfmMultiModule.configure {
     outputDirectory.set(file("${projectDir.path}/docs"))
