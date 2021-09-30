@@ -31,4 +31,3 @@ fun Long.toInstantFromMillisecondsSinceEpoch(): Instant = milliseconds.toInstant
 @ExperimentalTime
 infix fun Instant.durationTo(other: Instant): Duration =
     (other.toEpochMilliseconds() - toEpochMilliseconds()).milliseconds
-

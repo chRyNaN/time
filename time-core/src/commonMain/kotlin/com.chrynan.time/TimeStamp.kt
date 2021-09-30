@@ -97,3 +97,15 @@ fun Instant.toTimeStamp(): TimeStamp.Utc = TimeStamp.Utc(value = this)
  */
 fun LocalDateTime.toTimeStamp(timeZone: TimeZone): TimeStamp.Local =
     TimeStamp.Local(value = this, timeZone = timeZone)
+
+/**
+ * Converts this [LocalDate] to a [TimeStamp.Local] instance for the start of the day time.
+ *
+ * @see [LocalDate.atStartOfDayIn]
+ * @see [Instant.toLocalDateTime]
+ */
+fun LocalDate.toStartOfDayTimeStamp(timeZone: TimeZone): TimeStamp.Local =
+    TimeStamp.Local(
+        value = this.atStartOfDayIn(timeZone = timeZone).toLocalDateTime(timeZone = timeZone),
+        timeZone = timeZone
+    )

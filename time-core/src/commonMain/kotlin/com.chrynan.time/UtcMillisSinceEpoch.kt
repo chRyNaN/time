@@ -22,64 +22,19 @@ value class UtcMillisSinceEpoch(@Suppress("MemberVisibilityCanBePrivate") val va
 
     override fun compareTo(other: UtcMillisSinceEpoch): Int = value.compareTo(other.value)
 
-    fun toInstant(): Instant = Instant.fromEpochMilliseconds(value)
-
-    fun toLocalDateTime(timeZone: TimeZone): LocalDateTime =
-        toInstant().toLocalDateTime(timeZone = timeZone)
-
-    fun toLocalDate(timeZone: TimeZone): LocalDate =
-        toInstant().toLocalDateTime(timeZone = timeZone).date
-
     companion object
 }
 
 @ExperimentalTime
-operator fun UtcMillisSinceEpoch.compareTo(other: Instant): Int =
-    toInstant().compareTo(other = other)
+fun UtcMillisSinceEpoch.toInstant(): Instant = Instant.fromEpochMilliseconds(value)
 
 @ExperimentalTime
-operator fun Instant.compareTo(other: UtcMillisSinceEpoch): Int =
-    compareTo(other = other.toInstant())
+fun UtcMillisSinceEpoch.toLocalDateTime(timeZone: TimeZone): LocalDateTime =
+    toInstant().toLocalDateTime(timeZone = timeZone)
 
 @ExperimentalTime
-operator fun UtcMillisSinceEpoch.plus(other: UtcMillisSinceEpoch): UtcMillisSinceEpoch =
-    UtcMillisSinceEpoch(value = value + other.value)
-
-@ExperimentalTime
-operator fun UtcMillisSinceEpoch.minus(other: UtcMillisSinceEpoch): UtcMillisSinceEpoch =
-    UtcMillisSinceEpoch(value = value - other.value)
-
-@ExperimentalTime
-operator fun UtcMillisSinceEpoch.plus(other: Long): UtcMillisSinceEpoch =
-    UtcMillisSinceEpoch(value = value + other)
-
-@ExperimentalTime
-operator fun UtcMillisSinceEpoch.minus(other: Long): UtcMillisSinceEpoch =
-    UtcMillisSinceEpoch(value = value - other)
-
-@ExperimentalTime
-operator fun UtcMillisSinceEpoch.plus(other: Duration): UtcMillisSinceEpoch =
-    UtcMillisSinceEpoch(value = value + other.inWholeMilliseconds)
-
-@ExperimentalTime
-operator fun UtcMillisSinceEpoch.minus(other: Duration): UtcMillisSinceEpoch =
-    UtcMillisSinceEpoch(value = value - other.inWholeMilliseconds)
-
-@ExperimentalTime
-operator fun Long.plus(other: UtcMillisSinceEpoch): UtcMillisSinceEpoch =
-    UtcMillisSinceEpoch(value = this + other.value)
-
-@ExperimentalTime
-operator fun Long.minus(other: UtcMillisSinceEpoch): UtcMillisSinceEpoch =
-    UtcMillisSinceEpoch(value = this - other.value)
-
-@ExperimentalTime
-operator fun Duration.plus(other: UtcMillisSinceEpoch): UtcMillisSinceEpoch =
-    UtcMillisSinceEpoch(value = inWholeMilliseconds + other.value)
-
-@ExperimentalTime
-operator fun Duration.minus(other: UtcMillisSinceEpoch): UtcMillisSinceEpoch =
-    UtcMillisSinceEpoch(value = inWholeMilliseconds - other.value)
+fun UtcMillisSinceEpoch.toLocalDate(timeZone: TimeZone): LocalDate =
+    toInstant().toLocalDateTime(timeZone = timeZone).date
 
 @ExperimentalTime
 fun Instant.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch =
@@ -90,7 +45,7 @@ fun LocalDateTime.toUtcMillisSinceEpoch(timeZone: TimeZone): UtcMillisSinceEpoch
     toInstant(timeZone).toUtcMillisSinceEpoch()
 
 @ExperimentalTime
-fun LocalDate.toStartOfDayDateTimeLong(timeZone: TimeZone = TimeZone.currentSystemDefault()): UtcMillisSinceEpoch =
+fun LocalDate.toStartOfDayUtcMillisSinceEpoch(timeZone: TimeZone): UtcMillisSinceEpoch =
     this.atStartOfDayIn(timeZone).toUtcMillisSinceEpoch()
 
 @ExperimentalTime
@@ -100,10 +55,3 @@ fun Duration.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch =
 @ExperimentalTime
 fun Long.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch =
     UtcMillisSinceEpoch(value = this)
-
-@ExperimentalTime
-infix fun UtcMillisSinceEpoch.durationTo(other: UtcMillisSinceEpoch): Duration =
-    (other.value - value).milliseconds
-
-@ExperimentalTime
-fun Clock.nowUtcMillisSinceEpoch(): UtcMillisSinceEpoch = now().toUtcMillisSinceEpoch()
