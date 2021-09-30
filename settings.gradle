@@ -1,4 +1,4 @@
 rootProject.name = "time"
 
-include ":time-core"
-include ":time-coroutines"
+include(":time-core")
+include(":time-coroutines")
