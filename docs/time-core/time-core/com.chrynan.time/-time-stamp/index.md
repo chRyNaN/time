@@ -7,19 +7,25 @@ sealed class [TimeStamp](index.md)
 
 An instant in time. This can be either a UTC time Instant or a LocalDateTime for a particular TimeZone. This sealed class encapsulates both possibilities.
 
-Events in the past are typically stored as Instants which would correspond to the [Utc](index.md), while events in the future (especially the far future) are typically stored as LocalDateTime values along with their respective TimeZones. This allows for properly handling any volatile time changes (ex: daylight savings time).
+To create an instance of this [TimeStamp](index.md) class, use either one of the [TimeStamp](index.md) or [TimeStamp](index.md) functions.
+
+Events in the past are typically stored as Instants which would correspond to the [Utc](index.md), while events in the future (especially the far future) are typically stored as LocalDateTime values along with their respective TimeZones. This allows for properly handling any volatile time changes (ex: daylight savings time). So this [TimeStamp](index.md) class is useful when you need to represent both past and future events.
+
+To perform any operations on the [TimeStamp](index.md) class, first convert it to an Instant using the [toInstant](../to-instant.md) function. Then it is trivial to convert it back into a [TimeStamp](index.md). This avoids the needs of having duplicate functionality for both types and reduces the possibility of errors.
 
 ## Types
 
 | Name | Summary |
 |---|---|
-| [Local](-local/index.md) | [common]<br>data class [Local](-local/index.md)(**value**: LocalDateTime, **timeZone**: TimeZone) : [TimeStamp](index.md) |
-| [Utc](-utc/index.md) | [common]<br>data class [Utc](-utc/index.md)(**value**: Instant) : [TimeStamp](index.md) |
+| [Companion](-companion/index.md) | [common]<br>object [Companion](-companion/index.md) |
+| [Local](-local/index.md) | [common]<br>data class [Local](-local/index.md) : [TimeStamp](index.md)<br>A [TimeStamp](index.md) whose [value](-local/value.md) is represented as a LocalDateTime along with its associated [timeZone](-local/time-zone.md). |
+| [Utc](-utc/index.md) | [common]<br>data class [Utc](-utc/index.md) : [TimeStamp](index.md)<br>A [TimeStamp](index.md) whose [value](-utc/value.md) is represented as an Instant. |
 
 ## Properties
 
 | Name | Summary |
 |---|---|
+| [timeZone](time-zone.md) | [common]<br>abstract val [timeZone](time-zone.md): TimeZone? |
 | [value](value.md) | [common]<br>abstract val [value](value.md): [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html) |
 
 ## Inheritors
@@ -33,11 +39,4 @@ Events in the past are typically stored as Instants which would correspond to th
 
 | Name | Summary |
 |---|---|
-| [compareTo](../compare-to.md) | [common]<br>operator fun [TimeStamp](index.md).[compareTo](../compare-to.md)(other: [TimeStamp](index.md)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>operator fun [TimeStamp](index.md).[compareTo](../compare-to.md)(other: Instant): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()<br>operator fun [TimeStamp](index.md).[compareTo](../compare-to.md)(other: [UtcMillisSinceEpoch](../-utc-millis-since-epoch/index.md)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
-| [durationSinceEpoch](../duration-since-epoch.md) | [common]<br>@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()<br>val [TimeStamp](index.md).[durationSinceEpoch](../duration-since-epoch.md): [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html) |
-| [durationTo](../duration-to.md) | [common]<br>@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()<br>infix fun [TimeStamp](index.md).[durationTo](../duration-to.md)(other: [TimeStamp](index.md)): [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html) |
-| [minus](../minus.md) | [common]<br>@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()<br>operator fun [TimeStamp](index.md).[minus](../minus.md)(other: [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)): [TimeStamp](index.md) |
-| [plus](../plus.md) | [common]<br>@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()<br>operator fun [TimeStamp](index.md).[plus](../plus.md)(other: [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)): [TimeStamp](index.md) |
-| [toEpochMilliseconds](../to-epoch-milliseconds.md) | [common]<br>fun [TimeStamp](index.md).[toEpochMilliseconds](../to-epoch-milliseconds.md)(): [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html) |
-| [toInstant](../to-instant.md) | [common]<br>fun [TimeStamp](index.md).[toInstant](../to-instant.md)(): Instant |
-| [toUtcMillisSinceEpoch](../to-utc-millis-since-epoch.md) | [common]<br>@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()<br>fun [TimeStamp](index.md).[toUtcMillisSinceEpoch](../to-utc-millis-since-epoch.md)(): [UtcMillisSinceEpoch](../-utc-millis-since-epoch/index.md) |
+| [toInstant](../to-instant.md) | [common]<br>fun [TimeStamp](index.md).[toInstant](../to-instant.md)(): Instant<br>Converts this [TimeStamp](index.md) into an Instant. |

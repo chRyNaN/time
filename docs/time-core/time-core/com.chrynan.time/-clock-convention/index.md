@@ -12,6 +12,12 @@ enum [ClockConvention](index.md) : [Enum](https://kotlinlang.org/api/latest/jvm/
 | [TWELVE_HOUR](-t-w-e-l-v-e_-h-o-u-r/index.md) | [common]<br>[TWELVE_HOUR](-t-w-e-l-v-e_-h-o-u-r/index.md)() |
 | [TWENTY_FOUR_HOUR](-t-w-e-n-t-y_-f-o-u-r_-h-o-u-r/index.md) | [common]<br>[TWENTY_FOUR_HOUR](-t-w-e-n-t-y_-f-o-u-r_-h-o-u-r/index.md)() |
 
+## Types
+
+| Name | Summary |
+|---|---|
+| [Companion](-companion/index.md) | [common]<br>object [Companion](-companion/index.md) |
+
 ## Properties
 
 | Name | Summary |

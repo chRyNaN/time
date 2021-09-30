@@ -6,10 +6,6 @@
 
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
 
-fun [TimeStamp](-time-stamp/index.md).[toUtcMillisSinceEpoch](to-utc-millis-since-epoch.md)(): [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md)
-
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
-
 fun Instant.[toUtcMillisSinceEpoch](to-utc-millis-since-epoch.md)(): [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md)
 
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()

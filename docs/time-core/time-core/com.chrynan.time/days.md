@@ -3,6 +3,13 @@
 # days
 
 [common]\
+fun Month.[days](days.md)(isLeapYear: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+Retrieves the number of days in this month. The provided [isLeapYear](days.md) parameter is used to determine the amount of days in the month of February.
+
+February has 28 days in a standard year and 29 days in a leap year. April, June, September and November have 30 days. All other months have 31 days.
+
+[common]\
 
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
 
