@@ -59,7 +59,7 @@ fun Month.days(isLeapYear: Boolean): Int =
  * April, June, September and November have 30 days.
  * All other months have 31 days.
  */
-fun Month.days(year: Int): Int =
+fun Month.daysIn(year: Int): Int =
     days(isLeapYear = isLeapYear(year = year))
 
 /**
