@@ -57,9 +57,9 @@ fun timerFlow(delay: Duration): Flow<Unit> = channelFlow {
 @ExperimentalCoroutinesApi
 @ExperimentalTime
 fun scheduleFlow(dateTime: UtcMillisSinceEpoch, clock: Clock = Clock.System): Flow<Unit> {
-    val nowUtc = clock.now().toUtcMillisSinceEpoch()
+    val nowUtc = clock.now()
 
-    val duration = nowUtc durationTo dateTime
+    val duration = nowUtc durationTo dateTime.toInstant()
 
     return if (duration < 0.nanoseconds) {
         throw IllegalArgumentException("DateTimeString provided to the scheduleFlow function must not be in the past. DateTimeString = $dateTime")
