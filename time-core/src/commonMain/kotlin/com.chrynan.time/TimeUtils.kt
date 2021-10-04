@@ -3,6 +3,8 @@
 package com.chrynan.time
 
 import kotlinx.datetime.Instant
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.Month
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
@@ -90,3 +92,13 @@ fun isLeapYear(year: Int): Boolean =
  */
 fun daysInYear(year: Int): Int =
     if (isLeapYear(year)) 366 else 365
+
+expect fun LocalDate.weekOfYear(locale: Locale): Int
+
+expect fun LocalDate.weekOfMonth(locale: Locale): Int
+
+fun LocalDateTime.weekOfYear(locale: Locale): Int =
+    this.date.weekOfYear(locale = locale)
+
+fun LocalDateTime.weekOfMonth(locale: Locale): Int =
+    this.date.weekOfMonth(locale = locale)

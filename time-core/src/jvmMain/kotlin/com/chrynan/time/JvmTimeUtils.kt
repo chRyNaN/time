@@ -67,24 +67,18 @@ fun UtcMillisSinceEpoch.toCalendar(): Calendar = toDate().toCalendar()
 @ExperimentalTime
 fun Calendar.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch = toDate().toUtcMillisSinceEpoch()
 
-fun LocalDate.weekOfYear(locale: Locale = Locale.getDefault()): Int {
-    val weekFields = WeekFields.of(locale)
+actual fun LocalDate.weekOfYear(locale: Locale): Int {
+    val weekFields = WeekFields.of(locale.toJavaLocale())
 
     val javaLocalDate = java.time.LocalDate.of(year, month, dayOfMonth)
 
     return javaLocalDate.get(weekFields.weekOfYear())
 }
 
-fun LocalDateTime.weekOfYear(locale: Locale = Locale.getDefault()): Int =
-    this.date.weekOfYear(locale = locale)
-
-fun LocalDate.weekOfMonth(locale: Locale = Locale.getDefault()): Int {
-    val weekFields = WeekFields.of(locale)
+actual fun LocalDate.weekOfMonth(locale: Locale): Int {
+    val weekFields = WeekFields.of(locale.toJavaLocale())
 
     val javaLocalDate = java.time.LocalDate.of(year, month, dayOfMonth)
 
     return javaLocalDate.get(weekFields.weekOfMonth())
 }
-
-fun LocalDateTime.weekOfMonth(locale: Locale = Locale.getDefault()): Int =
-    this.date.weekOfMonth(locale = locale)

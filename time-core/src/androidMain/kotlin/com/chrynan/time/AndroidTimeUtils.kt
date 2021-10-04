@@ -2,20 +2,24 @@
 
 package com.chrynan.time
 
+import android.annotation.TargetApi
+import android.os.Build
 import kotlinx.datetime.Instant
+import kotlinx.datetime.LocalDate
 import java.text.SimpleDateFormat
+import java.time.temporal.WeekFields
 import java.util.*
 import kotlin.time.ExperimentalTime
 
 private val utcTimezone = TimeZone.getTimeZone("UTC")
 
 private val iso8601DateFormat: SimpleDateFormat
-    get() = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.getDefault()).apply {
+    get() = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", java.util.Locale.getDefault()).apply {
         timeZone = utcTimezone
     }
 
 private val dateFormat: SimpleDateFormat
-    get() = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).apply {
+    get() = SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault()).apply {
         timeZone = utcTimezone
     }
 
@@ -63,3 +67,21 @@ fun UtcMillisSinceEpoch.toCalendar(): Calendar = toDate().toCalendar()
 
 @ExperimentalTime
 fun Calendar.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch = toDate().toUtcMillisSinceEpoch()
+
+@TargetApi(Build.VERSION_CODES.O)
+actual fun LocalDate.weekOfYear(locale: Locale): Int {
+    val weekFields = WeekFields.of(locale.toJavaLocale())
+
+    val javaLocalDate = java.time.LocalDate.of(year, month, dayOfMonth)
+
+    return javaLocalDate.get(weekFields.weekOfYear())
+}
+
+@TargetApi(Build.VERSION_CODES.O)
+actual fun LocalDate.weekOfMonth(locale: Locale): Int {
+    val weekFields = WeekFields.of(locale.toJavaLocale())
+
+    val javaLocalDate = java.time.LocalDate.of(year, month, dayOfMonth)
+
+    return javaLocalDate.get(weekFields.weekOfMonth())
+}
