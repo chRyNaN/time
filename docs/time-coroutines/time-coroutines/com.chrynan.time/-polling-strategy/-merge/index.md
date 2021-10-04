@@ -3,7 +3,7 @@
 # Merge
 
 [common]\
-data class [Merge](index.md)(**limit**: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)) : [PollingStrategy](../index.md)
+data class [Merge](index.md)(limit: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)) : [PollingStrategy](../index.md)
 
 Equivalent to the Flow.flatMapMerge function.
 
@@ -25,4 +25,4 @@ common
 
 | Name | Summary |
 |---|---|
-| [limit](limit.md) | [common]<br>val [limit](limit.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The amount of concurrently running flat-mapped Flows. |
+| [limit](limit.md) | [common]<br>val [limit](limit.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The amount of concurrently running flat-mapped Flows. The default value is set to DEFAULT_CONCURRENCY. |

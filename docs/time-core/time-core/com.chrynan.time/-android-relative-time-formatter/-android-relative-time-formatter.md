@@ -3,4 +3,4 @@
 # AndroidRelativeTimeFormatter
 
 [android]\
-fun [AndroidRelativeTimeFormatter](-android-relative-time-formatter.md)(timeProvider: [TimeProvider](../-time-provider/index.md) = TimeProvider())
+fun [AndroidRelativeTimeFormatter](-android-relative-time-formatter.md)(timeProvider: [TimeProvider](../../../../time-core/time-core/com.chrynan.time/-time-provider/index.md) = TimeProvider())

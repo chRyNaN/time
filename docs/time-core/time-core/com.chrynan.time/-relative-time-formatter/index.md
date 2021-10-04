@@ -3,7 +3,7 @@
 # RelativeTimeFormatter
 
 [common]\
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
 interface [RelativeTimeFormatter](index.md)
 

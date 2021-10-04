@@ -4,13 +4,13 @@
 
 [common]\
 
-@ExperimentalCoroutinesApi()
+@ExperimentalCoroutinesApi
 
-@FlowPreview()
+@FlowPreview
 
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-fun <[T](timeout.md)> Flow<[T](timeout.md)>.[timeout](timeout.md)(duration: [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)): Flow<[T](timeout.md)>
+fun &lt;[T](timeout.md)&gt; Flow&lt;[T](timeout.md)&gt;.[timeout](timeout.md)(duration: [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)): Flow&lt;[T](timeout.md)&gt;
 
 Retrieves a Flow that emits the items of the source Flow but applies a timeout policy for each emitted item. If the next item isn't emitted within the provided timeout [duration](timeout.md) starting from its predecessor, then the resulting Flow terminates with a TimeoutCancellationException by throwing it as an error.
 

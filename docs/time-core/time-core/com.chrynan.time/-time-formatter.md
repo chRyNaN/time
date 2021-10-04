@@ -19,29 +19,29 @@ android
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 ios
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 js
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 jvm
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 [android, ios, js, jvm]\
 [android, ios, js, jvm]\
-fun [TimeFormatter](-time-formatter.md)(format: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)): [TimeFormatter](-time-formatter/index.md)
+fun [TimeFormatter](-time-formatter.md)(format: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)): [TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md)
 
 ## See also
 
@@ -55,22 +55,22 @@ android
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 ios
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 js
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 jvm
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |

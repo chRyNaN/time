@@ -5,7 +5,7 @@
 [jvm]\
 fun Instant.[toDate]([jvm]to-date.md)(): [Date](https://developer.android.com/reference/kotlin/java/util/Date.html)
 
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
 fun [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md#1361117230%2FExtensions%2F-1191170225).[toDate]([jvm]to-date.md)(): [Date](https://developer.android.com/reference/kotlin/java/util/Date.html)
 

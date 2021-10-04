@@ -9,6 +9,6 @@ Converts this [TimeStamp](-time-stamp/index.md) into an Instant. This is useful 
 
 [common]\
 
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
 fun [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md).[toInstant](to-instant.md)(): Instant

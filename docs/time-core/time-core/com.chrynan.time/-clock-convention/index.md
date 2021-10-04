@@ -3,7 +3,7 @@
 # ClockConvention
 
 [common]\
-enum [ClockConvention](index.md) : [Enum](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/index.html)<[ClockConvention](index.md)>
+enum [ClockConvention](index.md) : [Enum](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/index.html)&lt;[ClockConvention](index.md)&gt;
 
 ## Entries
 
@@ -22,5 +22,5 @@ enum [ClockConvention](index.md) : [Enum](https://kotlinlang.org/api/latest/jvm/
 
 | Name | Summary |
 |---|---|
-| [name](index.md#348394604%2FProperties%2F-2124218425) | [common]<br>val [name](index.md#348394604%2FProperties%2F-2124218425): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
-| [ordinal](index.md#1856990034%2FProperties%2F-2124218425) | [common]<br>val [ordinal](index.md#1856990034%2FProperties%2F-2124218425): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
+| [name](-t-w-e-n-t-y_-f-o-u-r_-h-o-u-r/index.md#-372974862%2FProperties%2F-2124218425) | [common]<br>val [name](-t-w-e-n-t-y_-f-o-u-r_-h-o-u-r/index.md#-372974862%2FProperties%2F-2124218425): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [ordinal](-t-w-e-n-t-y_-f-o-u-r_-h-o-u-r/index.md#-739389684%2FProperties%2F-2124218425) | [common]<br>val [ordinal](-t-w-e-n-t-y_-f-o-u-r_-h-o-u-r/index.md#-739389684%2FProperties%2F-2124218425): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |

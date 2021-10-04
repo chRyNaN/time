@@ -4,11 +4,11 @@
 
 [common]\
 
-@ExperimentalCoroutinesApi()
+@ExperimentalCoroutinesApi
 
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-fun [scheduleFlow](schedule-flow.md)(dateTime: [UtcMillisSinceEpoch](../../../time-core/time-core/com.chrynan.time/-utc-millis-since-epoch/index.md), clock: Clock = Clock.System): Flow<[Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)>
+fun [scheduleFlow](schedule-flow.md)(dateTime: [UtcMillisSinceEpoch](../../../time-core/time-core/com.chrynan.time/-utc-millis-since-epoch/index.md), clock: Clock = Clock.System): Flow&lt;[Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)&gt;
 
 Retrieves a Flow of [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) that emits at the provided [dateTime](schedule-flow.md) and then finishes.
 
@@ -27,11 +27,11 @@ common
 
 [common]\
 
-@ExperimentalCoroutinesApi()
+@ExperimentalCoroutinesApi
 
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-fun [scheduleFlow](schedule-flow.md)(dateTime: [UtcMillisSinceEpoch](../../../time-core/time-core/com.chrynan.time/-utc-millis-since-epoch/index.md), timeProvider: [TimeProvider](../../../time-core/time-core/com.chrynan.time/-time-provider/index.md)): Flow<[Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)>
+fun [scheduleFlow](schedule-flow.md)(dateTime: [UtcMillisSinceEpoch](../../../time-core/time-core/com.chrynan.time/-utc-millis-since-epoch/index.md), timeProvider: [TimeProvider](../../../time-core/time-core/com.chrynan.time/-time-provider/index.md)): Flow&lt;[Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)&gt;
 
 A convenience function for calling [scheduleFlow](schedule-flow.md) with a [TimeProvider](../../../time-core/time-core/com.chrynan.time/-time-provider/index.md).
 

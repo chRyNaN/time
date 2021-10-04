@@ -4,7 +4,7 @@
 
 [common]\
 
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
 val [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html).[seconds](seconds.md): [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)
 
@@ -12,7 +12,7 @@ Returns a [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-d
 
 [common]\
 
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
 val [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html).[seconds](seconds.md): [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)
 
@@ -20,13 +20,13 @@ Returns a [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-d
 
 [common]\
 
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
 val [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html).[seconds](seconds.md): [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)
 
 Returns a [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html) equal to this [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html) number of seconds.
 
-#### Throws
+## Throws
 
 | | |
 |---|---|

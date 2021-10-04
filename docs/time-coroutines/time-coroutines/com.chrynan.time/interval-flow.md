@@ -4,11 +4,11 @@
 
 [common]\
 
-@ExperimentalCoroutinesApi()
+@ExperimentalCoroutinesApi
 
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-fun [intervalFlow](interval-flow.md)(initialDelay: [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html) = 0.milliseconds, period: [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)): Flow<[Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)>
+fun [intervalFlow](interval-flow.md)(initialDelay: [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html) = 0.milliseconds, period: [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)): Flow&lt;[Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)&gt;
 
 Retrieves a Flow of [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html) values starting with 0L after [initialDelay](interval-flow.md) followed by ever-increasing values, incrementing by 1L, after each [period](interval-flow.md).
 
