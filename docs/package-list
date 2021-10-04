@@ -1,6 +1,7 @@
 $dokka.format:gfm-v1
 $dokka.linkExtension:md
 $dokka.location:com.chrynan.time////PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/index.md
+$dokka.location:com.chrynan.time//Locale/#kotlin.String#kotlin.String?#kotlin.String?/PointingToDeclaration/time-core/time-core/com.chrynan.time/-locale.md
 $dokka.location:com.chrynan.time//TimeFormatter/#kotlin.String/PointingToDeclaration/time-core/time-core/com.chrynan.time/-time-formatter.md
 $dokka.location:com.chrynan.time//TimeProvider/#kotlin.time.TimeSource#kotlinx.datetime.Clock/PointingToDeclaration/time-core/time-core/com.chrynan.time/-time-provider.md
 $dokka.location:com.chrynan.time//TimeStamp/#kotlinx.datetime.Instant/PointingToDeclaration/time-core/time-core/com.chrynan.time/-time-stamp.md
@@ -13,6 +14,7 @@ $dokka.location:com.chrynan.time//daysIn/kotlinx.datetime.Month#kotlin.Int/Point
 $dokka.location:com.chrynan.time//daysInYear/#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/days-in-year.md
 $dokka.location:com.chrynan.time//durationSinceEpoch/kotlinx.datetime.Instant#/PointingToDeclaration/time-core/time-core/com.chrynan.time/duration-since-epoch.md
 $dokka.location:com.chrynan.time//durationTo/kotlinx.datetime.Instant#kotlinx.datetime.Instant/PointingToDeclaration/time-core/time-core/com.chrynan.time/duration-to.md
+$dokka.location:com.chrynan.time//getDefault/com.chrynan.time.Locale.Companion#/PointingToDeclaration/time-core/time-core/com.chrynan.time/get-default.md
 $dokka.location:com.chrynan.time//hours/kotlin.Double#/PointingToDeclaration/time-core/time-core/com.chrynan.time/hours.md
 $dokka.location:com.chrynan.time//hours/kotlin.Int#/PointingToDeclaration/time-core/time-core/com.chrynan.time/hours.md
 $dokka.location:com.chrynan.time//hours/kotlin.Long#/PointingToDeclaration/time-core/time-core/com.chrynan.time/hours.md
@@ -49,6 +51,7 @@ $dokka.location:com.chrynan.time//toInstant/com.chrynan.time.TimeStamp#/Pointing
 $dokka.location:com.chrynan.time//toInstant/com.chrynan.time.UtcMillisSinceEpoch#/PointingToDeclaration/time-core/time-core/com.chrynan.time/to-instant.md
 $dokka.location:com.chrynan.time//toInstantFromMillisecondsSinceEpoch/kotlin.Long#/PointingToDeclaration/time-core/time-core/com.chrynan.time/to-instant-from-milliseconds-since-epoch.md
 $dokka.location:com.chrynan.time//toInstantSinceEpoch/kotlin.time.Duration#/PointingToDeclaration/time-core/time-core/com.chrynan.time/to-instant-since-epoch.md
+$dokka.location:com.chrynan.time//toJavaLocale/com.chrynan.time.Locale#/PointingToDeclaration/time-core/time-core/com.chrynan.time/[jvm]to-java-locale.md
 $dokka.location:com.chrynan.time//toKotlinInstant/java.util.Calendar#/PointingToDeclaration/time-core/time-core/com.chrynan.time/[jvm]to-kotlin-instant.md
 $dokka.location:com.chrynan.time//toKotlinInstant/java.util.Date#/PointingToDeclaration/time-core/time-core/com.chrynan.time/[jvm]to-kotlin-instant.md
 $dokka.location:com.chrynan.time//toLocalDate/com.chrynan.time.UtcMillisSinceEpoch#kotlinx.datetime.TimeZone/PointingToDeclaration/time-core/time-core/com.chrynan.time/to-local-date.md
@@ -63,10 +66,10 @@ $dokka.location:com.chrynan.time//toUtcMillisSinceEpoch/kotlin.Long#/PointingToD
 $dokka.location:com.chrynan.time//toUtcMillisSinceEpoch/kotlin.time.Duration#/PointingToDeclaration/time-core/time-core/com.chrynan.time/to-utc-millis-since-epoch.md
 $dokka.location:com.chrynan.time//toUtcMillisSinceEpoch/kotlinx.datetime.Instant#/PointingToDeclaration/time-core/time-core/com.chrynan.time/to-utc-millis-since-epoch.md
 $dokka.location:com.chrynan.time//toUtcMillisSinceEpoch/kotlinx.datetime.LocalDateTime#kotlinx.datetime.TimeZone/PointingToDeclaration/time-core/time-core/com.chrynan.time/to-utc-millis-since-epoch.md
-$dokka.location:com.chrynan.time//weekOfMonth/kotlinx.datetime.LocalDate#java.util.Locale/PointingToDeclaration/time-core/time-core/com.chrynan.time/week-of-month.md
-$dokka.location:com.chrynan.time//weekOfMonth/kotlinx.datetime.LocalDateTime#java.util.Locale/PointingToDeclaration/time-core/time-core/com.chrynan.time/week-of-month.md
-$dokka.location:com.chrynan.time//weekOfYear/kotlinx.datetime.LocalDate#java.util.Locale/PointingToDeclaration/time-core/time-core/com.chrynan.time/week-of-year.md
-$dokka.location:com.chrynan.time//weekOfYear/kotlinx.datetime.LocalDateTime#java.util.Locale/PointingToDeclaration/time-core/time-core/com.chrynan.time/week-of-year.md
+$dokka.location:com.chrynan.time//weekOfMonth/kotlinx.datetime.LocalDate#com.chrynan.time.Locale/PointingToDeclaration/time-core/time-core/com.chrynan.time/week-of-month.md
+$dokka.location:com.chrynan.time//weekOfMonth/kotlinx.datetime.LocalDateTime#com.chrynan.time.Locale/PointingToDeclaration/time-core/time-core/com.chrynan.time/week-of-month.md
+$dokka.location:com.chrynan.time//weekOfYear/kotlinx.datetime.LocalDate#com.chrynan.time.Locale/PointingToDeclaration/time-core/time-core/com.chrynan.time/week-of-year.md
+$dokka.location:com.chrynan.time//weekOfYear/kotlinx.datetime.LocalDateTime#com.chrynan.time.Locale/PointingToDeclaration/time-core/time-core/com.chrynan.time/week-of-year.md
 $dokka.location:com.chrynan.time/AndroidRelativeTimeFormatter///PointingToDeclaration/time-core/time-core/com.chrynan.time/-android-relative-time-formatter/index.md
 $dokka.location:com.chrynan.time/AndroidRelativeTimeFormatter/AndroidRelativeTimeFormatter/#com.chrynan.time.TimeProvider/PointingToDeclaration/time-core/time-core/com.chrynan.time/-android-relative-time-formatter/-android-relative-time-formatter.md
 $dokka.location:com.chrynan.time/AndroidRelativeTimeFormatter/formatElapsedTime/#kotlin.time.Duration/PointingToDeclaration/time-core/time-core/com.chrynan.time/-android-relative-time-formatter/format-elapsed-time.md
@@ -96,6 +99,11 @@ $dokka.location:com.chrynan.time/JvmTimeFormatter///PointingToDeclaration/time-
 $dokka.location:com.chrynan.time/JvmTimeFormatter/JvmTimeFormatter/#kotlin.String/PointingToDeclaration/time-core/time-core/com.chrynan.time/-jvm-time-formatter/-jvm-time-formatter.md
 $dokka.location:com.chrynan.time/JvmTimeFormatter/format/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-jvm-time-formatter/format.md
 $dokka.location:com.chrynan.time/JvmTimeFormatter/invoke/#kotlinx.datetime.Instant#kotlinx.datetime.TimeZone/PointingToDeclaration/time-core/time-core/com.chrynan.time/-jvm-time-formatter/invoke.md
+$dokka.location:com.chrynan.time/Locale.Companion///PointingToDeclaration/time-core/time-core/com.chrynan.time/-locale/-companion/index.md
+$dokka.location:com.chrynan.time/Locale///PointingToDeclaration/time-core/time-core/com.chrynan.time/-locale/index.md
+$dokka.location:com.chrynan.time/Locale/country/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-locale/country.md
+$dokka.location:com.chrynan.time/Locale/language/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-locale/language.md
+$dokka.location:com.chrynan.time/Locale/variant/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-locale/variant.md
 $dokka.location:com.chrynan.time/PollingStrategy.Concat///PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/-polling-strategy/-concat/index.md
 $dokka.location:com.chrynan.time/PollingStrategy.Latest///PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/-polling-strategy/-latest/index.md
 $dokka.location:com.chrynan.time/PollingStrategy.Merge///PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/-polling-strategy/-merge/index.md
@@ -126,6 +134,8 @@ $dokka.location:com.chrynan.time/TimeStamp.Utc/value/#/PointingToDeclaration/ti
 $dokka.location:com.chrynan.time/TimeStamp///PointingToDeclaration/time-core/time-core/com.chrynan.time/-time-stamp/index.md
 $dokka.location:com.chrynan.time/TimeStamp/timeZone/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-time-stamp/time-zone.md
 $dokka.location:com.chrynan.time/TimeStamp/value/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-time-stamp/value.md
+$dokka.location:com.chrynan.time/UnstableTimeApi///PointingToDeclaration/time-core/time-core/com.chrynan.time/-unstable-time-api/index.md
+$dokka.location:com.chrynan.time/UnstableTimeApi/UnstableTimeApi/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-unstable-time-api/-unstable-time-api.md
 $dokka.location:com.chrynan.time/UtcMillisSinceEpoch.Companion///PointingToDeclaration/time-core/time-core/com.chrynan.time/-utc-millis-since-epoch/-companion/index.md
 $dokka.location:com.chrynan.time/UtcMillisSinceEpoch///PointingToDeclaration/time-core/time-core/com.chrynan.time/-utc-millis-since-epoch/index.md
 $dokka.location:com.chrynan.time/UtcMillisSinceEpoch/UtcMillisSinceEpoch/#kotlin.Long/PointingToDeclaration/time-core/time-core/com.chrynan.time/-utc-millis-since-epoch/-utc-millis-since-epoch.md
