@@ -13,7 +13,7 @@ class AndroidTimeFormatter(override val format: String) : TimeFormatter {
         return getFormatter(timeZone = timeZone).format(date)
     }
 
-    private fun getFormatter(timeZone: TimeZone, locale: Locale = Locale.getDefault()) =
+    private fun getFormatter(timeZone: TimeZone, locale: java.util.Locale = java.util.Locale.getDefault()) =
         SimpleDateFormat(format, locale).apply {
             setTimeZone(timeZone.toAndroidTimeZone())
         }

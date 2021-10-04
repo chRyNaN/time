@@ -2,6 +2,7 @@
 
 package com.chrynan.time
 
+@UnstableTimeApi
 @Suppress("FunctionName")
 actual fun Locale(
     language: String,
@@ -13,6 +14,7 @@ actual fun Locale(
     return JvmLocale(locale = locale)
 }
 
+@UnstableTimeApi
 internal class JvmLocale(
     @Suppress("MemberVisibilityCanBePrivate") val locale: java.util.Locale
 ) : Locale {
@@ -35,7 +37,9 @@ internal class JvmLocale(
         }
 }
 
+@UnstableTimeApi
 fun Locale.toJavaLocale(): java.util.Locale =
     java.util.Locale(language, country ?: "", variant ?: "")
 
+@UnstableTimeApi
 actual fun Locale.Companion.getDefault(): Locale = JvmLocale(locale = java.util.Locale.getDefault())

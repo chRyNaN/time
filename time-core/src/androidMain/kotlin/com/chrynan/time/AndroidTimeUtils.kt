@@ -69,6 +69,7 @@ fun UtcMillisSinceEpoch.toCalendar(): Calendar = toDate().toCalendar()
 fun Calendar.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch = toDate().toUtcMillisSinceEpoch()
 
 @TargetApi(Build.VERSION_CODES.O)
+@UnstableTimeApi
 actual fun LocalDate.weekOfYear(locale: Locale): Int {
     val weekFields = WeekFields.of(locale.toJavaLocale())
 
@@ -78,6 +79,7 @@ actual fun LocalDate.weekOfYear(locale: Locale): Int {
 }
 
 @TargetApi(Build.VERSION_CODES.O)
+@UnstableTimeApi
 actual fun LocalDate.weekOfMonth(locale: Locale): Int {
     val weekFields = WeekFields.of(locale.toJavaLocale())
 

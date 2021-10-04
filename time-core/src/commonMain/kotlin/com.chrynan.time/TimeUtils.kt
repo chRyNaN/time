@@ -93,12 +93,16 @@ fun isLeapYear(year: Int): Boolean =
 fun daysInYear(year: Int): Int =
     if (isLeapYear(year)) 366 else 365
 
+@UnstableTimeApi
 expect fun LocalDate.weekOfYear(locale: Locale): Int
 
+@UnstableTimeApi
 expect fun LocalDate.weekOfMonth(locale: Locale): Int
 
+@UnstableTimeApi
 fun LocalDateTime.weekOfYear(locale: Locale): Int =
     this.date.weekOfYear(locale = locale)
 
+@UnstableTimeApi
 fun LocalDateTime.weekOfMonth(locale: Locale): Int =
     this.date.weekOfMonth(locale = locale)

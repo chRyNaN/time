@@ -1,5 +1,6 @@
 package com.chrynan.time
 
+@UnstableTimeApi
 interface Locale {
 
     val language: String
@@ -11,6 +12,7 @@ interface Locale {
     companion object
 }
 
+@UnstableTimeApi
 internal class DefaultLocale(
     override val language: String,
     override val country: String? = null,
@@ -18,6 +20,7 @@ internal class DefaultLocale(
 ) : Locale
 
 @Suppress("FunctionName")
+@UnstableTimeApi
 expect fun Locale(
     language: String,
     country: String? = null,
@@ -30,4 +33,5 @@ expect fun Locale(
  * Note that not all platform targets will have a way to retrieve the default locale. In particular, the Javascript and
  * iOS targets will throw an exception when this is called.
  */
+@UnstableTimeApi
 expect fun Locale.Companion.getDefault(): Locale

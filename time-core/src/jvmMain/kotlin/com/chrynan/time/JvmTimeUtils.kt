@@ -4,7 +4,6 @@ package com.chrynan.time
 
 import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDate
-import kotlinx.datetime.LocalDateTime
 import java.text.SimpleDateFormat
 import java.time.temporal.WeekFields
 import java.util.*
@@ -13,12 +12,12 @@ import kotlin.time.ExperimentalTime
 private val utcTimezone = TimeZone.getTimeZone("UTC")
 
 private val iso8601DateFormat: SimpleDateFormat
-    get() = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.getDefault()).apply {
+    get() = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", java.util.Locale.getDefault()).apply {
         timeZone = utcTimezone
     }
 
 private val dateFormat: SimpleDateFormat
-    get() = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).apply {
+    get() = SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault()).apply {
         timeZone = utcTimezone
     }
 
@@ -67,6 +66,7 @@ fun UtcMillisSinceEpoch.toCalendar(): Calendar = toDate().toCalendar()
 @ExperimentalTime
 fun Calendar.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch = toDate().toUtcMillisSinceEpoch()
 
+@UnstableTimeApi
 actual fun LocalDate.weekOfYear(locale: Locale): Int {
     val weekFields = WeekFields.of(locale.toJavaLocale())
 
@@ -75,6 +75,7 @@ actual fun LocalDate.weekOfYear(locale: Locale): Int {
     return javaLocalDate.get(weekFields.weekOfYear())
 }
 
+@UnstableTimeApi
 actual fun LocalDate.weekOfMonth(locale: Locale): Int {
     val weekFields = WeekFields.of(locale.toJavaLocale())
 

@@ -2,6 +2,7 @@
 
 package com.chrynan.time
 
+@UnstableTimeApi
 @Suppress("FunctionName")
 actual fun Locale(
     language: String,
@@ -10,5 +11,6 @@ actual fun Locale(
 ): Locale =
     DefaultLocale(language = language, country = country, variant = variant)
 
+@UnstableTimeApi
 actual fun Locale.Companion.getDefault(): Locale =
     throw UnsupportedOperationException("Ios does not have a way to obtain the default locale as of yet.")
