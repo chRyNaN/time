@@ -16,7 +16,7 @@ actual fun Locale(
 
 @UnstableTimeApi
 internal class JvmLocale(
-    @Suppress("MemberVisibilityCanBePrivate") val locale: java.util.Locale
+    private val locale: java.util.Locale
 ) : Locale {
 
     override val language: String
