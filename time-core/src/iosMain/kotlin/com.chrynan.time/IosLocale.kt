@@ -45,6 +45,13 @@ internal class IosLocale(
 
             return variant?.ifBlank { null }
         }
+
+    override val script: String?
+        get() {
+            val script = nsLocale.scriptCode
+
+            return script?.ifBlank { null }
+        }
 }
 
 @UnstableTimeApi

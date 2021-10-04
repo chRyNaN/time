@@ -35,6 +35,13 @@ internal class AndroidLocale(
 
             return variant.ifBlank { null }
         }
+
+    override val script: String?
+        get() {
+            val script = locale.script
+
+            return script.ifBlank { null }
+        }
 }
 
 @UnstableTimeApi

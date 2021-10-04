@@ -9,6 +9,8 @@ interface Locale {
 
     val variant: String?
 
+    val script: String?
+
     companion object
 }
 
@@ -16,7 +18,8 @@ interface Locale {
 internal class DefaultLocale(
     override val language: String,
     override val country: String? = null,
-    override val variant: String? = null
+    override val variant: String? = null,
+    override val script: String? = null
 ) : Locale
 
 @Suppress("FunctionName")
@@ -30,8 +33,8 @@ expect fun Locale(
 /**
  * Retrieves the default [Locale] value.
  *
- * Note that not all platform targets will have a way to retrieve the default locale. In particular, the Javascript and
- * iOS targets will throw an exception when this is called.
+ * Note that not all platform targets will have a way to retrieve the default locale. In particular, the Javascript
+ * target will throw an exception when this is called.
  */
 @UnstableTimeApi
 expect fun Locale.Companion.getDefault(): Locale
