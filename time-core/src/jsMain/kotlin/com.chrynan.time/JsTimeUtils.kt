@@ -9,4 +9,4 @@ import kotlin.time.ExperimentalTime
  * https://github.com/Kotlin/kotlinx-datetime/issues/56
  */
 @ExperimentalTime
-actual fun convertDateTimeStringToInstant(value: String) = Instant.parse(value)
+actual fun convertLenientDateTimeStringToInstant(value: String) = Instant.parse(value)

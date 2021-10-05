@@ -3,7 +3,6 @@
 package com.chrynan.time
 
 import kotlinx.datetime.Instant
-import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
 /**
@@ -15,11 +14,4 @@ import kotlin.time.ExperimentalTime
  * limitations of the Java Time API not being available on older Android versions.
  */
 @ExperimentalTime
-internal expect fun convertDateTimeStringToInstant(value: String): Instant
-
-@ExperimentalTime
-fun Duration.toInstantSinceEpoch(): Instant =
-    Instant.fromEpochMilliseconds(this.inWholeMilliseconds)
-
-@ExperimentalTime
-fun Long.toInstantFromMillisecondsSinceEpoch(): Instant = milliseconds.toInstantSinceEpoch()
+internal expect fun convertLenientDateTimeStringToInstant(value: String): Instant

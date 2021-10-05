@@ -24,7 +24,7 @@ fun Instant.Companion.parseOrNull(isoString: String): Instant? =
  */
 @ExperimentalTime
 fun Instant.Companion.parseLenient(isoString: String): Instant =
-    convertDateTimeStringToInstant(value = isoString)
+    convertLenientDateTimeStringToInstant(value = isoString)
 
 /**
  * Parses the provided [isoString] to an [Instant] or null if it can not be parsed.
@@ -56,3 +56,16 @@ val Instant.durationSinceEpoch: Duration
 @ExperimentalTime
 infix fun Instant.durationTo(other: Instant): Duration =
     (other.toEpochMilliseconds() - toEpochMilliseconds()).milliseconds
+
+/**
+ * Converts this [Duration] since the Epoch to an [Instant].
+ */
+@ExperimentalTime
+fun Duration.toInstantSinceEpoch(): Instant =
+    Instant.fromEpochMilliseconds(this.inWholeMilliseconds)
+
+/**
+ * Converts this [Long] milliseconds since the Epoch value to an [Instant].
+ */
+@ExperimentalTime
+fun Long.toInstantFromMillisecondsSinceEpoch(): Instant = milliseconds.toInstantSinceEpoch()

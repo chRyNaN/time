@@ -25,7 +25,7 @@ private val dateFormat: SimpleDateFormat
  * https://github.com/Kotlin/kotlinx-datetime/issues/56
  */
 @ExperimentalTime
-actual fun convertDateTimeStringToInstant(value: String): Instant = try {
+actual fun convertLenientDateTimeStringToInstant(value: String): Instant = try {
     Instant.parse(value)
 } catch (exception: Exception) {
     try {
