@@ -21,7 +21,7 @@ import kotlin.time.ExperimentalTime
  * within a calendar.
  *
  * The reason for creating this wrapper value class was to provided type safety for operations that required a year,
- * such as the [isLeapYear] and [daysInYear] properties. Since the kotlinx datetime library doesn't provide a "Year"
+ * such as the [isLeap] and [days] properties. Since the kotlinx datetime library doesn't provide a "Year"
  * concept, this was created in this library. Note however that this is an [ExperimentalTime] component and may be
  * removed or updated in the future.
  *
@@ -60,7 +60,7 @@ value class Year(val value: Int) : Comparable<Year> {
  * @return true if the year is leap, false otherwise
  */
 @ExperimentalTime
-val Year.isLeapYear: Boolean
+val Year.isLeap: Boolean
     get() = value and 3 == 0 && (value % 100 != 0 || value % 400 == 0)
 
 /**
@@ -69,17 +69,17 @@ val Year.isLeapYear: Boolean
  * @return the length of this year in days, 365 or 366 if it is a leap year.
  */
 @ExperimentalTime
-val Year.daysInYear: Int
-    get() = if (isLeapYear) 366 else 365
+val Year.days: Int
+    get() = if (isLeap) 366 else 365
 
 /**
  * Retrieves the [Duration] of this [Year] with day precision.
  *
- * This is equivalent to calling [Duration.days] with the [daysInYear] value.
+ * This is equivalent to calling [Duration.days] with the [days] value.
  */
 @ExperimentalTime
 val Year.duration: Duration
-    get() = Duration.Companion.days(daysInYear)
+    get() = Duration.Companion.days(days)
 
 /**
  * Determines whether this [Year] is within the Before Christ Era, or any year less than zero. This is equivalent
@@ -113,6 +113,118 @@ val Year.isAD: Boolean
 @ExperimentalTime
 val Year.isCE: Boolean
     get() = isAD
+
+/**
+ * Retrieves the number of days in the provided [month] for this [Year].
+ *
+ * @see [Month.daysIn]
+ */
+@ExperimentalTime
+fun Year.daysIn(month: Month): Int =
+    month.daysIn(this)
+
+/**
+ * Retrieves a [List] of [LocalDate]s representing the days within the provided [month] in this [Year].
+ *
+ * @see [Month.datesIn]
+ */
+@ExperimentalTime
+fun Year.datesIn(month: Month): List<LocalDate> =
+    month.datesIn(this)
+
+/**
+ * Retrieves a [List] of [LocalDate]s representing the days within this [Year].
+ *
+ * The resulting [List] should be ordered from first day of the year to the last day of the year. That is the
+ * [LocalDate]s in the resulting [List] should be in ascending order based on their [LocalDate.dayOfYear] value.
+ */
+@ExperimentalTime
+val Year.dates: List<LocalDate>
+    get() = Month.values().flatMap { this.datesIn(it) }.sortedBy { it.dayOfYear }
+
+/**
+ * Retrieves the [LocalDate] within this [Year] at the provided [month] and [dayOfMonth].
+ *
+ * @throws [IllegalArgumentException] if the provided [dayOfMonth] value is invalid for this [Year] and [month].
+ *
+ * @see [Month.dateAt]
+ */
+@ExperimentalTime
+fun Year.dateAt(month: Month, dayOfMonth: Int): LocalDate =
+    LocalDate(year = this.value, month = month, dayOfMonth = dayOfMonth)
+
+/**
+ * Retrieves the first [LocalDate] within the provided [Month] in this [Year].
+ *
+ * @see [dateAt]
+ */
+@ExperimentalTime
+fun Year.firstDateInMonth(month: Month): LocalDate =
+    dateAt(month = month, dayOfMonth = 1)
+
+/**
+ * Retrieves the last [LocalDate] within the provided [Month] in this [Year].
+ *
+ * @see [dateAt]
+ * @see [Month.daysIn]
+ */
+@ExperimentalTime
+fun Year.lastDateInMonth(month: Month): LocalDate =
+    dateAt(month = month, dayOfMonth = month.daysIn(this))
+
+/**
+ * Retrieves the first [LocalDate] of the [Year], January 1st.
+ *
+ * Note that this returns the first [LocalDate] of the [Year] but it may not be the first [LocalDate] of the first week
+ * of the [Year] as that is dependent on the [WeekFormat].
+ */
+@ExperimentalTime
+val Year.firstDate: LocalDate
+    get() = LocalDate(year = this, month = Month.JANUARY, dayOfMonth = 1)
+
+/**
+ * Retrieves the last [LocalDate] of the [Year], December 31st.
+ *
+ * Note that this returns the last [LocalDate] of the [Year] but it may not be the last [LocalDate] of the last week
+ * of the [Year] as that is dependent on the [WeekFormat].
+ */
+@ExperimentalTime
+val Year.lastDate: LocalDate
+    get() = LocalDate(year = this, month = Month.DECEMBER, dayOfMonth = 31)
+
+/**
+ * Retrieves the number of weeks within this [Year] in the provided [month] using the provided [weekFormat].
+ *
+ * @see [Month.weeksIn]
+ */
+@ExperimentalTime
+fun Year.weeksIn(month: Month, weekFormat: WeekFormat = WeekFormat()): Int =
+    month.weeksIn(year = this, weekFormat = weekFormat)
+
+/**
+ * Retrieves the number of weeks within this [Year] using the provided [weekFormat].
+ */
+@ExperimentalTime
+fun Year.weeks(weekFormat: WeekFormat = WeekFormat()): Int {
+    val firstWeekNumber = firstDate.weekOfYear(weekFormat = weekFormat)
+    val lastWeekNumber = lastDate.weekOfYear(weekFormat = weekFormat)
+
+    return lastWeekNumber - firstWeekNumber + 1
+}
+
+/**
+ * Retrieves the first year week number of this [Year] using the provided [weekFormat].
+ */
+@ExperimentalTime
+fun Year.firstYearWeek(weekFormat: WeekFormat = WeekFormat()): Int =
+    firstDate.weekOfYear(weekFormat = weekFormat)
+
+/**
+ * Retrieves the last year week number of this [Year] using the provided [weekFormat].
+ */
+@ExperimentalTime
+fun Year.lastYearWeek(weekFormat: WeekFormat = WeekFormat()): Int =
+    lastDate.weekOfYear(weekFormat = weekFormat)
 
 /**
  * Convenience function for creating a [LocalDate] using a [Year].

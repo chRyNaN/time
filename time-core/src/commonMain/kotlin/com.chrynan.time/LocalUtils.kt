@@ -7,10 +7,10 @@ import kotlinx.datetime.LocalDateTime
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
-expect fun LocalDate.weekOfYear(weekFormat: WeekFormat): Int
+expect fun LocalDate.weekOfYear(weekFormat: WeekFormat = WeekFormat()): Int
 
 @ExperimentalTime
-expect fun LocalDate.weekOfMonth(weekFormat: WeekFormat): Int
+expect fun LocalDate.weekOfMonth(weekFormat: WeekFormat = WeekFormat()): Int
 
 @ExperimentalTime
 @UnstableTimeApi
@@ -29,11 +29,11 @@ fun LocalDate.weekOfMonth(locale: Locale): Int {
 }
 
 @ExperimentalTime
-fun LocalDateTime.weekOfYear(weekFormat: WeekFormat): Int =
+fun LocalDateTime.weekOfYear(weekFormat: WeekFormat = WeekFormat()): Int =
     this.date.weekOfYear(weekFormat = weekFormat)
 
 @ExperimentalTime
-fun LocalDateTime.weekOfMonth(weekFormat: WeekFormat): Int =
+fun LocalDateTime.weekOfMonth(weekFormat: WeekFormat = WeekFormat()): Int =
     this.date.weekOfMonth(weekFormat = weekFormat)
 
 @ExperimentalTime
