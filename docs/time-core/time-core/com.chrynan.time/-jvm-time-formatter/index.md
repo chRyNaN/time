@@ -3,6 +3,8 @@
 # JvmTimeFormatter
 
 [jvm]\
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
+
 class [JvmTimeFormatter](index.md)(format: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)) : [TimeFormatter](../../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md)
 
 ## Functions

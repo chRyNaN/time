@@ -5,30 +5,37 @@
 [common, android, ios, js, jvm]\
 [common]\
 
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
+
+@[UnstableTimeApi](-unstable-time-api/index.md)
+
+fun LocalDate.[weekOfMonth](week-of-month.md)(locale: [Locale](-locale/index.md)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+[common]\
+
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
+
+fun LocalDateTime.[weekOfMonth](week-of-month.md)(weekFormat: [WeekFormat](-week-format/index.md) = WeekFormat()): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+[common]\
+
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
+
 @[UnstableTimeApi](-unstable-time-api/index.md)
 
 fun LocalDateTime.[weekOfMonth](week-of-month.md)(locale: [Locale](-locale/index.md)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
 
 [common]\
 
-@[UnstableTimeApi](-unstable-time-api/index.md)
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-fun LocalDate.[weekOfMonth](week-of-month.md)(locale: [Locale](-locale/index.md)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+fun LocalDate.[weekOfMonth](week-of-month.md)(weekFormat: [WeekFormat](-week-format/index.md) = WeekFormat()): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
 
-[android]\
+[android, js, jvm]\
 
-@[UnstableTimeApi](../../../time-core/time-core/com.chrynan.time/-unstable-time-api/index.md)
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-fun LocalDate.[weekOfMonth](week-of-month.md)(locale: [Locale](-locale/index.md#-1614710943%2FExtensions%2F219598131)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+fun LocalDate.[weekOfMonth](week-of-month.md)(weekFormat: [WeekFormat](../../../time-core/time-core/com.chrynan.time/-week-format/index.md) = WeekFormat()): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
 
-[ios, js]\
-
-@[UnstableTimeApi](../../../time-core/time-core/com.chrynan.time/-unstable-time-api/index.md)
-
-fun LocalDate.[weekOfMonth](week-of-month.md)(locale: [Locale](../../../time-core/time-core/com.chrynan.time/-locale/index.md)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
-
-[jvm]\
-
-@[UnstableTimeApi](../../../time-core/time-core/com.chrynan.time/-unstable-time-api/index.md)
-
-fun LocalDate.[weekOfMonth](week-of-month.md)(locale: [Locale](-locale/index.md#-1614710943%2FExtensions%2F-1191170225)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+[ios]\
+fun LocalDate.[weekOfMonth](week-of-month.md)(weekFormat: [WeekFormat](../../../time-core/time-core/com.chrynan.time/-week-format/index.md) = WeekFormat()): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)

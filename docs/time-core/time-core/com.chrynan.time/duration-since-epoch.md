@@ -7,3 +7,13 @@
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
 val Instant.[durationSinceEpoch](duration-since-epoch.md): [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)
+
+Retrieves a [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html) of the time elapsed since the Epoch.
+
+## See also
+
+common
+
+| | |
+|---|---|
+| kotlinx.datetime.Instant |  |

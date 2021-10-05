@@ -3,6 +3,9 @@
 # days
 
 [common]\
+
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
+
 fun Month.[days](days.md)(isLeapYear: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
 
 Retrieves the number of days in this month. The provided [isLeapYear](days.md) parameter is used to determine the amount of days in the month of February.
@@ -38,3 +41,15 @@ Returns a [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-d
 | | |
 |---|---|
 | [kotlin.IllegalArgumentException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html) | if this Double value is NaN. |
+
+[common]\
+
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
+
+val [Year](-year/index.md).[days](days.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+Retrieves the amount of days in this [Year](-year/index.md).
+
+#### Return
+
+the length of this year in days, 365 or 366 if it is a leap year.

@@ -3,6 +3,8 @@
 # TimeFormatter
 
 [common]\
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
+
 interface [TimeFormatter](index.md)
 
 A utility that formats a provided time value, such as an Instant, to a formatted [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) dependent on the [format](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) value.
