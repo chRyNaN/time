@@ -20,19 +20,11 @@ import kotlin.time.ExperimentalTime
 internal expect fun convertDateTimeStringToInstant(value: String): Instant
 
 @ExperimentalTime
-val Instant.durationSinceEpoch: Duration
-    get() = toEpochMilliseconds().milliseconds
-
-@ExperimentalTime
 fun Duration.toInstantSinceEpoch(): Instant =
     Instant.fromEpochMilliseconds(this.inWholeMilliseconds)
 
 @ExperimentalTime
 fun Long.toInstantFromMillisecondsSinceEpoch(): Instant = milliseconds.toInstantSinceEpoch()
-
-@ExperimentalTime
-infix fun Instant.durationTo(other: Instant): Duration =
-    (other.toEpochMilliseconds() - toEpochMilliseconds()).milliseconds
 
 @UnstableTimeApi
 expect fun LocalDate.weekOfYear(locale: Locale): Int
