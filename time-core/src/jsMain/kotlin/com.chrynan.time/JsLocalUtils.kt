@@ -1,11 +1,12 @@
 package com.chrynan.time
 
 import kotlinx.datetime.LocalDate
+import kotlin.time.ExperimentalTime
 
-@UnstableTimeApi
-actual fun LocalDate.weekOfYear(locale: Locale): Int =
+@ExperimentalTime
+actual fun LocalDate.weekOfYear(weekFormat: WeekFormat): Int =
     throw UnsupportedOperationException("LocalDate.weekOfYear is currently not supported in Javascript.")
 
-@UnstableTimeApi
-actual fun LocalDate.weekOfMonth(locale: Locale): Int =
+@ExperimentalTime
+actual fun LocalDate.weekOfMonth(weekFormat: WeekFormat): Int =
     throw UnsupportedOperationException("LocalDate.weekOfYear is currently not supported in Javascript.")

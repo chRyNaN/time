@@ -2,11 +2,12 @@ package com.chrynan.time
 
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.toNSDateComponents
+import kotlin.time.ExperimentalTime
 
-@UnstableTimeApi
-actual fun LocalDate.weekOfYear(locale: Locale): Int =
+@ExperimentalTime
+actual fun LocalDate.weekOfYear(weekFormat: WeekFormat): Int =
     this.toNSDateComponents().weekOfYear.toInt()
 
-@UnstableTimeApi
-actual fun LocalDate.weekOfMonth(locale: Locale): Int =
+@ExperimentalTime
+actual fun LocalDate.weekOfMonth(weekFormat: WeekFormat): Int =
     this.toNSDateComponents().weekOfMonth.toInt()

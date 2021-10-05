@@ -4,17 +4,44 @@ package com.chrynan.time
 
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
+import kotlin.time.ExperimentalTime
 
+@ExperimentalTime
+expect fun LocalDate.weekOfYear(weekFormat: WeekFormat): Int
+
+@ExperimentalTime
+expect fun LocalDate.weekOfMonth(weekFormat: WeekFormat): Int
+
+@ExperimentalTime
 @UnstableTimeApi
-expect fun LocalDate.weekOfYear(locale: Locale): Int
+fun LocalDate.weekOfYear(locale: Locale): Int {
+    val weekFormat = WeekFormat(locale = locale)
 
+    return weekOfYear(weekFormat = weekFormat)
+}
+
+@ExperimentalTime
 @UnstableTimeApi
-expect fun LocalDate.weekOfMonth(locale: Locale): Int
+fun LocalDate.weekOfMonth(locale: Locale): Int {
+    val weekFormat = WeekFormat(locale = locale)
 
+    return weekOfMonth(weekFormat = weekFormat)
+}
+
+@ExperimentalTime
+fun LocalDateTime.weekOfYear(weekFormat: WeekFormat): Int =
+    this.date.weekOfYear(weekFormat = weekFormat)
+
+@ExperimentalTime
+fun LocalDateTime.weekOfMonth(weekFormat: WeekFormat): Int =
+    this.date.weekOfMonth(weekFormat = weekFormat)
+
+@ExperimentalTime
 @UnstableTimeApi
 fun LocalDateTime.weekOfYear(locale: Locale): Int =
     this.date.weekOfYear(locale = locale)
 
+@ExperimentalTime
 @UnstableTimeApi
 fun LocalDateTime.weekOfMonth(locale: Locale): Int =
     this.date.weekOfMonth(locale = locale)
