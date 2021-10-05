@@ -15,6 +15,7 @@ import kotlin.time.ExperimentalTime
  * @see [iOS NSDateFormatter](https://developer.apple.com/documentation/foundation/nsdateformatter)
  * @see [Javascript Date Formatter Library](https://blog.stevenlevithan.com/archives/date-time-format)
  */
+@ExperimentalTime
 interface TimeFormatter {
 
     val format: String
@@ -40,4 +41,5 @@ interface TimeFormatter {
  *
  * @see [TimeFormatter]
  */
+@ExperimentalTime
 expect fun TimeFormatter(format: String): TimeFormatter

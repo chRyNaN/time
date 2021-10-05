@@ -4,7 +4,9 @@ import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toNSTimeZone
 import platform.Foundation.*
+import kotlin.time.ExperimentalTime
 
+@ExperimentalTime
 class IosTimeFormatter(override val format: String) : TimeFormatter {
 
     override operator fun invoke(value: Instant, timeZone: TimeZone): String {
@@ -21,4 +23,5 @@ class IosTimeFormatter(override val format: String) : TimeFormatter {
         }
 }
 
+@ExperimentalTime
 actual fun TimeFormatter(format: String): TimeFormatter = IosTimeFormatter(format)

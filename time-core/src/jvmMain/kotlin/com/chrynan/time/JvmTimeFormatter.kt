@@ -4,7 +4,9 @@ import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.time.ExperimentalTime
 
+@ExperimentalTime
 class JvmTimeFormatter(override val format: String) : TimeFormatter {
 
     override fun invoke(value: Instant, timeZone: TimeZone): String {
@@ -22,4 +24,5 @@ class JvmTimeFormatter(override val format: String) : TimeFormatter {
         java.util.TimeZone.getTimeZone(this.id)
 }
 
+@ExperimentalTime
 actual fun TimeFormatter(format: String): TimeFormatter = JvmTimeFormatter(format)
