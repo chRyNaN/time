@@ -3,9 +3,7 @@
 package com.chrynan.time
 
 import kotlinx.datetime.Instant
-import kotlinx.datetime.LocalDate
 import java.text.SimpleDateFormat
-import java.time.temporal.WeekFields
 import java.util.*
 import kotlin.time.ExperimentalTime
 
@@ -65,21 +63,3 @@ fun UtcMillisSinceEpoch.toCalendar(): Calendar = toDate().toCalendar()
 
 @ExperimentalTime
 fun Calendar.toUtcMillisSinceEpoch(): UtcMillisSinceEpoch = toDate().toUtcMillisSinceEpoch()
-
-@UnstableTimeApi
-actual fun LocalDate.weekOfYear(locale: Locale): Int {
-    val weekFields = WeekFields.of(locale.toJavaLocale())
-
-    val javaLocalDate = java.time.LocalDate.of(year, month, dayOfMonth)
-
-    return javaLocalDate.get(weekFields.weekOfYear())
-}
-
-@UnstableTimeApi
-actual fun LocalDate.weekOfMonth(locale: Locale): Int {
-    val weekFields = WeekFields.of(locale.toJavaLocale())
-
-    val javaLocalDate = java.time.LocalDate.of(year, month, dayOfMonth)
-
-    return javaLocalDate.get(weekFields.weekOfMonth())
-}

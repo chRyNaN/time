@@ -1,7 +1,6 @@
 package com.chrynan.time
 
 import kotlinx.datetime.Instant
-import kotlinx.datetime.LocalDate
 import kotlin.time.ExperimentalTime
 
 /**
@@ -11,11 +10,3 @@ import kotlin.time.ExperimentalTime
  */
 @ExperimentalTime
 actual fun convertDateTimeStringToInstant(value: String) = Instant.parse(value)
-
-@UnstableTimeApi
-actual fun LocalDate.weekOfYear(locale: Locale): Int =
-    throw UnsupportedOperationException("LocalDate.weekOfYear is currently not supported in Javascript.")
-
-@UnstableTimeApi
-actual fun LocalDate.weekOfMonth(locale: Locale): Int =
-    throw UnsupportedOperationException("LocalDate.weekOfYear is currently not supported in Javascript.")

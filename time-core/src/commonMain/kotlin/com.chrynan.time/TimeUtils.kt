@@ -3,8 +3,6 @@
 package com.chrynan.time
 
 import kotlinx.datetime.Instant
-import kotlinx.datetime.LocalDate
-import kotlinx.datetime.LocalDateTime
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
@@ -25,17 +23,3 @@ fun Duration.toInstantSinceEpoch(): Instant =
 
 @ExperimentalTime
 fun Long.toInstantFromMillisecondsSinceEpoch(): Instant = milliseconds.toInstantSinceEpoch()
-
-@UnstableTimeApi
-expect fun LocalDate.weekOfYear(locale: Locale): Int
-
-@UnstableTimeApi
-expect fun LocalDate.weekOfMonth(locale: Locale): Int
-
-@UnstableTimeApi
-fun LocalDateTime.weekOfYear(locale: Locale): Int =
-    this.date.weekOfYear(locale = locale)
-
-@UnstableTimeApi
-fun LocalDateTime.weekOfMonth(locale: Locale): Int =
-    this.date.weekOfMonth(locale = locale)

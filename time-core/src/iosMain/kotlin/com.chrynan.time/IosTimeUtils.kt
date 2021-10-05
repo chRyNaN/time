@@ -1,8 +1,6 @@
 package com.chrynan.time
 
 import kotlinx.datetime.Instant
-import kotlinx.datetime.LocalDate
-import kotlinx.datetime.toNSDateComponents
 import kotlin.time.ExperimentalTime
 
 /**
@@ -12,11 +10,3 @@ import kotlin.time.ExperimentalTime
  */
 @ExperimentalTime
 actual fun convertDateTimeStringToInstant(value: String) = Instant.parse(value)
-
-@UnstableTimeApi
-actual fun LocalDate.weekOfYear(locale: Locale): Int =
-    this.toNSDateComponents().weekOfYear.toInt()
-
-@UnstableTimeApi
-actual fun LocalDate.weekOfMonth(locale: Locale): Int =
-    this.toNSDateComponents().weekOfMonth.toInt()
