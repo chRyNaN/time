@@ -1,6 +1,9 @@
+@file:Suppress("unused")
+
 package com.chrynan.time
 
 import kotlinx.datetime.DayOfWeek
+import kotlin.time.ExperimentalTime
 
 /**
  * Represents the formatting for the counting of weeks within a month or year.
@@ -12,13 +15,20 @@ import kotlinx.datetime.DayOfWeek
  * @property [firstDayOfWeek] Gets the first day-of-week.
  * The first day-of-week varies by culture. For example, the US uses Sunday, while France and the ISO-8601 standard use
  * Monday. This method returns the first day using the standard DayOfWeek enum.
- *
- * @property [isZeroBased] Whether any days before the first week are considered week zero. If this is true, any values
- * before the first week and within the same year, calculated using the [minimalDaysInFirstWeek] and [firstDayOfWeek]
- * properties, are considered within week zero. If false, those values are considered within the previous year.
  */
+@ExperimentalTime
 data class WeekFormat(
     val minimalDaysInFirstWeek: Int = 4,
-    val firstDayOfWeek: DayOfWeek = DayOfWeek.MONDAY,
-    val isZeroBased: Boolean = true
-)
+    val firstDayOfWeek: DayOfWeek = DayOfWeek.MONDAY
+) {
+
+    companion object
+}
+
+/**
+ * Creates a [WeekFormat] instance from the provided [Locale]. If it is possible to obtain a [WeekFormat] from the
+ * provided [Locale] then that is returned, otherwise a default [WeekFormat] is returned.
+ */
+@ExperimentalTime
+@UnstableTimeApi
+expect fun WeekFormat(locale: Locale): WeekFormat
