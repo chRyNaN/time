@@ -14,6 +14,7 @@ import kotlin.time.ExperimentalTime
  * April, June, September and November have 30 days.
  * All other months have 31 days.
  */
+@ExperimentalTime
 fun Month.days(isLeapYear: Boolean): Int =
     when (this) {
         Month.FEBRUARY -> if (isLeapYear) 29 else 28
