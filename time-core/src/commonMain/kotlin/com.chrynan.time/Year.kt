@@ -28,8 +28,6 @@ import kotlin.time.ExperimentalTime
  * Note that for functions that take a [Year] as a parameter, there may be duplicates of those functions that take an
  * [Int] that represents a [Year]. This is done for convenience.
  *
- * Note: to perform arithmetic on the year, simply use the [Int] [value].
- *
  * @property [value] The [Int] value representing the year.
  */
 @JvmInline
@@ -225,6 +223,18 @@ fun Year.firstYearWeek(weekFormat: WeekFormat = WeekFormat()): Int =
 @ExperimentalTime
 fun Year.lastYearWeek(weekFormat: WeekFormat = WeekFormat()): Int =
     lastDate.weekOfYear(weekFormat = weekFormat)
+
+/**
+ * Returns the [Year] that is the specified number of years after this one.
+ */
+@ExperimentalTime
+operator fun Year.plus(value: Int): Year = Year(this.value + value)
+
+/**
+ * Returns the [Year] that is the specified number of years before this one.
+ */
+@ExperimentalTime
+operator fun Year.minus(value: Int): Year = Year(this.value - value)
 
 /**
  * Convenience function for creating a [LocalDate] using a [Year].
