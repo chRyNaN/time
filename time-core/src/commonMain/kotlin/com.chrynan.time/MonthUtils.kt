@@ -281,3 +281,27 @@ fun Month.lastMonthWeekIn(year: Year, weekFormat: WeekFormat = WeekFormat()): In
 @ExperimentalTime
 fun Month.lastMonthWeekIn(year: Int, weekFormat: WeekFormat = WeekFormat()): Int =
     lastMonthWeekIn(year = Year(year), weekFormat = weekFormat)
+
+/**
+ * Returns the [Month] that is the specified number of months after this one.
+ *
+ * The calculation rolls around the end of the year from December to January. The specified period may be negative.
+ */
+operator fun Month.plus(value: Int): Month {
+    val months = Month.values()
+    val index = months.indexOf(this)
+
+    return months[index + value % months.size]
+}
+
+/**
+ * Returns the [Month] that is the specified number of months before this one.
+ *
+ * The calculation rolls around the end of the year from January to December. The specified period may be negative.
+ */
+operator fun Month.minus(value: Int): Month {
+    val months = Month.values()
+    val index = months.indexOf(this)
+
+    return months[index - value % months.size]
+}
