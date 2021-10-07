@@ -32,5 +32,13 @@ fun TimeProvider.currentYearMonthAt(timeZone: TimeZone): YearMonth {
 }
 
 @ExperimentalTime
-private fun TimeProvider.isTodayAt(timeZone: TimeZone, localDate: LocalDate): Boolean =
+fun TimeProvider.isTodayAt(timeZone: TimeZone, localDate: LocalDate): Boolean =
     todayAt(timeZone = timeZone) == localDate
+
+@ExperimentalTime
+fun TimeProvider.isYesterdayAt(timeZone: TimeZone, localDate: LocalDate): Boolean =
+    yesterdayAt(timeZone = timeZone) == localDate
+
+@ExperimentalTime
+fun TimeProvider.isTomorrowAt(timeZone: TimeZone, localDate: LocalDate): Boolean =
+    yesterdayAt(timeZone = timeZone) == localDate

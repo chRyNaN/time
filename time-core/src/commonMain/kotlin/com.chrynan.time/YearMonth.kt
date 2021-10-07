@@ -3,7 +3,9 @@
 package com.chrynan.time
 
 import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.Month
+import kotlinx.datetime.number
 import kotlin.time.ExperimentalTime
 
 /**
@@ -16,22 +18,27 @@ data class YearMonth(
 )
 
 /**
+ * Constructs a [YearMonth] with the provided [year] and [month] values.
+ */
+@ExperimentalTime
+fun YearMonth(
+    year: Int,
+    month: Month
+): YearMonth =
+    YearMonth(year = Year(year), month = month)
+
+/**
  * Adds the provided [amount] of months to this [YearMonth], incrementing (or decrementing if the [amount] is negative)
  * the year and month value as necessary.
  */
 @ExperimentalTime
 infix fun YearMonth.plusMonths(amount: Int): YearMonth {
-    val months = Month.values()
-    val monthIndex = months.indexOf(this.month) + amount
+    val totalCurrentMonths = (year.value * 12) + (month.number - 1)
+    val totalMonths = totalCurrentMonths + amount
+    val newYear = totalMonths.floorDiv(12)
+    val newMonth = totalMonths.mod(12) + 1
 
-    val newYear = when {
-        monthIndex > months.size && monthIndex < months.size -> this.year + (monthIndex / months.size)
-        else -> this.year
-    }
-
-    val newMonth = months[monthIndex % months.size]
-
-    return YearMonth(year = newYear, month = newMonth)
+    return YearMonth(year = newYear, month = Month(newMonth))
 }
 
 /**
@@ -39,19 +46,8 @@ infix fun YearMonth.plusMonths(amount: Int): YearMonth {
  * negative) the year and month value as necessary.
  */
 @ExperimentalTime
-infix fun YearMonth.minusMonths(amount: Int): YearMonth {
-    val months = Month.values()
-    val monthIndex = months.indexOf(this.month) - amount
-
-    val newYear = when {
-        monthIndex > months.size && monthIndex < months.size -> this.year + (monthIndex / months.size)
-        else -> this.year
-    }
-
-    val newMonth = months[monthIndex % months.size]
-
-    return YearMonth(year = newYear, month = newMonth)
-}
+infix fun YearMonth.minusMonths(amount: Int): YearMonth =
+    plusMonths(amount = -amount)
 
 /**
  * Adds the provided [amount] of year to this [YearMonth], incrementing (or decrementing if the [amount] is negative)
@@ -95,3 +91,17 @@ val YearMonth.firstDate: LocalDate
 @ExperimentalTime
 val YearMonth.lastDate: LocalDate
     get() = year.lastDateInMonth(month)
+
+/**
+ * Retrieves the [YearMonth] instance for this [LocalDate].
+ */
+@ExperimentalTime
+val LocalDate.yearMonth: YearMonth
+    get() = YearMonth(year = year, month = month)
+
+/**
+ * Retrieves the [YearMonth] instance for this [LocalDateTime].
+ */
+@ExperimentalTime
+val LocalDateTime.yearMonth: YearMonth
+    get() = date.yearMonth
