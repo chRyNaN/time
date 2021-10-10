@@ -146,6 +146,33 @@ val YearMonth.lastDate: LocalDate
     get() = year.lastDateInMonth(month)
 
 /**
+ * Retrieves the number of days in this [YearMonth.month] for this [YearMonth.year].
+ *
+ * @see [Year.daysIn]
+ */
+@ExperimentalTime
+val YearMonth.days: Int
+    get() = year.daysIn(month)
+
+/**
+ * Retrieves a [List] of [LocalDate]s representing the days within this [YearMonth.month] and [YearMonth.year].
+ *
+ * @see [Year.datesIn]
+ */
+@ExperimentalTime
+val YearMonth.dates: List<LocalDate>
+    get() = year.datesIn(month)
+
+/**
+ * Retrieves the number of weeks within this [YearMonth.year] and [YearMonth.month] using the provided [weekFormat].
+ *
+ * @see [Year.weeksIn]
+ */
+@ExperimentalTime
+fun YearMonth.weeks(weekFormat: WeekFormat = WeekFormat()): Int =
+    year.weeksIn(month, weekFormat)
+
+/**
  * Retrieves the [YearMonth] instance for this [LocalDate].
  */
 @ExperimentalTime
