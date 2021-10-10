@@ -49,7 +49,7 @@ class YearMonthIterator internal constructor(
 
     private var value: YearMonth = start
 
-    override fun hasNext(): Boolean = value < endInclusive
+    override fun hasNext(): Boolean = (value plusMonths stepMonths) <= endInclusive
 
     override fun next(): YearMonth {
         value = value plusMonths stepMonths

@@ -39,6 +39,48 @@ value class Year(val value: Int) : Comparable<Year> {
     companion object
 }
 
+@ExperimentalTime
+class YearRange internal constructor(
+    override val start: Year,
+    override val endInclusive: Year,
+    private val stepYears: Int = 1
+) : ClosedRange<Year>,
+    Iterable<Year> {
+
+    override fun iterator(): Iterator<Year> =
+        YearIterator(start = start, endInclusive = endInclusive, stepYears = stepYears)
+}
+
+@ExperimentalTime
+class YearIterator internal constructor(
+    start: Year,
+    private val endInclusive: Year,
+    private val stepYears: Int = 1
+) : Iterator<Year> {
+
+    private var value: Int = start.value
+
+    override fun hasNext(): Boolean = (value + stepYears) <= endInclusive.value
+
+    override fun next(): Year {
+        value += stepYears
+
+        return Year(value)
+    }
+}
+
+@ExperimentalTime
+operator fun Year.rangeTo(other: Year): YearRange =
+    YearRange(start = this, endInclusive = other)
+
+/**
+ * Returns a range from this [Year] up to but excluding the provided [to] [Year] value. Each item in the resulting
+ * [YearRange] is incremented by one year.
+ */
+@ExperimentalTime
+infix fun Year.until(to: Year): YearRange =
+    this..(to - 1)
+
 /**
  * Checks if the year is a leap year, according to the ISO proleptic
  * calendar system rules.
