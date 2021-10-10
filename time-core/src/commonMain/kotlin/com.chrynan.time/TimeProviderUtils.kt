@@ -42,3 +42,15 @@ fun TimeProvider.isYesterdayAt(timeZone: TimeZone, localDate: LocalDate): Boolea
 @ExperimentalTime
 fun TimeProvider.isTomorrowAt(timeZone: TimeZone, localDate: LocalDate): Boolean =
     yesterdayAt(timeZone = timeZone) == localDate
+
+@ExperimentalTime
+fun TimeProvider.isToday(dateStamp: DateStamp): Boolean =
+    todayAt(timeZone = dateStamp.timeZone) == dateStamp.date
+
+@ExperimentalTime
+fun TimeProvider.isYesterday(dateStamp: DateStamp): Boolean =
+    yesterdayAt(timeZone = dateStamp.timeZone) == dateStamp.date
+
+@ExperimentalTime
+fun TimeProvider.isTomorrow(dateStamp: DateStamp): Boolean =
+    tomorrowAt(timeZone = dateStamp.timeZone) == dateStamp.date
