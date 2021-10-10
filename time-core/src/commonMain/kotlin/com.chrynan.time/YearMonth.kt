@@ -15,7 +15,60 @@ import kotlin.time.ExperimentalTime
 data class YearMonth(
     val year: Year,
     val month: Month
-)
+) : Comparable<YearMonth> {
+
+    override fun compareTo(other: YearMonth): Int =
+        when {
+            year == other.year && month == other.month -> 0
+            year > other.year -> 1
+            year == other.year && month > other.month -> 1
+            else -> -1
+        }
+
+    companion object
+}
+
+@ExperimentalTime
+class YearMonthRange internal constructor(
+    override val start: YearMonth,
+    override val endInclusive: YearMonth,
+    private val stepMonths: Int = 1
+) : ClosedRange<YearMonth>,
+    Iterable<YearMonth> {
+
+    override fun iterator(): Iterator<YearMonth> =
+        YearMonthIterator(start = start, endInclusive = endInclusive, stepMonths = stepMonths)
+}
+
+@ExperimentalTime
+class YearMonthIterator internal constructor(
+    start: YearMonth,
+    private val endInclusive: YearMonth,
+    private val stepMonths: Int = 1
+) : Iterator<YearMonth> {
+
+    private var value: YearMonth = start
+
+    override fun hasNext(): Boolean = value < endInclusive
+
+    override fun next(): YearMonth {
+        value = value plusMonths stepMonths
+
+        return value
+    }
+}
+
+@ExperimentalTime
+operator fun YearMonth.rangeTo(other: YearMonth): YearMonthRange =
+    YearMonthRange(start = this, endInclusive = other)
+
+/**
+ * Returns a range from this [YearMonth] up to but excluding the provided [to] [YearMonth] value. Each item in the
+ * resulting [YearMonthRange] is incremented by one month.
+ */
+@ExperimentalTime
+infix fun YearMonth.until(to: YearMonth): YearMonthRange =
+    this..(to minusMonths 1)
 
 /**
  * Constructs a [YearMonth] with the provided [year] and [month] values.
