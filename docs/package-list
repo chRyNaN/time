@@ -34,6 +34,7 @@ $dokka.location:com.chrynan.time//daysIn/com.chrynan.time.Year#kotlinx.datetime.
 $dokka.location:com.chrynan.time//daysIn/kotlinx.datetime.Month#com.chrynan.time.Year/PointingToDeclaration/time-core/time-core/com.chrynan.time/days-in.md
 $dokka.location:com.chrynan.time//daysIn/kotlinx.datetime.Month#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/days-in.md
 $dokka.location:com.chrynan.time//duration/com.chrynan.time.Year#/PointingToDeclaration/time-core/time-core/com.chrynan.time/duration.md
+$dokka.location:com.chrynan.time//duration/com.chrynan.time.YearMonth#/PointingToDeclaration/time-core/time-core/com.chrynan.time/duration.md
 $dokka.location:com.chrynan.time//duration/kotlinx.datetime.Month#com.chrynan.time.Year/PointingToDeclaration/time-core/time-core/com.chrynan.time/duration.md
 $dokka.location:com.chrynan.time//duration/kotlinx.datetime.Month#kotlin.Boolean/PointingToDeclaration/time-core/time-core/com.chrynan.time/duration.md
 $dokka.location:com.chrynan.time//duration/kotlinx.datetime.Month#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/duration.md

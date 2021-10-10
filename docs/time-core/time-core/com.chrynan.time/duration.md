@@ -51,3 +51,22 @@ val [Year](-year/index.md).[duration](duration.md): [Duration](https://kotlinlan
 Retrieves the [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html) of this [Year](-year/index.md) with day precision.
 
 This is equivalent to calling [Duration.days](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/days.html) with the [days](days.md) value.
+
+[common]\
+
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
+
+val [YearMonth](-year-month/index.md).[duration](duration.md): [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)
+
+Retrieves the [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html) of this [YearMonth](-year-month/index.md) with day precision.
+
+This is equivalent to calling [Duration.days](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/days.html) with the [daysIn](days-in.md) value.
+
+## See also
+
+common
+
+| | |
+|---|---|
+| [daysIn](days-in.md) |  |
+| [Month.duration](duration.md) |  |
