@@ -6,6 +6,7 @@ import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.Month
 import kotlinx.datetime.number
+import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
 /**
@@ -171,6 +172,18 @@ val YearMonth.dates: List<LocalDate>
 @ExperimentalTime
 fun YearMonth.weeks(weekFormat: WeekFormat = WeekFormat()): Int =
     year.weeksIn(month, weekFormat)
+
+/**
+ * Retrieves the [Duration] of this [YearMonth] with day precision.
+ *
+ * This is equivalent to calling [Duration.days] with the [daysIn] value.
+ *
+ * @see [daysIn]
+ * @see [Month.duration]
+ */
+@ExperimentalTime
+val YearMonth.duration: Duration
+    get() = month.duration(year)
 
 /**
  * Retrieves the [YearMonth] instance for this [LocalDate].
