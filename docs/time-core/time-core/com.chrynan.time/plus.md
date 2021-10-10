@@ -3,31 +3,16 @@
 # plus
 
 [common]\
+operator fun Month.[plus](plus.md)(value: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)): Month
 
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
+Returns the Month that is the specified number of months after this one.
 
-operator fun [TimeStamp](-time-stamp/index.md).[plus](plus.md)(other: [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)): [TimeStamp](-time-stamp/index.md)
+The calculation rolls around the end of the year from December to January. The specified period may be negative.
 
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
+[common]\
 
-operator fun [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html).[plus](plus.md)(other: [TimeStamp](-time-stamp/index.md)): [TimeStamp](-time-stamp/index.md)
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
+operator fun [Year](-year/index.md).[plus](plus.md)(value: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)): [Year](-year/index.md)
 
-operator fun [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md).[plus](plus.md)(other: [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md)): [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md)
-
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
-
-operator fun [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md).[plus](plus.md)(other: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)): [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md)
-
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
-
-operator fun [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md).[plus](plus.md)(other: [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)): [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md)
-
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
-
-operator fun [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html).[plus](plus.md)(other: [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md)): [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md)
-
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)()
-
-operator fun [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html).[plus](plus.md)(other: [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md)): [UtcMillisSinceEpoch](-utc-millis-since-epoch/index.md)
+Returns the [Year](-year/index.md) that is the specified number of years after this one.

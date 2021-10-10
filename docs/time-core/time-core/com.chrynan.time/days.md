@@ -53,3 +53,19 @@ Retrieves the amount of days in this [Year](-year/index.md).
 #### Return
 
 the length of this year in days, 365 or 366 if it is a leap year.
+
+[common]\
+
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
+
+val [YearMonth](-year-month/index.md).[days](days.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+Retrieves the number of days in this [YearMonth.month](-year-month/month.md) for this [YearMonth.year](-year-month/year.md).
+
+## See also
+
+common
+
+| | |
+|---|---|
+| [Year.daysIn](days-in.md) |  |
