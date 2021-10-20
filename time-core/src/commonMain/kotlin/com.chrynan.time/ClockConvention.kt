@@ -2,6 +2,7 @@
 
 package com.chrynan.time
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
@@ -10,7 +11,10 @@ import kotlinx.serialization.Serializable
 @Serializable
 enum class ClockConvention {
 
+    @SerialName(value = "24hr")
     TWENTY_FOUR_HOUR,
+
+    @SerialName(value = "12hr")
     TWELVE_HOUR;
 
     companion object

@@ -5,6 +5,8 @@ package com.chrynan.time
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.Month
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmInline
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
@@ -32,7 +34,8 @@ import kotlin.time.ExperimentalTime
  */
 @JvmInline
 @ExperimentalTime
-value class Year(val value: Int) : Comparable<Year> {
+@Serializable
+value class Year(@SerialName(value = "value") val value: Int) : Comparable<Year> {
 
     override fun compareTo(other: Year): Int = value.compareTo(other.value)
 

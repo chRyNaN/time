@@ -6,6 +6,8 @@ import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.Month
 import kotlinx.datetime.number
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
@@ -13,9 +15,10 @@ import kotlin.time.ExperimentalTime
  * A class representing an association between a [year] and a [month].
  */
 @ExperimentalTime
+@Serializable
 data class YearMonth(
-    val year: Year,
-    val month: Month
+    @SerialName(value = "year") val year: Year,
+    @SerialName(value = "month") val month: Month
 ) : Comparable<YearMonth> {
 
     override fun compareTo(other: YearMonth): Int =

@@ -3,6 +3,8 @@
 package com.chrynan.time
 
 import kotlinx.datetime.DayOfWeek
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import kotlin.time.ExperimentalTime
 
 /**
@@ -17,9 +19,10 @@ import kotlin.time.ExperimentalTime
  * Monday. This method returns the first day using the standard DayOfWeek enum.
  */
 @ExperimentalTime
+@Serializable
 data class WeekFormat(
-    val minimalDaysInFirstWeek: Int = 4,
-    val firstDayOfWeek: DayOfWeek = DayOfWeek.MONDAY
+    @SerialName(value = "minimal_days_in_first_week") val minimalDaysInFirstWeek: Int = 4,
+    @SerialName(value = "first_day_of_week") val firstDayOfWeek: DayOfWeek = DayOfWeek.MONDAY
 ) {
 
     companion object
