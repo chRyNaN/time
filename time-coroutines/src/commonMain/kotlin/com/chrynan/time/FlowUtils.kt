@@ -124,14 +124,14 @@ fun <T> Flow<T>.timedValue(): Flow<TimedValue<T>> = channelFlow {
  * and downstream behaves. The available strategies are [Latest], [Merge], and [Concat].
  */
 @FlowPreview
-sealed class PollingStrategy {
+sealed class FlatMapStrategy {
 
     /**
      * Equivalent to the [Flow.flatMapLatest] function.
      *
      * @see [flatMapLatest]
      */
-    object Latest : PollingStrategy()
+    object Latest : FlatMapStrategy()
 
     /**
      * Equivalent to the [Flow.flatMapMerge] function.
@@ -141,14 +141,14 @@ sealed class PollingStrategy {
      *
      * @see [flatMapMerge]
      */
-    data class Merge(val limit: Int = DEFAULT_CONCURRENCY) : PollingStrategy()
+    data class Merge(val limit: Int = DEFAULT_CONCURRENCY) : FlatMapStrategy()
 
     /**
      * Equivalent to the [Flow.flatMapConcat] function.
      *
      * @see [flatMapConcat]
      */
-    object Concat : PollingStrategy()
+    object Concat : FlatMapStrategy()
 }
 
 /**
@@ -162,18 +162,26 @@ sealed class PollingStrategy {
 fun <T> poll(
     initialDelay: Duration = 0.seconds,
     period: Duration,
-    strategy: PollingStrategy = PollingStrategy.Latest,
+    strategy: FlatMapStrategy = FlatMapStrategy.Latest,
     flowGetter: suspend (Long) -> Flow<T>
 ): Flow<T> {
     val intervalFlow = intervalFlow(initialDelay = initialDelay, period = period)
 
     return when (strategy) {
-        is PollingStrategy.Latest -> intervalFlow.flatMapLatest { flowGetter(it) }
-        is PollingStrategy.Merge -> intervalFlow.flatMapMerge(concurrency = strategy.limit) {
+        is FlatMapStrategy.Latest -> intervalFlow.flatMapLatest { flowGetter(it) }
+        is FlatMapStrategy.Merge -> intervalFlow.flatMapMerge(concurrency = strategy.limit) {
             flowGetter(
                 it
             )
         }
-        is PollingStrategy.Concat -> intervalFlow.flatMapConcat { flowGetter(it) }
+        is FlatMapStrategy.Concat -> intervalFlow.flatMapConcat { flowGetter(it) }
     }
+}
+
+/**
+ * Delays each emitted item from this [Flow] by the provided [duration].
+ */
+@ExperimentalTime
+fun <T> Flow<T>.delayEach(duration: Duration): Flow<T> = onEach {
+    delay(duration)
 }
