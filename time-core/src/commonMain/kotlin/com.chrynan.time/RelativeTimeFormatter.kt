@@ -9,6 +9,7 @@ import kotlin.time.ExperimentalTime
  * A Utility interface to format time values to UI text relative to the current time.
  */
 @ExperimentalTime
+@UnstableTimeApi
 interface RelativeTimeFormatter {
 
     fun formatPastDurationRelativeToNow(pastDuration: Duration): CharSequence

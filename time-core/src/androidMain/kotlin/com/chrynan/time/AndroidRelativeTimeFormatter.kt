@@ -6,6 +6,7 @@ import android.text.format.DateUtils
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
+@UnstableTimeApi
 @ExperimentalTime
 class AndroidRelativeTimeFormatter(
     private val timeProvider: TimeProvider = TimeProvider()
