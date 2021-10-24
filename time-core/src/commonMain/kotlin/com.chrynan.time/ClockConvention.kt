@@ -19,3 +19,9 @@ enum class ClockConvention {
 
     companion object
 }
+
+val ClockConvention.isTwentyFourHour: Boolean
+    get() = this == ClockConvention.TWENTY_FOUR_HOUR
+
+val ClockConvention.isTwelveHour: Boolean
+    get() = this == ClockConvention.TWELVE_HOUR
