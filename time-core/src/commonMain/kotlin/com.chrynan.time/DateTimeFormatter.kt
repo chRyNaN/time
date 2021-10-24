@@ -16,30 +16,14 @@ import kotlin.time.ExperimentalTime
  * @see [Javascript Date Formatter Library](https://blog.stevenlevithan.com/archives/date-time-format)
  */
 @ExperimentalTime
-interface DateTimeFormatter {
+interface DateTimeFormatter : Converter<String> {
 
     val format: String
 
-    operator fun invoke(value: Instant, timeZone: TimeZone): String
+    override operator fun invoke(value: Instant, timeZone: TimeZone): String
 
     companion object
 }
-
-@ExperimentalTime
-fun DateTimeFormatter.invoke(value: UtcMillisSinceEpoch, timeZone: TimeZone): String =
-    invoke(value = value.toInstant(), timeZone = timeZone)
-
-@ExperimentalTime
-fun DateTimeFormatter.invoke(value: TimeStamp, timeZone: TimeZone): String =
-    invoke(value = value.toInstant(), timeZone = timeZone)
-
-@ExperimentalTime
-fun DateTimeFormatter.invoke(value: LocalDateTime, timeZone: TimeZone): String =
-    invoke(value = value.toInstant(timeZone = timeZone), timeZone = timeZone)
-
-@ExperimentalTime
-fun DateTimeFormatter.invoke(value: LocalDate, timeZone: TimeZone): String =
-    invoke(value = value.atStartOfDayIn(timeZone = timeZone), timeZone = timeZone)
 
 /**
  * Creates a [DateTimeFormatter] instance with the provided [format] [String] value.
