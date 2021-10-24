@@ -24,3 +24,9 @@ enum class MeridiemPeriod {
 
     companion object
 }
+
+val MeridiemPeriod.isAm: Boolean
+    get() = this == MeridiemPeriod.AM
+
+val MeridiemPeriod.isPm: Boolean
+    get() = this == MeridiemPeriod.PM
