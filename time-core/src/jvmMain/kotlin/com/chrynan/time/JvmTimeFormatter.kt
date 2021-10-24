@@ -2,26 +2,19 @@ package com.chrynan.time
 
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
-import java.text.SimpleDateFormat
-import java.util.*
+import kotlinx.datetime.toJavaInstant
+import java.time.ZoneId
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
 class JvmTimeFormatter(override val format: String) : TimeFormatter {
 
-    override fun invoke(value: Instant, timeZone: TimeZone): String {
-        val date = Date(value.toEpochMilliseconds())
+    private val dateTimeFormatter = java.time.format.DateTimeFormatter.ofPattern(format)
 
-        return getFormatter(timeZone = timeZone).format(date)
-    }
+    override fun invoke(value: Instant, timeZone: TimeZone): String =
+        dateTimeFormatter.withZone(timeZone.toZoneId()).format(value.toJavaInstant())
 
-    private fun getFormatter(timeZone: TimeZone, locale: java.util.Locale = java.util.Locale.getDefault()) =
-        SimpleDateFormat(format, locale).apply {
-            setTimeZone(timeZone.toJavaTimeZone())
-        }
-
-    private fun TimeZone.toJavaTimeZone(): java.util.TimeZone =
-        java.util.TimeZone.getTimeZone(this.id)
+    private fun TimeZone.toZoneId(): ZoneId = ZoneId.of(id)
 }
 
 @ExperimentalTime

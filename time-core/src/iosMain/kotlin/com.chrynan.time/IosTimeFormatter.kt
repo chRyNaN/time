@@ -9,6 +9,8 @@ import kotlin.time.ExperimentalTime
 @ExperimentalTime
 class IosTimeFormatter(override val format: String) : TimeFormatter {
 
+    private val nsDateFormatter = NSDateFormatter()
+
     override operator fun invoke(value: Instant, timeZone: TimeZone): String {
         val date = NSDate.dateWithTimeIntervalSince1970(value.epochSeconds.toDouble())
 
@@ -16,7 +18,7 @@ class IosTimeFormatter(override val format: String) : TimeFormatter {
     }
 
     private fun getFormatter(timeZone: TimeZone, locale: NSLocale = NSLocale.currentLocale()) =
-        NSDateFormatter().apply {
+        nsDateFormatter.apply {
             setDateFormat(format)
             setTimeZone(timeZone.toNSTimeZone())
             setLocale(locale)
