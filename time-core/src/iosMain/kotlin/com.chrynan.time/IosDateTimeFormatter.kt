@@ -7,7 +7,7 @@ import platform.Foundation.*
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
-class IosTimeFormatter(override val format: String) : TimeFormatter {
+class IosDateTimeFormatter(override val format: String) : DateTimeFormatter {
 
     private val nsDateFormatter = NSDateFormatter()
 
@@ -26,4 +26,4 @@ class IosTimeFormatter(override val format: String) : TimeFormatter {
 }
 
 @ExperimentalTime
-actual fun TimeFormatter(format: String): TimeFormatter = IosTimeFormatter(format)
+actual fun DateTimeFormatter(format: String): DateTimeFormatter = IosDateTimeFormatter(format)

@@ -6,7 +6,7 @@ import java.time.ZoneId
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
-class AndroidTimeFormatter(override val format: String) : TimeFormatter {
+class AndroidDateTimeFormatter(override val format: String) : DateTimeFormatter {
 
     private val dateTimeFormatter = java.time.format.DateTimeFormatter.ofPattern(format)
 
@@ -17,4 +17,4 @@ class AndroidTimeFormatter(override val format: String) : TimeFormatter {
 }
 
 @ExperimentalTime
-actual fun TimeFormatter(format: String): TimeFormatter = AndroidTimeFormatter(format)
+actual fun DateTimeFormatter(format: String): DateTimeFormatter = AndroidDateTimeFormatter(format)
