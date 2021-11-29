@@ -102,6 +102,27 @@ fun Month.dateAt(year: Int, dayOfMonth: Int): LocalDate =
     dateAt(year = Year(year), dayOfMonth = dayOfMonth)
 
 /**
+ * Retrieves a [YearMonth] using the provided [year] and this [Month].
+ */
+@ExperimentalTime
+fun Month.yearMonthAt(year: Year): YearMonth =
+    YearMonth(year = year, month = this)
+
+/**
+ * Retrieves a [YearMonth] using the provided [year] and this [Month].
+ */
+@ExperimentalTime
+fun Month.yearMonthAt(year: Int): YearMonth =
+    YearMonth(year = year, month = this)
+
+/**
+ * Retrieves a [MonthDay] using the provided [dayOfMonth] and this [Month].
+ */
+@ExperimentalTime
+fun Month.monthDayAt(dayOfMonth: Int): MonthDay =
+    MonthDay(month = this, dayOfMonth = dayOfMonth)
+
+/**
  * Retrieves the first [LocalDate] within this [Month] and the provided [year].
  *
  * @see [dateAt]

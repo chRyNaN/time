@@ -85,6 +85,30 @@ fun YearMonth(
     YearMonth(year = Year(year), month = month)
 
 /**
+ * Constructs a [YearMonth] with the provided [year] and [month] values.
+ *
+ * The provided [month] [Int] must be between 1 and 12, otherwise an exception is thrown.
+ */
+@ExperimentalTime
+fun YearMonth(
+    year: Int,
+    month: Int
+): YearMonth =
+    YearMonth(year = Year(year), month = Month(month))
+
+/**
+ * Constructs a [YearMonth] with the provided [year] and [month] values.
+ *
+ * The provided [month] [Int] must be between 1 and 12, otherwise an exception is thrown.
+ */
+@ExperimentalTime
+fun YearMonth(
+    year: Year,
+    month: Int
+): YearMonth =
+    YearMonth(year = year, month = Month(month))
+
+/**
  * Adds the provided [amount] of months to this [YearMonth], incrementing (or decrementing if the [amount] is negative)
  * the year and month value as necessary.
  */
