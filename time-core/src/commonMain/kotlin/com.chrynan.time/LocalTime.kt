@@ -24,6 +24,19 @@ val LocalTime.millisecond: Int
     get() = nanosecond / 1_000_000
 
 /**
+ * Retrieves the [LocalTime.hour] value within a [ClockConvention.TWELVE_HOUR] clock. This will return a value between
+ * 1 and 12.
+ */
+@ExperimentalTime
+@UnstableTimeApi
+val LocalTime.hourInTwelveHourClock: Int
+    get() {
+        val result = hour % 12
+
+        return if (result == 0) 12 else result
+    }
+
+/**
  * Retrieves the [MeridiemPeriod] of this [LocalTime].
  *
  * Note that different conventions treat midnight and noon differently. Typically, midnight is considered
