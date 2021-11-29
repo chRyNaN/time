@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.chrynan.time
 
 import kotlinx.datetime.LocalDateTime
@@ -16,6 +18,10 @@ data class LocalTime(
     val second: Int,
     val nanosecond: Int
 )
+
+@ExperimentalTime
+val LocalTime.millisecond: Int
+    get() = nanosecond / 1_000_000
 
 /**
  * Retrieves the [LocalTime] from this [LocalDateTime].

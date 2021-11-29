@@ -19,3 +19,6 @@ fun LocalDateTime.weekOfYear(weekFormat: WeekFormat = WeekFormat()): Int =
 @ExperimentalTime
 fun LocalDateTime.weekOfMonth(weekFormat: WeekFormat = WeekFormat()): Int =
     this.date.weekOfMonth(weekFormat = weekFormat)
+
+val LocalDateTime.millisecond: Int
+    get() = nanosecond / 1_000_000
