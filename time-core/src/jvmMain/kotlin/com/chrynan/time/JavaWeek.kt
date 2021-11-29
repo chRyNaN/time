@@ -1,14 +1,15 @@
+@file:Suppress("unused")
+
 package com.chrynan.time
 
 import java.time.temporal.WeekFields
+import java.util.*
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
 @UnstableTimeApi
-actual fun WeekFormat(locale: Locale): WeekFormat {
-    val javaLocale = locale.toJavaLocale()
-
-    val weekFields = WeekFields.of(javaLocale)
+fun WeekFormat(locale: Locale): WeekFormat {
+    val weekFields = WeekFields.of(locale)
 
     return WeekFormat(
         minimalDaysInFirstWeek = weekFields.minimalDaysInFirstWeek,
