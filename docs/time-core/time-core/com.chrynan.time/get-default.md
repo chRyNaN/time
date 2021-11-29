@@ -23,13 +23,13 @@ fun [Locale.Companion](-locale/-companion/index.md#2133003939%2FExtensions%2F219
 
 @[UnstableTimeApi](../../../time-core/time-core/com.chrynan.time/-unstable-time-api/index.md)
 
-fun [Locale.Companion](-locale/-companion/index.md#2133003939%2FExtensions%2F74489539).[getDefault](get-default.md)(): [Locale](../../../time-core/time-core/com.chrynan.time/-locale/index.md)
+fun [Locale.Companion](-locale/-companion/index.md#2133003939%2FExtensions%2F74489539).[getDefault](get-default.md)(): [Locale](../../../time-core/com.chrynan.time/-locale/index.md)
 
 [js]\
 
 @[UnstableTimeApi](../../../time-core/time-core/com.chrynan.time/-unstable-time-api/index.md)
 
-fun [Locale.Companion](-locale/-companion/index.md#2133003939%2FExtensions%2F1894250985).[getDefault](get-default.md)(): [Locale](../../../time-core/time-core/com.chrynan.time/-locale/index.md)
+fun [Locale.Companion](-locale/-companion/index.md#2133003939%2FExtensions%2F1894250985).[getDefault](get-default.md)(): [Locale](../../../time-core/com.chrynan.time/-locale/index.md)
 
 [jvm]\
 

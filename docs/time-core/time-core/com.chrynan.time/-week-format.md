@@ -25,7 +25,7 @@ fun [WeekFormat](-week-format.md)(locale: [Locale](-locale/index.md#-1614710943%
 
 @[UnstableTimeApi](../../../time-core/time-core/com.chrynan.time/-unstable-time-api/index.md)
 
-fun [WeekFormat](-week-format.md)(locale: [Locale](../../../time-core/time-core/com.chrynan.time/-locale/index.md)): [WeekFormat](../../../time-core/time-core/com.chrynan.time/-week-format/index.md)
+fun [WeekFormat](-week-format.md)(locale: [Locale](../../../time-core/com.chrynan.time/-locale/index.md)): [WeekFormat](../../../time-core/time-core/com.chrynan.time/-week-format/index.md)
 
 [js]\
 
@@ -33,7 +33,7 @@ fun [WeekFormat](-week-format.md)(locale: [Locale](../../../time-core/time-core/
 
 @[UnstableTimeApi](../../../time-core/time-core/com.chrynan.time/-unstable-time-api/index.md)
 
-fun [WeekFormat](-week-format.md)(locale: [Locale](../../../time-core/time-core/com.chrynan.time/-locale/index.md)): [WeekFormat](../../../time-core/time-core/com.chrynan.time/-week-format/index.md)
+fun [WeekFormat](-week-format.md)(locale: [Locale](../../../time-core/com.chrynan.time/-locale/index.md)): [WeekFormat](../../../time-core/time-core/com.chrynan.time/-week-format/index.md)
 
 [jvm]\
 

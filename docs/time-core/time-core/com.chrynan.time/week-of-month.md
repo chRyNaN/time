@@ -7,23 +7,7 @@
 
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-@[UnstableTimeApi](-unstable-time-api/index.md)
-
-fun LocalDate.[weekOfMonth](week-of-month.md)(locale: [Locale](-locale/index.md)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
-
-[common]\
-
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
-
 fun LocalDateTime.[weekOfMonth](week-of-month.md)(weekFormat: [WeekFormat](-week-format/index.md) = WeekFormat()): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
-
-[common]\
-
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
-
-@[UnstableTimeApi](-unstable-time-api/index.md)
-
-fun LocalDateTime.[weekOfMonth](week-of-month.md)(locale: [Locale](-locale/index.md)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
 
 [common]\
 

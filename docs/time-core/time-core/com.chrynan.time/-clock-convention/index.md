@@ -26,3 +26,10 @@ Represents a clock's display type. Whether the clock displays its time in twenty
 |---|---|
 | [name](../-meridiem-period/-a-m/index.md#-372974862%2FProperties%2F-2124218425) | [common]<br>val [name](../-meridiem-period/-a-m/index.md#-372974862%2FProperties%2F-2124218425): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
 | [ordinal](../-meridiem-period/-a-m/index.md#-739389684%2FProperties%2F-2124218425) | [common]<br>val [ordinal](../-meridiem-period/-a-m/index.md#-739389684%2FProperties%2F-2124218425): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
+
+## Extensions
+
+| Name | Summary |
+|---|---|
+| [isTwelveHour](../is-twelve-hour.md) | [common]<br>val [ClockConvention](index.md).[isTwelveHour](../is-twelve-hour.md): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
+| [isTwentyFourHour](../is-twenty-four-hour.md) | [common]<br>val [ClockConvention](index.md).[isTwentyFourHour](../is-twenty-four-hour.md): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |

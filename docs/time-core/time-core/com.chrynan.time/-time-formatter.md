@@ -22,35 +22,35 @@ android
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 ios
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 js
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 jvm
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 [android, ios, js, jvm]\
 [android, js, jvm]\
 
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-fun [TimeFormatter](-time-formatter.md)(format: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)): [TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md)
+fun [TimeFormatter](-time-formatter.md)(format: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)): [TimeFormatter](../../../time-core/com.chrynan.time/-time-formatter/index.md)
 
 [ios]\
-fun [TimeFormatter](-time-formatter.md)(format: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)): [TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md)
+fun [TimeFormatter](-time-formatter.md)(format: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)): [TimeFormatter](../../../time-core/com.chrynan.time/-time-formatter/index.md)
 
 ## See also
 
@@ -64,22 +64,22 @@ android
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 ios
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 js
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/com.chrynan.time/-time-formatter/index.md) |  |
 
 jvm
 
 | | |
 |---|---|
-| [com.chrynan.time.TimeFormatter](../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md) |  |
+| [com.chrynan.time.TimeFormatter](../../../time-core/com.chrynan.time/-time-formatter/index.md) |  |

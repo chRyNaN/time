@@ -3,6 +3,8 @@
 # AndroidRelativeTimeFormatter
 
 [android]\
+@[UnstableTimeApi](../../../../time-core/time-core/com.chrynan.time/-unstable-time-api/index.md)
+
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
 class [AndroidRelativeTimeFormatter](index.md)(timeProvider: [TimeProvider](../../../../time-core/time-core/com.chrynan.time/-time-provider/index.md)) : [RelativeTimeFormatter](../../../../time-core/time-core/com.chrynan.time/-relative-time-formatter/index.md)

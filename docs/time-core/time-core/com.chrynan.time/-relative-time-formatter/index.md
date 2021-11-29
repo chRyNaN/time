@@ -5,6 +5,8 @@
 [common]\
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
+@[UnstableTimeApi](../-unstable-time-api/index.md)
+
 interface [RelativeTimeFormatter](index.md)
 
 A Utility interface to format time values to UI text relative to the current time.

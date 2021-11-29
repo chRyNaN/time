@@ -3,7 +3,7 @@
 # IosTimeFormatter
 
 [ios]\
-class [IosTimeFormatter](index.md)(format: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)) : [TimeFormatter](../../../../time-core/time-core/com.chrynan.time/-time-formatter/index.md)
+class [IosTimeFormatter](index.md)(format: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)) : [TimeFormatter](../../../../time-core/com.chrynan.time/-time-formatter/index.md)
 
 ## Functions
 

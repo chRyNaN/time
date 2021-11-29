@@ -19,7 +19,7 @@ fun [Locale](-locale.md)(language: [String](https://kotlinlang.org/api/latest/jv
 
 @[UnstableTimeApi](../../../time-core/time-core/com.chrynan.time/-unstable-time-api/index.md)
 
-fun [Locale](-locale.md)(language: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html), country: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, variant: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [Locale](../../../time-core/time-core/com.chrynan.time/-locale/index.md)
+fun [Locale](-locale.md)(language: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html), country: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, variant: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [Locale](../../../time-core/com.chrynan.time/-locale/index.md)
 
 [jvm]\
 
