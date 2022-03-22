@@ -1,6 +1,6 @@
 $dokka.format:gfm-v1
 $dokka.linkExtension:md
-$dokka.location:com.chrynan.time////PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/index.md
+$dokka.location:com.chrynan.time////PointingToDeclaration/time-core/time-core/com.chrynan.time/index.md
 $dokka.location:com.chrynan.time//DateTimeFormatter/#kotlin.String/PointingToDeclaration/time-core/time-core/com.chrynan.time/-date-time-formatter.md
 $dokka.location:com.chrynan.time//LocalDate/#com.chrynan.time.Year#kotlin.Int#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/-local-date.md
 $dokka.location:com.chrynan.time//LocalDate/#com.chrynan.time.Year#kotlinx.datetime.Month#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/-local-date.md
@@ -40,7 +40,7 @@ $dokka.location:com.chrynan.time//days/kotlinx.datetime.Month#kotlin.Boolean/Poi
 $dokka.location:com.chrynan.time//daysIn/com.chrynan.time.Year#kotlinx.datetime.Month/PointingToDeclaration/time-core/time-core/com.chrynan.time/days-in.md
 $dokka.location:com.chrynan.time//daysIn/kotlinx.datetime.Month#com.chrynan.time.Year/PointingToDeclaration/time-core/time-core/com.chrynan.time/days-in.md
 $dokka.location:com.chrynan.time//daysIn/kotlinx.datetime.Month#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/days-in.md
-$dokka.location:com.chrynan.time//delayEach/kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#kotlin.time.Duration/PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/delay-each.md
+$dokka.location:com.chrynan.time//delayEach/kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#kotlin.time.Duration/PointingToDeclaration/time-core/time-core/com.chrynan.time/delay-each.md
 $dokka.location:com.chrynan.time//duration/com.chrynan.time.Year#/PointingToDeclaration/time-core/time-core/com.chrynan.time/duration.md
 $dokka.location:com.chrynan.time//duration/com.chrynan.time.YearMonth#/PointingToDeclaration/time-core/time-core/com.chrynan.time/duration.md
 $dokka.location:com.chrynan.time//duration/kotlinx.datetime.Month#com.chrynan.time.Year/PointingToDeclaration/time-core/time-core/com.chrynan.time/duration.md
@@ -58,12 +58,13 @@ $dokka.location:com.chrynan.time//firstMonthWeekIn/kotlinx.datetime.Month#kotlin
 $dokka.location:com.chrynan.time//firstYearWeek/com.chrynan.time.Year#com.chrynan.time.WeekFormat/PointingToDeclaration/time-core/time-core/com.chrynan.time/first-year-week.md
 $dokka.location:com.chrynan.time//firstYearWeekIn/kotlinx.datetime.Month#com.chrynan.time.Year#com.chrynan.time.WeekFormat/PointingToDeclaration/time-core/time-core/com.chrynan.time/first-year-week-in.md
 $dokka.location:com.chrynan.time//firstYearWeekIn/kotlinx.datetime.Month#kotlin.Int#com.chrynan.time.WeekFormat/PointingToDeclaration/time-core/time-core/com.chrynan.time/first-year-week-in.md
+$dokka.location:com.chrynan.time//flatMap/kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#com.chrynan.time.FlatMapStrategy#kotlin.coroutines.SuspendFunction1[TypeParam(bounds=[kotlin.Any?]),kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]]/PointingToDeclaration/time-core/time-core/com.chrynan.time/flat-map.md
 $dokka.location:com.chrynan.time//hourInTwelveHourClock/com.chrynan.time.LocalTime#/PointingToDeclaration/time-core/time-core/com.chrynan.time/hour-in-twelve-hour-clock.md
 $dokka.location:com.chrynan.time//hourInTwelveHourClock/kotlinx.datetime.LocalDateTime#/PointingToDeclaration/time-core/time-core/com.chrynan.time/hour-in-twelve-hour-clock.md
 $dokka.location:com.chrynan.time//hours/kotlin.Double#/PointingToDeclaration/time-core/time-core/com.chrynan.time/hours.md
 $dokka.location:com.chrynan.time//hours/kotlin.Int#/PointingToDeclaration/time-core/time-core/com.chrynan.time/hours.md
 $dokka.location:com.chrynan.time//hours/kotlin.Long#/PointingToDeclaration/time-core/time-core/com.chrynan.time/hours.md
-$dokka.location:com.chrynan.time//intervalFlow/#kotlin.time.Duration#kotlin.time.Duration/PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/interval-flow.md
+$dokka.location:com.chrynan.time//intervalFlow/#kotlin.time.Duration#kotlin.time.Duration/PointingToDeclaration/time-core/time-core/com.chrynan.time/interval-flow.md
 $dokka.location:com.chrynan.time//invoke/com.chrynan.time.Converter[TypeParam(bounds=[kotlin.Any?])]#com.chrynan.time.DateStamp/PointingToDeclaration/time-core/time-core/com.chrynan.time/invoke.md
 $dokka.location:com.chrynan.time//invoke/com.chrynan.time.Converter[TypeParam(bounds=[kotlin.Any?])]#com.chrynan.time.TimeStamp#kotlinx.datetime.TimeZone/PointingToDeclaration/time-core/time-core/com.chrynan.time/invoke.md
 $dokka.location:com.chrynan.time//invoke/com.chrynan.time.Converter[TypeParam(bounds=[kotlin.Any?])]#com.chrynan.time.TimeStamp.Local/PointingToDeclaration/time-core/time-core/com.chrynan.time/invoke.md
@@ -131,18 +132,19 @@ $dokka.location:com.chrynan.time//plus/com.chrynan.time.Year#kotlin.Int/Pointing
 $dokka.location:com.chrynan.time//plus/kotlinx.datetime.Month#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/plus.md
 $dokka.location:com.chrynan.time//plusMonths/com.chrynan.time.YearMonth#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/plus-months.md
 $dokka.location:com.chrynan.time//plusYears/com.chrynan.time.YearMonth#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/plus-years.md
-$dokka.location:com.chrynan.time//poll/#kotlin.time.Duration#kotlin.time.Duration#com.chrynan.time.FlatMapStrategy#kotlin.coroutines.SuspendFunction1[kotlin.Long,kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]]/PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/poll.md
+$dokka.location:com.chrynan.time//poll/#kotlin.time.Duration#kotlin.time.Duration#com.chrynan.time.FlatMapStrategy#kotlin.coroutines.SuspendFunction1[kotlin.Long,kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]]/PointingToDeclaration/time-core/time-core/com.chrynan.time/poll.md
 $dokka.location:com.chrynan.time//rangeTo/com.chrynan.time.Year#com.chrynan.time.Year/PointingToDeclaration/time-core/time-core/com.chrynan.time/range-to.md
 $dokka.location:com.chrynan.time//rangeTo/com.chrynan.time.YearMonth#com.chrynan.time.YearMonth/PointingToDeclaration/time-core/time-core/com.chrynan.time/range-to.md
-$dokka.location:com.chrynan.time//scheduleFlow/#com.chrynan.time.UtcMillisSinceEpoch#com.chrynan.time.TimeProvider/PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/schedule-flow.md
-$dokka.location:com.chrynan.time//scheduleFlow/#com.chrynan.time.UtcMillisSinceEpoch#kotlinx.datetime.Clock/PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/schedule-flow.md
+$dokka.location:com.chrynan.time//scheduleFlow/#com.chrynan.time.UtcMillisSinceEpoch#kotlinx.datetime.Clock/PointingToDeclaration/time-core/time-core/com.chrynan.time/schedule-flow.md
+$dokka.location:com.chrynan.time//scheduleFlow/#kotlin.time.Duration#kotlinx.datetime.Clock/PointingToDeclaration/time-core/time-core/com.chrynan.time/schedule-flow.md
+$dokka.location:com.chrynan.time//scheduleFlow/#kotlinx.datetime.Instant#kotlinx.datetime.Clock/PointingToDeclaration/time-core/time-core/com.chrynan.time/schedule-flow.md
 $dokka.location:com.chrynan.time//seconds/kotlin.Double#/PointingToDeclaration/time-core/time-core/com.chrynan.time/seconds.md
 $dokka.location:com.chrynan.time//seconds/kotlin.Int#/PointingToDeclaration/time-core/time-core/com.chrynan.time/seconds.md
 $dokka.location:com.chrynan.time//seconds/kotlin.Long#/PointingToDeclaration/time-core/time-core/com.chrynan.time/seconds.md
 $dokka.location:com.chrynan.time//time/kotlinx.datetime.LocalDateTime#/PointingToDeclaration/time-core/time-core/com.chrynan.time/time.md
-$dokka.location:com.chrynan.time//timedValue/kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#/PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/timed-value.md
-$dokka.location:com.chrynan.time//timeout/kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#kotlin.time.Duration/PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/timeout.md
-$dokka.location:com.chrynan.time//timerFlow/#kotlin.time.Duration/PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/timer-flow.md
+$dokka.location:com.chrynan.time//timedValue/kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#/PointingToDeclaration/time-core/time-core/com.chrynan.time/timed-value.md
+$dokka.location:com.chrynan.time//timeout/kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#kotlin.time.Duration/PointingToDeclaration/time-core/time-core/com.chrynan.time/timeout.md
+$dokka.location:com.chrynan.time//timerFlow/#kotlin.time.Duration/PointingToDeclaration/time-core/time-core/com.chrynan.time/timer-flow.md
 $dokka.location:com.chrynan.time//toCalendar/com.chrynan.time.UtcMillisSinceEpoch#/PointingToDeclaration/time-core/time-core/com.chrynan.time/[jvm]to-calendar.md
 $dokka.location:com.chrynan.time//toCalendar/java.util.Date#/PointingToDeclaration/time-core/time-core/com.chrynan.time/[jvm]to-calendar.md
 $dokka.location:com.chrynan.time//toCalendar/kotlinx.datetime.Instant#/PointingToDeclaration/time-core/time-core/com.chrynan.time/[jvm]to-calendar.md
@@ -187,10 +189,6 @@ $dokka.location:com.chrynan.time//yearMonth/kotlinx.datetime.LocalDateTime#/Poin
 $dokka.location:com.chrynan.time//yearMonthAt/kotlinx.datetime.Month#com.chrynan.time.Year/PointingToDeclaration/time-core/time-core/com.chrynan.time/year-month-at.md
 $dokka.location:com.chrynan.time//yearMonthAt/kotlinx.datetime.Month#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/year-month-at.md
 $dokka.location:com.chrynan.time//yesterdayAt/com.chrynan.time.TimeProvider#kotlinx.datetime.TimeZone/PointingToDeclaration/time-core/time-core/com.chrynan.time/yesterday-at.md
-$dokka.location:com.chrynan.time/AndroidDateTimeFormatter///PointingToDeclaration/time-core/time-core/com.chrynan.time/-android-date-time-formatter/index.md
-$dokka.location:com.chrynan.time/AndroidDateTimeFormatter/AndroidDateTimeFormatter/#kotlin.String/PointingToDeclaration/time-core/time-core/com.chrynan.time/-android-date-time-formatter/-android-date-time-formatter.md
-$dokka.location:com.chrynan.time/AndroidDateTimeFormatter/format/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-android-date-time-formatter/format.md
-$dokka.location:com.chrynan.time/AndroidDateTimeFormatter/invoke/#kotlinx.datetime.Instant#kotlinx.datetime.TimeZone/PointingToDeclaration/time-core/time-core/com.chrynan.time/-android-date-time-formatter/invoke.md
 $dokka.location:com.chrynan.time/AndroidRelativeTimeFormatter///PointingToDeclaration/time-core/time-core/com.chrynan.time/-android-relative-time-formatter/index.md
 $dokka.location:com.chrynan.time/AndroidRelativeTimeFormatter/AndroidRelativeTimeFormatter/#com.chrynan.time.TimeProvider/PointingToDeclaration/time-core/time-core/com.chrynan.time/-android-relative-time-formatter/-android-relative-time-formatter.md
 $dokka.location:com.chrynan.time/AndroidRelativeTimeFormatter/formatElapsedTime/#kotlin.time.Duration/PointingToDeclaration/time-core/time-core/com.chrynan.time/-android-relative-time-formatter/format-elapsed-time.md
@@ -211,24 +209,12 @@ $dokka.location:com.chrynan.time/DateTimeFormatter.Companion///PointingToDeclara
 $dokka.location:com.chrynan.time/DateTimeFormatter///PointingToDeclaration/time-core/time-core/com.chrynan.time/-date-time-formatter/index.md
 $dokka.location:com.chrynan.time/DateTimeFormatter/format/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-date-time-formatter/format.md
 $dokka.location:com.chrynan.time/DateTimeFormatter/invoke/#kotlinx.datetime.Instant#kotlinx.datetime.TimeZone/PointingToDeclaration/time-core/time-core/com.chrynan.time/-date-time-formatter/invoke.md
-$dokka.location:com.chrynan.time/FlatMapStrategy.Concat///PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/-flat-map-strategy/-concat/index.md
-$dokka.location:com.chrynan.time/FlatMapStrategy.Latest///PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/-flat-map-strategy/-latest/index.md
-$dokka.location:com.chrynan.time/FlatMapStrategy.Merge///PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/-flat-map-strategy/-merge/index.md
-$dokka.location:com.chrynan.time/FlatMapStrategy.Merge/Merge/#kotlin.Int/PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/-flat-map-strategy/-merge/-merge.md
-$dokka.location:com.chrynan.time/FlatMapStrategy.Merge/limit/#/PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/-flat-map-strategy/-merge/limit.md
-$dokka.location:com.chrynan.time/FlatMapStrategy///PointingToDeclaration/time-coroutines/time-coroutines/com.chrynan.time/-flat-map-strategy/index.md
-$dokka.location:com.chrynan.time/IosDateTimeFormatter///PointingToDeclaration/time-core/time-core/com.chrynan.time/-ios-date-time-formatter/index.md
-$dokka.location:com.chrynan.time/IosDateTimeFormatter/IosDateTimeFormatter/#kotlin.String/PointingToDeclaration/time-core/time-core/com.chrynan.time/-ios-date-time-formatter/-ios-date-time-formatter.md
-$dokka.location:com.chrynan.time/IosDateTimeFormatter/format/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-ios-date-time-formatter/format.md
-$dokka.location:com.chrynan.time/IosDateTimeFormatter/invoke/#kotlinx.datetime.Instant#kotlinx.datetime.TimeZone/PointingToDeclaration/time-core/time-core/com.chrynan.time/-ios-date-time-formatter/invoke.md
-$dokka.location:com.chrynan.time/JsDateTimeFormatter///PointingToDeclaration/time-core/time-core/com.chrynan.time/-js-date-time-formatter/index.md
-$dokka.location:com.chrynan.time/JsDateTimeFormatter/JsDateTimeFormatter/#kotlin.String/PointingToDeclaration/time-core/time-core/com.chrynan.time/-js-date-time-formatter/-js-date-time-formatter.md
-$dokka.location:com.chrynan.time/JsDateTimeFormatter/format/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-js-date-time-formatter/format.md
-$dokka.location:com.chrynan.time/JsDateTimeFormatter/invoke/#kotlinx.datetime.Instant#kotlinx.datetime.TimeZone/PointingToDeclaration/time-core/time-core/com.chrynan.time/-js-date-time-formatter/invoke.md
-$dokka.location:com.chrynan.time/JvmDateTimeFormatter///PointingToDeclaration/time-core/time-core/com.chrynan.time/-jvm-date-time-formatter/index.md
-$dokka.location:com.chrynan.time/JvmDateTimeFormatter/JvmDateTimeFormatter/#kotlin.String/PointingToDeclaration/time-core/time-core/com.chrynan.time/-jvm-date-time-formatter/-jvm-date-time-formatter.md
-$dokka.location:com.chrynan.time/JvmDateTimeFormatter/format/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-jvm-date-time-formatter/format.md
-$dokka.location:com.chrynan.time/JvmDateTimeFormatter/invoke/#kotlinx.datetime.Instant#kotlinx.datetime.TimeZone/PointingToDeclaration/time-core/time-core/com.chrynan.time/-jvm-date-time-formatter/invoke.md
+$dokka.location:com.chrynan.time/FlatMapStrategy.Concat///PointingToDeclaration/time-core/time-core/com.chrynan.time/-flat-map-strategy/-concat/index.md
+$dokka.location:com.chrynan.time/FlatMapStrategy.Latest///PointingToDeclaration/time-core/time-core/com.chrynan.time/-flat-map-strategy/-latest/index.md
+$dokka.location:com.chrynan.time/FlatMapStrategy.Merge///PointingToDeclaration/time-core/time-core/com.chrynan.time/-flat-map-strategy/-merge/index.md
+$dokka.location:com.chrynan.time/FlatMapStrategy.Merge/Merge/#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/-flat-map-strategy/-merge/-merge.md
+$dokka.location:com.chrynan.time/FlatMapStrategy.Merge/limit/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-flat-map-strategy/-merge/limit.md
+$dokka.location:com.chrynan.time/FlatMapStrategy///PointingToDeclaration/time-core/time-core/com.chrynan.time/-flat-map-strategy/index.md
 $dokka.location:com.chrynan.time/LocalTime///PointingToDeclaration/time-core/time-core/com.chrynan.time/-local-time/index.md
 $dokka.location:com.chrynan.time/LocalTime/LocalTime/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/-local-time/-local-time.md
 $dokka.location:com.chrynan.time/LocalTime/hour/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-local-time/hour.md
@@ -301,6 +287,4 @@ $dokka.location:com.chrynan.time/YearRange/endInclusive/#/PointingToDeclaration/
 $dokka.location:com.chrynan.time/YearRange/iterator/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-year-range/iterator.md
 $dokka.location:com.chrynan.time/YearRange/start/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-year-range/start.md
 module:time-core
-com.chrynan.time
-module:time-coroutines
 com.chrynan.time

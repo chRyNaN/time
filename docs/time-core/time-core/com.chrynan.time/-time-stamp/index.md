@@ -32,8 +32,8 @@ To perform any operations on the [TimeStamp](index.md) class, first convert it t
 
 | Name |
 |---|
-| [TimeStamp](-utc/index.md) |
-| [TimeStamp](-local/index.md) |
+| [Utc](-utc/index.md) |
+| [Local](-local/index.md) |
 
 ## Extensions
 

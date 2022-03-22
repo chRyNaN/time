@@ -13,13 +13,13 @@ fun LocalDateTime.[weekOfYear](week-of-year.md)(weekFormat: [WeekFormat](-week-f
 
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-fun LocalDate.[weekOfYear](week-of-year.md)(weekFormat: [WeekFormat](-week-format/index.md) = WeekFormat()): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+expect fun LocalDate.[weekOfYear](week-of-year.md)(weekFormat: [WeekFormat](-week-format/index.md) = WeekFormat()): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
 
 [android, js, jvm]\
 
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-fun LocalDate.[weekOfYear](week-of-year.md)(weekFormat: [WeekFormat](../../../time-core/time-core/com.chrynan.time/-week-format/index.md) = WeekFormat()): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+actual fun LocalDate.[weekOfYear](week-of-year.md)(weekFormat: [WeekFormat](../../../time-core/time-core/com.chrynan.time/-week-format/index.md) = WeekFormat()): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
 
 [ios]\
-fun LocalDate.[weekOfYear](week-of-year.md)(weekFormat: [WeekFormat](../../../time-core/time-core/com.chrynan.time/-week-format/index.md) = WeekFormat()): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+actual fun LocalDate.[weekOfYear](week-of-year.md)(weekFormat: [WeekFormat](../../../time-core/time-core/com.chrynan.time/-week-format/index.md) = WeekFormat()): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)

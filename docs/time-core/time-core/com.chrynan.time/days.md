@@ -13,25 +13,16 @@ Retrieves the number of days in this month. The provided [isLeapYear](days.md) p
 February has 28 days in a standard year and 29 days in a leap year. April, June, September and November have 30 days. All other months have 31 days.
 
 [common]\
-
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
-
 val [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html).[days](days.md): [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)
 
 Returns a [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html) equal to this [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) number of days.
 
 [common]\
-
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
-
 val [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html).[days](days.md): [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)
 
 Returns a [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html) equal to this [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html) number of days.
 
 [common]\
-
-@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
-
 val [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html).[days](days.md): [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)
 
 Returns a [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html) equal to this [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html) number of days.

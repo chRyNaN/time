@@ -37,12 +37,3 @@ common
 | Name | Summary |
 |---|---|
 | [format](format.md) | [common]<br>abstract val [format](format.md): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
-
-## Inheritors
-
-| Name |
-|---|
-| [AndroidDateTimeFormatter](../-android-date-time-formatter/index.md) |
-| [IosDateTimeFormatter](../-ios-date-time-formatter/index.md) |
-| [JsDateTimeFormatter](../-js-date-time-formatter/index.md) |
-| [JvmDateTimeFormatter](../-jvm-date-time-formatter/index.md) |
