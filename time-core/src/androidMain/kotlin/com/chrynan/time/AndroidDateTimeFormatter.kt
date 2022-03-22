@@ -1,11 +1,14 @@
 package com.chrynan.time
 
+import android.annotation.TargetApi
+import android.os.Build
 import kotlinx.datetime.*
 import kotlinx.datetime.TimeZone
 import java.time.ZoneId
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
+@TargetApi(Build.VERSION_CODES.O)
 class AndroidDateTimeFormatter(override val format: String) : DateTimeFormatter {
 
     private val dateTimeFormatter = java.time.format.DateTimeFormatter.ofPattern(format)
