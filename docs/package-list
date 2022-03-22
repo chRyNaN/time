@@ -2,6 +2,8 @@ $dokka.format:gfm-v1
 $dokka.linkExtension:md
 $dokka.location:com.chrynan.time////PointingToDeclaration/time-core/time-core/com.chrynan.time/index.md
 $dokka.location:com.chrynan.time//DateTimeFormatter/#kotlin.String/PointingToDeclaration/time-core/time-core/com.chrynan.time/-date-time-formatter.md
+$dokka.location:com.chrynan.time//HourOfDay/#kotlin.Int#com.chrynan.time.MeridiemPeriod/PointingToDeclaration/time-core/time-core/com.chrynan.time/-hour-of-day.md
+$dokka.location:com.chrynan.time//HourOfDay/#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/-hour-of-day.md
 $dokka.location:com.chrynan.time//LocalDate/#com.chrynan.time.Year#kotlin.Int#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/-local-date.md
 $dokka.location:com.chrynan.time//LocalDate/#com.chrynan.time.Year#kotlinx.datetime.Month#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/-local-date.md
 $dokka.location:com.chrynan.time//LocalDateTime/#com.chrynan.time.Year#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/-local-date-time.md
@@ -86,7 +88,9 @@ $dokka.location:com.chrynan.time//isToday/com.chrynan.time.TimeProvider#com.chry
 $dokka.location:com.chrynan.time//isTodayAt/com.chrynan.time.TimeProvider#kotlinx.datetime.TimeZone#kotlinx.datetime.LocalDate/PointingToDeclaration/time-core/time-core/com.chrynan.time/is-today-at.md
 $dokka.location:com.chrynan.time//isTomorrow/com.chrynan.time.TimeProvider#com.chrynan.time.DateStamp/PointingToDeclaration/time-core/time-core/com.chrynan.time/is-tomorrow.md
 $dokka.location:com.chrynan.time//isTomorrowAt/com.chrynan.time.TimeProvider#kotlinx.datetime.TimeZone#kotlinx.datetime.LocalDate/PointingToDeclaration/time-core/time-core/com.chrynan.time/is-tomorrow-at.md
+$dokka.location:com.chrynan.time//isTwelveBased/com.chrynan.time.HourOfDay#/PointingToDeclaration/time-core/time-core/com.chrynan.time/is-twelve-based.md
 $dokka.location:com.chrynan.time//isTwelveHour/com.chrynan.time.ClockConvention#/PointingToDeclaration/time-core/time-core/com.chrynan.time/is-twelve-hour.md
+$dokka.location:com.chrynan.time//isTwentyFourBased/com.chrynan.time.HourOfDay#/PointingToDeclaration/time-core/time-core/com.chrynan.time/is-twenty-four-based.md
 $dokka.location:com.chrynan.time//isTwentyFourHour/com.chrynan.time.ClockConvention#/PointingToDeclaration/time-core/time-core/com.chrynan.time/is-twenty-four-hour.md
 $dokka.location:com.chrynan.time//isValidYear/com.chrynan.time.MonthDay#com.chrynan.time.Year/PointingToDeclaration/time-core/time-core/com.chrynan.time/is-valid-year.md
 $dokka.location:com.chrynan.time//isValidYear/com.chrynan.time.MonthDay#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/is-valid-year.md
@@ -173,6 +177,8 @@ $dokka.location:com.chrynan.time//toUtcMillisSinceEpoch/kotlin.time.Duration#/Po
 $dokka.location:com.chrynan.time//toUtcMillisSinceEpoch/kotlinx.datetime.Instant#/PointingToDeclaration/time-core/time-core/com.chrynan.time/to-utc-millis-since-epoch.md
 $dokka.location:com.chrynan.time//toUtcMillisSinceEpoch/kotlinx.datetime.LocalDateTime#kotlinx.datetime.TimeZone/PointingToDeclaration/time-core/time-core/com.chrynan.time/to-utc-millis-since-epoch.md
 $dokka.location:com.chrynan.time//tomorrowAt/com.chrynan.time.TimeProvider#kotlinx.datetime.TimeZone/PointingToDeclaration/time-core/time-core/com.chrynan.time/tomorrow-at.md
+$dokka.location:com.chrynan.time//twelveBasedHourOfDay/kotlinx.datetime.LocalDateTime#/PointingToDeclaration/time-core/time-core/com.chrynan.time/twelve-based-hour-of-day.md
+$dokka.location:com.chrynan.time//twentyFourBasedHourOfDay/kotlinx.datetime.LocalDateTime#/PointingToDeclaration/time-core/time-core/com.chrynan.time/twenty-four-based-hour-of-day.md
 $dokka.location:com.chrynan.time//until/com.chrynan.time.Year#com.chrynan.time.Year/PointingToDeclaration/time-core/time-core/com.chrynan.time/until.md
 $dokka.location:com.chrynan.time//until/com.chrynan.time.YearMonth#com.chrynan.time.YearMonth/PointingToDeclaration/time-core/time-core/com.chrynan.time/until.md
 $dokka.location:com.chrynan.time//weekOfMonth/kotlinx.datetime.LocalDate#com.chrynan.time.WeekFormat/PointingToDeclaration/time-core/time-core/com.chrynan.time/week-of-month.md
@@ -215,6 +221,17 @@ $dokka.location:com.chrynan.time/FlatMapStrategy.Merge///PointingToDeclaration/
 $dokka.location:com.chrynan.time/FlatMapStrategy.Merge/Merge/#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/-flat-map-strategy/-merge/-merge.md
 $dokka.location:com.chrynan.time/FlatMapStrategy.Merge/limit/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-flat-map-strategy/-merge/limit.md
 $dokka.location:com.chrynan.time/FlatMapStrategy///PointingToDeclaration/time-core/time-core/com.chrynan.time/-flat-map-strategy/index.md
+$dokka.location:com.chrynan.time/HourOfDay.Companion///PointingToDeclaration/time-core/time-core/com.chrynan.time/-hour-of-day/-companion/index.md
+$dokka.location:com.chrynan.time/HourOfDay.TwelveBased///PointingToDeclaration/time-core/time-core/com.chrynan.time/-hour-of-day/-twelve-based/index.md
+$dokka.location:com.chrynan.time/HourOfDay.TwelveBased/clockConvention/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-hour-of-day/-twelve-based/clock-convention.md
+$dokka.location:com.chrynan.time/HourOfDay.TwelveBased/meridiemPeriod/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-hour-of-day/-twelve-based/meridiem-period.md
+$dokka.location:com.chrynan.time/HourOfDay.TwelveBased/value/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-hour-of-day/-twelve-based/value.md
+$dokka.location:com.chrynan.time/HourOfDay.TwentyFourBased///PointingToDeclaration/time-core/time-core/com.chrynan.time/-hour-of-day/-twenty-four-based/index.md
+$dokka.location:com.chrynan.time/HourOfDay.TwentyFourBased/clockConvention/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-hour-of-day/-twenty-four-based/clock-convention.md
+$dokka.location:com.chrynan.time/HourOfDay.TwentyFourBased/value/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-hour-of-day/-twenty-four-based/value.md
+$dokka.location:com.chrynan.time/HourOfDay///PointingToDeclaration/time-core/time-core/com.chrynan.time/-hour-of-day/index.md
+$dokka.location:com.chrynan.time/HourOfDay/clockConvention/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-hour-of-day/clock-convention.md
+$dokka.location:com.chrynan.time/HourOfDay/value/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-hour-of-day/value.md
 $dokka.location:com.chrynan.time/LocalTime///PointingToDeclaration/time-core/time-core/com.chrynan.time/-local-time/index.md
 $dokka.location:com.chrynan.time/LocalTime/LocalTime/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/time-core/time-core/com.chrynan.time/-local-time/-local-time.md
 $dokka.location:com.chrynan.time/LocalTime/hour/#/PointingToDeclaration/time-core/time-core/com.chrynan.time/-local-time/hour.md
