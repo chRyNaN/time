@@ -8,6 +8,9 @@ import java.time.temporal.WeekFields
 import java.util.*
 import kotlin.time.ExperimentalTime
 
+/**
+ * Creates a [WeekFormat] instance using the provided [locale] value.
+ */
 @TargetApi(Build.VERSION_CODES.O)
 @ExperimentalTime
 @UnstableTimeApi

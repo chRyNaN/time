@@ -6,6 +6,9 @@ import java.time.temporal.WeekFields
 import java.util.*
 import kotlin.time.ExperimentalTime
 
+/**
+ * Creates a [WeekFormat] instance using the provided [locale] value.
+ */
 @ExperimentalTime
 @UnstableTimeApi
 fun WeekFormat(locale: Locale): WeekFormat {

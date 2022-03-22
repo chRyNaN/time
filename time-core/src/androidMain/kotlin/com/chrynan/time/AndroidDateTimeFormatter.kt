@@ -9,7 +9,7 @@ import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
 @TargetApi(Build.VERSION_CODES.O)
-class AndroidDateTimeFormatter(override val format: String) : DateTimeFormatter {
+internal class AndroidDateTimeFormatter(override val format: String) : DateTimeFormatter {
 
     private val dateTimeFormatter = java.time.format.DateTimeFormatter.ofPattern(format)
 

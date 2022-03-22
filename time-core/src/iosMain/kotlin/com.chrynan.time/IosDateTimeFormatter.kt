@@ -7,7 +7,7 @@ import platform.Foundation.*
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
-class IosDateTimeFormatter(override val format: String) : DateTimeFormatter {
+internal class IosDateTimeFormatter(override val format: String) : DateTimeFormatter {
 
     private val nsDateFormatter = NSDateFormatter()
 

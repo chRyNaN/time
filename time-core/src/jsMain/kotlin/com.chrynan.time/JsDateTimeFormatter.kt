@@ -5,7 +5,7 @@ import kotlinx.datetime.TimeZone
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
-class JsDateTimeFormatter(override val format: String) : DateTimeFormatter {
+internal class JsDateTimeFormatter(override val format: String) : DateTimeFormatter {
 
     override fun invoke(value: Instant, timeZone: TimeZone): String {
         TODO("Js Not Yet Implemented")

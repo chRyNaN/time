@@ -7,7 +7,7 @@ import java.time.ZoneId
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
-class JvmDateTimeFormatter(override val format: String) : DateTimeFormatter {
+internal class JvmDateTimeFormatter(override val format: String) : DateTimeFormatter {
 
     private val dateTimeFormatter = java.time.format.DateTimeFormatter.ofPattern(format)
 
