@@ -28,9 +28,8 @@ This library expands on the kotlinx datetime library by providing additional com
 
 ### TimeProvider
 
-A `TimeProvider` extends from `kotlin.time.TimeSource` and `kotlinx.datetime.Clock`. This may
-provide additional functionality in the future. A `TimeProvider` can be obtained
-via the `TimeProvider` function:
+A `TimeProvider` extends from `kotlin.time.TimeSource` and `kotlinx.datetime.Clock`. This may provide additional
+functionality in the future. A `TimeProvider` can be obtained via the `TimeProvider` function:
 
 ```kotlin
 val timeProvider = TimeProvider()
@@ -48,7 +47,7 @@ formatter.invoke(instant, timeZone)
 
 ### Coroutines
 
-The `time-coroutines` dependency provides common time based utilities, such as the following:
+The library provides common coroutines and Flow time based utilities, such as the following:
 
 ```kotlin
 intervalFlow(period = 30.seconds)
@@ -64,7 +63,7 @@ myFlow.timedValue()
 poll(period = 10.seconds) { myFlow }
 ```
 
-Refer to the `FlowUtils` Kotlin file in the `time-coroutines` package for more information on the functions.
+Refer to the `FlowUtils` Kotlin file in the `time-core` package for more information on the functions.
 
 ## Building
 
@@ -76,22 +75,14 @@ the [releases page](https://github.com/chRyNaN/time/releases) for the latest ver
 
 ```groovy
 repositories {
-    maven { url = "https://repo.repsy.io/mvn/chrynan/public" }
+    maven { url = uri("https://repo.repsy.io/mvn/chrynan/public") }
 }
 ```
 
 ### Dependencies
 
-#### Core
-
 ```groovy
-implementation "com.chrynan.time:time-core:$VERSION"
-```
-
-#### Coroutines
-
-```groovy
-implementation "com.chrynan.time:time-coroutines:$VERSION"
+implementation("com.chrynan.time:time-core:$VERSION")
 ```
 
 ## Documentation
