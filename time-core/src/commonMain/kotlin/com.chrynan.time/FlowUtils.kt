@@ -69,16 +69,6 @@ fun scheduleFlow(dateTime: UtcMillisSinceEpoch, clock: Clock = Clock.System): Fl
 }
 
 /**
- * A convenience function for calling [scheduleFlow] with a [TimeProvider].
- *
- * @see [scheduleFlow]
- */
-@ExperimentalCoroutinesApi
-@ExperimentalTime
-fun scheduleFlow(dateTime: UtcMillisSinceEpoch, timeProvider: TimeProvider): Flow<Unit> =
-    scheduleFlow(dateTime = dateTime, clock = timeProvider)
-
-/**
  * Retrieves a [Flow] that emits the items of the source [Flow] but applies a timeout policy for each emitted item. If
  * the next item isn't emitted within the provided timeout [duration] starting from its predecessor, then the resulting
  * [Flow] terminates with a [TimeoutCancellationException] by throwing it as an error.
@@ -152,6 +142,25 @@ sealed class FlatMapStrategy {
 }
 
 /**
+ * Performs the appropriate flatMap call according to the provided [strategy].
+ *
+ * @see [FlatMapStrategy]
+ * @see [flatMapLatest]
+ * @see [flatMapConcat]
+ * @see [flatMapMerge]
+ */
+@ExperimentalCoroutinesApi
+@FlowPreview
+inline fun <T, R> Flow<T>.flatMap(
+    strategy: FlatMapStrategy = FlatMapStrategy.Latest,
+    crossinline transform: suspend (value: T) -> Flow<R>
+): Flow<R> = when (strategy) {
+    is FlatMapStrategy.Latest -> flatMapLatest { transform(it) }
+    is FlatMapStrategy.Merge -> flatMapMerge(concurrency = strategy.limit) { transform(it) }
+    is FlatMapStrategy.Concat -> flatMapConcat { transform(it) }
+}
+
+/**
  * Polls the [Flow] retrieved via the provided [flowGetter] function, by invoking the [flowGetter]
  * function after the provided [initialDelay] and then consistently after the provided [period],
  * and using the provided polling [strategy].
@@ -167,15 +176,7 @@ fun <T> poll(
 ): Flow<T> {
     val intervalFlow = intervalFlow(initialDelay = initialDelay, period = period)
 
-    return when (strategy) {
-        is FlatMapStrategy.Latest -> intervalFlow.flatMapLatest { flowGetter(it) }
-        is FlatMapStrategy.Merge -> intervalFlow.flatMapMerge(concurrency = strategy.limit) {
-            flowGetter(
-                it
-            )
-        }
-        is FlatMapStrategy.Concat -> intervalFlow.flatMapConcat { flowGetter(it) }
-    }
+    return intervalFlow.flatMap(strategy = strategy) { flowGetter(it) }
 }
 
 /**
