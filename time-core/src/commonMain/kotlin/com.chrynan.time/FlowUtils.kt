@@ -5,6 +5,7 @@ package com.chrynan.time
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 import kotlin.time.*
 
 /**
@@ -47,22 +48,66 @@ fun timerFlow(delay: Duration): Flow<Unit> = channelFlow {
 }
 
 /**
- * Retrieves a [Flow] of [Unit] that emits at the provided [dateTime] and then finishes.
+ * Retrieves a [Flow] of [Unit] that emits at the provided [utcMillisSinceEpoch] and then finishes.
  *
- * @param [dateTime] The [UtcMillisSinceEpoch] when the returned [Flow] should emit a [Unit] value then finish.
+ * @param [utcMillisSinceEpoch] The [UtcMillisSinceEpoch] when the returned [Flow] should emit a [Unit] value then finish.
  * @param [clock] The [Clock] used to obtain the current [UtcMillisSinceEpoch].
  *
  * @author chRyNaN
  */
 @ExperimentalCoroutinesApi
 @ExperimentalTime
-fun scheduleFlow(dateTime: UtcMillisSinceEpoch, clock: Clock = Clock.System): Flow<Unit> {
+fun scheduleFlow(utcMillisSinceEpoch: UtcMillisSinceEpoch, clock: Clock = Clock.System): Flow<Unit> {
     val nowUtc = clock.now()
 
-    val duration = nowUtc durationTo dateTime.toInstant()
+    val duration = nowUtc durationTo utcMillisSinceEpoch.toInstant()
 
     return if (duration < 0.nanoseconds) {
-        throw IllegalArgumentException("DateTimeString provided to the scheduleFlow function must not be in the past. DateTimeString = $dateTime")
+        throw IllegalArgumentException("UtcMillisSinceEpoch provided to the scheduleFlow function must not be in the past. UtcMillisSinceEpoch = $utcMillisSinceEpoch")
+    } else {
+        timerFlow(delay = duration)
+    }
+}
+
+/**
+ * Retrieves a [Flow] of [Unit] that emits at the provided [durationSinceEpoch] and then finishes.
+ *
+ * @param [durationSinceEpoch] The [Duration] when the returned [Flow] should emit a [Unit] value then finish.
+ * @param [clock] The [Clock] used to obtain the current [UtcMillisSinceEpoch].
+ *
+ * @author chRyNaN
+ */
+@ExperimentalCoroutinesApi
+@ExperimentalTime
+fun scheduleFlow(durationSinceEpoch: Duration, clock: Clock = Clock.System): Flow<Unit> {
+    val nowUtc = clock.now()
+
+    val duration = nowUtc durationTo durationSinceEpoch.toInstantSinceEpoch()
+
+    return if (duration < 0.nanoseconds) {
+        throw IllegalArgumentException("Duration provided to the scheduleFlow function must not be in the past. Duration = $durationSinceEpoch")
+    } else {
+        timerFlow(delay = duration)
+    }
+}
+
+/**
+ * Retrieves a [Flow] of [Unit] that emits at the provided [instant] and then finishes.
+ *
+ * @param [instant] The [Instant] when the returned [Flow] should emit a [Unit] value then finish.
+ * @param [clock] The [Clock] used to obtain the current [Instant].
+ *
+ * @author chRyNaN
+ */
+@ExperimentalCoroutinesApi
+@ExperimentalTime
+fun scheduleFlow(instant: Instant, clock: Clock = Clock.System): Flow<Unit> {
+    val nowUtc = clock.now()
+
+    val duration = nowUtc durationTo instant
+
+    return if (duration < 0.nanoseconds) {
+        throw IllegalArgumentException("Instant provided to the scheduleFlow function must not be in the past. Instant = $instant")
     } else {
         timerFlow(delay = duration)
     }
