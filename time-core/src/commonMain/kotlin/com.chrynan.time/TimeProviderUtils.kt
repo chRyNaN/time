@@ -3,7 +3,11 @@
 package com.chrynan.time
 
 import kotlinx.datetime.*
+import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
+
+@ExperimentalTime
+expect val TimeProvider.elapsedSystemTime: Duration
 
 @ExperimentalTime
 fun TimeProvider.yesterdayAt(timeZone: TimeZone): LocalDate =
