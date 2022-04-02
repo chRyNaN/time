@@ -21,11 +21,11 @@ fun <T> Converter<T>.invoke(value: UtcMillisSinceEpoch, timeZone: TimeZone): T =
     invoke(value = value.toInstant(), timeZone = timeZone)
 
 @ExperimentalTime
-fun <T> Converter<T>.invoke(value: TimeStamp, timeZone: TimeZone): T =
+fun <T> Converter<T>.invoke(value: DateTimeStamp, timeZone: TimeZone): T =
     invoke(value = value.toInstant(), timeZone = timeZone)
 
 @ExperimentalTime
-fun <T> Converter<T>.invoke(value: TimeStamp.Local): T =
+fun <T> Converter<T>.invoke(value: DateTimeStamp.Local): T =
     invoke(value = value.toInstant(), timeZone = value.timeZone)
 
 @ExperimentalTime

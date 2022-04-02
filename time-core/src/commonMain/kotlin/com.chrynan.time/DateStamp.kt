@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
 
 /**
  * Represents a [LocalDate] and its associated [TimeZone]. This class represents a single day
- * without time information. This is similar to the [TimeStamp] class but without any associated
+ * without time information. This is similar to the [DateTimeStamp] class but without any associated
  * time data, since it represents the entire day.
  */
 @Serializable
