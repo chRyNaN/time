@@ -3,9 +3,9 @@
 # toInstant
 
 [common]\
-fun [TimeStamp](-time-stamp/index.md).[toInstant](to-instant.md)(): Instant
+fun [DateTimeStamp](-date-time-stamp/index.md).[toInstant](to-instant.md)(): Instant
 
-Converts this [TimeStamp](-time-stamp/index.md) into an Instant. This is useful for manipulation of the time value or displaying within a UI.
+Converts this [DateTimeStamp](-date-time-stamp/index.md) into an Instant. This is useful for manipulation of the time value or displaying within a UI.
 
 [common]\
 
