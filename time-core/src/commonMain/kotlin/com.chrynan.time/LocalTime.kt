@@ -4,6 +4,8 @@ package com.chrynan.time
 
 import kotlinx.datetime.LocalDateTime
 import kotlin.time.ExperimentalTime
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.SerialName
 
 /**
  * Represents the time components of the [LocalDateTime] class.
@@ -12,11 +14,12 @@ import kotlin.time.ExperimentalTime
  * @see [LocalDate]
  */
 @ExperimentalTime
+@Serializable
 data class LocalTime(
-    val hour: Int,
-    val minute: Int,
-    val second: Int,
-    val nanosecond: Int
+    @SerialName(value = "hour") val hour: Int,
+    @SerialName(value = "minute") val minute: Int,
+    @SerialName(value = "second") val second: Int,
+    @SerialName(value = "nanosecond") val nanosecond: Int
 )
 
 @ExperimentalTime
