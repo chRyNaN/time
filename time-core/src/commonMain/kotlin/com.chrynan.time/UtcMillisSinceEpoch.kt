@@ -3,6 +3,7 @@
 package com.chrynan.time
 
 import kotlinx.datetime.*
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmInline
 import kotlin.time.Duration
@@ -14,7 +15,7 @@ import kotlin.time.ExperimentalTime
 @ExperimentalTime
 @Serializable
 @JvmInline
-value class UtcMillisSinceEpoch(@Suppress("MemberVisibilityCanBePrivate") val value: Long) :
+value class UtcMillisSinceEpoch(@Suppress("MemberVisibilityCanBePrivate") @SerialName(value = "value") val value: Long) :
     Comparable<UtcMillisSinceEpoch> {
 
     val duration: Duration
