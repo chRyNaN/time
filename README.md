@@ -4,8 +4,7 @@ A Kotlin multi-platform time library. <br/>
 
 <img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/chRyNaN/time">
 
-This library expands on the experimental
-Kotlin [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/)
+This library expands on the Kotlin [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/)
 and [kotlinx.datetime](https://github.com/Kotlin/kotlinx-datetime) library.
 
 An early look into the development of this library is discussed in [this article](https://chrynan.codes/its-about-time/)
@@ -21,10 +20,11 @@ because the [kotlinx.datetime](https://github.com/Kotlin/kotlinx-datetime) libra
 
 This library expands on the kotlinx datetime library by providing additional components and utilities, including:
 
-* `UtcMillisSinceEpoch`
-* `TimeStamp`
-* `TimeProvider`
-* `TimeFormatter`
+* [UtcMillisSinceEpoch](docs/time-core/time-core/com.chrynan.time/-utc-millis-since-epoch/index.md)
+* [DateTimeStamp](docs/time-core/time-core/com.chrynan.time/-date-time-stamp/index.md)
+* [DateStamp](docs/time-core/time-core/com.chrynan.time/-date-stamp/index.md)
+* [TimeProvider](docs/time-core/time-core/com.chrynan.time/-time-provider/index.md)
+* [DateTimeFormatter](docs/time-core/time-core/com.chrynan.time/-date-time-formatter/index.md)
 
 ### TimeProvider
 
@@ -33,6 +33,8 @@ functionality in the future. A `TimeProvider` can be obtained via the `TimeProvi
 
 ```kotlin
 val timeProvider = TimeProvider()
+
+val duration = timeProvider.elapsedSystemTime
 ```
 
 ### TimeFormatter
