@@ -122,7 +122,7 @@ val Year.days: Int
  */
 @ExperimentalTime
 val Year.duration: Duration
-    get() = Duration.Companion.days(days)
+    get() = days.days
 
 /**
  * Determines whether this [Year] is within the Before Christ Era, or any year less than zero. This is equivalent

@@ -167,7 +167,7 @@ fun Month.lastDateIn(year: Int): LocalDate =
  * @see [daysIn]
  */
 @ExperimentalTime
-fun Month.duration(year: Year): Duration = Duration.Companion.days(this.daysIn(year))
+fun Month.duration(year: Year): Duration = this.daysIn(year).days
 
 /**
  * Retrieves the [Duration] of this [Month] within the provided [year] with day precision.
@@ -177,7 +177,7 @@ fun Month.duration(year: Year): Duration = Duration.Companion.days(this.daysIn(y
  * @see [daysIn]
  */
 @ExperimentalTime
-fun Month.duration(year: Int): Duration = Duration.Companion.days(this.daysIn(year))
+fun Month.duration(year: Int): Duration = this.daysIn(year).days
 
 /**
  * Retrieves the [Duration] of this [Month] considering if this [isLeapYear] with day precision.
@@ -187,7 +187,7 @@ fun Month.duration(year: Int): Duration = Duration.Companion.days(this.daysIn(ye
  * @see [days]
  */
 @ExperimentalTime
-fun Month.duration(isLeapYear: Boolean): Duration = Duration.Companion.days(this.days(isLeapYear))
+fun Month.duration(isLeapYear: Boolean): Duration = this.days(isLeapYear).days
 
 /**
  * Retrieves the number of weeks within this [Month] in the provided [year] using the provided [weekFormat].
