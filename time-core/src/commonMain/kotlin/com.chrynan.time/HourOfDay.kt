@@ -119,3 +119,19 @@ fun LocalDateTime.twelveBasedHourOfDay(): HourOfDay.TwelveBased =
 @UnstableTimeApi
 fun LocalDateTime.twentyFourBasedHourOfDay(): HourOfDay.TwentyFourBased =
     HourOfDay.TwentyFourBased(value = hour)
+
+/**
+ * Retrieves the [HourOfDay.TwelveBased] value from this [LocalDateTime] instance.
+ */
+@UnstableTimeApi
+@ExperimentalTime
+fun LocalTime.twelveBasedHourOfDay(): HourOfDay.TwelveBased =
+    HourOfDay.TwelveBased(value = hourInTwelveHourClock, meridiemPeriod = MeridiemPeriod.AM)
+
+/**
+ * Retrieves the [HourOfDay.TwentyFourBased] value from this [LocalDateTime] instance.
+ */
+@UnstableTimeApi
+@ExperimentalTime
+fun LocalTime.twentyFourBasedHourOfDay(): HourOfDay.TwentyFourBased =
+    HourOfDay.TwentyFourBased(value = hour)
