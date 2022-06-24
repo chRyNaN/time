@@ -26,20 +26,21 @@ import kotlinx.serialization.SerialName
 sealed class DateTimeStamp {
 
     abstract val value: Any
-    abstract val timeZone: TimeZone?
+    abstract val timeZone: TimeZone
 
     /**
      * A [DateTimeStamp] whose [value] is represented as an [Instant]. This is particularly useful for representing past or
      * near-future time values.
      *
-     * Note that there is no [timeZone] stored for this class, so the [timeZone] value will always be null.
+     * Note that the [timeZone] for this class will always be [TimeZone.UTC].
      *
      * Use the [DateTimeStamp] function to create an instance or this class.
      */
     @Serializable
     data class Utc internal constructor(@SerialName(value = "value") override val value: Instant) : DateTimeStamp() {
 
-        override val timeZone: TimeZone? = null
+        @SerialName(value = "timezone")
+        override val timeZone: TimeZone = TimeZone.UTC
     }
 
     /**
