@@ -2,25 +2,8 @@
 
 package com.chrynan.time
 
-import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.LocalTime
 import kotlin.time.ExperimentalTime
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.SerialName
-
-/**
- * Represents the time components of the [LocalDateTime] class.
- *
- * @see [LocalDateTime]
- * @see [LocalDate]
- */
-@ExperimentalTime
-@Serializable
-data class LocalTime(
-    @SerialName(value = "hour") val hour: Int,
-    @SerialName(value = "minute") val minute: Int,
-    @SerialName(value = "second") val second: Int,
-    @SerialName(value = "nanosecond") val nanosecond: Int
-)
 
 @ExperimentalTime
 val LocalTime.millisecond: Int
@@ -71,15 +54,3 @@ fun LocalTime.isAm(isMidnightAM: Boolean = true): Boolean = meridiemPeriod(isMid
  */
 @ExperimentalTime
 fun LocalTime.isPm(isMidnightAM: Boolean = true): Boolean = meridiemPeriod(isMidnightAM = isMidnightAM).isPm
-
-/**
- * Retrieves the [LocalTime] from this [LocalDateTime].
- */
-@ExperimentalTime
-val LocalDateTime.time: LocalTime
-    get() = LocalTime(
-        hour = hour,
-        minute = minute,
-        second = second,
-        nanosecond = nanosecond
-    )
