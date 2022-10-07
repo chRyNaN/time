@@ -3,6 +3,7 @@
 package com.chrynan.time
 
 import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.LocalTime
 import kotlinx.serialization.SerialName
 import kotlin.jvm.JvmInline
 import kotlinx.serialization.Serializable
