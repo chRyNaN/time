@@ -5,6 +5,7 @@ package com.chrynan.time
 import kotlinx.datetime.*
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerialName
+import kotlin.time.ExperimentalTime
 
 /**
  * An instant in time. This can be either a UTC time [Instant] or a [LocalDateTime] for a
@@ -114,3 +115,64 @@ fun LocalDate.toStartOfDayDateTimeStamp(timeZone: TimeZone): DateTimeStamp.Local
         value = this.atStartOfDayIn(timeZone = timeZone).toLocalDateTime(timeZone = timeZone),
         timeZone = timeZone
     )
+
+/**
+ * Parses the ISO [String] [isoString] into a [DateTimeStamp] or throws an [IllegalArgumentException] if the value was not
+ * in a supported ISO format. This function first attempts to parse the [isoString] as an [Instant] via the [Instant.parse]
+ * function, if that fails, it will attempt to parse the [isoString] as a [LocalDateTime] via the [LocalDateTime.parse]
+ * function. The result is then converted to a [DateTimeStamp]. In the case of an [Instant], this is converted to a
+ * [DateTimeStamp] via the [Instant.toDateTimeStamp] function. In the case of a [LocalDateTime], this is converted to a
+ * [DateTimeStamp] via the [LocalDateTime.toDateTimeStamp] using the provided [timeZone] value which defaults to
+ * [TimeZone.UTC]. If the provided [String] [isoString] cannot be converted to a [DateTimeStamp], then an
+ * [IllegalArgumentException] is thrown.
+ *
+ * @see [Instant.parse]
+ * @see [LocalDateTime.parse]
+ */
+fun DateTimeStamp.Companion.parse(isoString: String, timeZone: TimeZone = TimeZone.UTC): DateTimeStamp =
+    try {
+        Instant.parse(isoString = isoString).toDateTimeStamp()
+    } catch (_: Exception) {
+        LocalDateTime.parse(isoString = isoString).toDateTimeStamp(timeZone = timeZone)
+    }
+
+/**
+ * A convenience function for invoking the [DateTimeStamp.Companion.parse] function but returning `null` instead of
+ * throwing an exception in the case of a parsing error.
+ *
+ * @see [DateTimeStamp.Companion.parse]
+ */
+fun DateTimeStamp.Companion.parseOrNull(isoString: String, timeZone: TimeZone = TimeZone.UTC): DateTimeStamp? =
+    try {
+        parse(isoString = isoString, timeZone = timeZone)
+    } catch (_: Exception) {
+        null
+    }
+
+/**
+ * Similar to the [DateTimeStamp.Companion.parse] function but uses the [Instant.Companion.parseLenient] function
+ * instead of [Instant.parse].
+ *
+ * @see [DateTimeStamp.Companion.parse]
+ */
+@ExperimentalTime
+fun DateTimeStamp.Companion.parseLenient(isoString: String, timeZone: TimeZone = TimeZone.UTC): DateTimeStamp =
+    try {
+        Instant.parseLenient(isoString = isoString).toDateTimeStamp()
+    } catch (_: Exception) {
+        LocalDateTime.parse(isoString = isoString).toDateTimeStamp(timeZone = timeZone)
+    }
+
+/**
+ * A convenience function for invoking the [DateTimeStamp.Companion.parseLenient] function but returning `null` instead
+ * of throwing an exception in the case of a parsing error.
+ *
+ * @see [DateTimeStamp.Companion.parseLenient]
+ */
+@ExperimentalTime
+fun DateTimeStamp.Companion.parseLenientOrNull(isoString: String, timeZone: TimeZone = TimeZone.UTC): DateTimeStamp? =
+    try {
+        parseLenient(isoString = isoString, timeZone = timeZone)
+    } catch (_: Exception) {
+        null
+    }
