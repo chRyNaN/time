@@ -35,13 +35,13 @@ kotlin {
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
 
                 // Kotlinx date-time
-                api("org.jetbrains.kotlinx:kotlinx-datetime:0.3.3")
+                api("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
 
                 // Kotlinx Serialization
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0")
 
                 // Coroutines
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
             }
         }
         val iosMain by sourceSets.getting
@@ -91,7 +91,7 @@ android {
 tasks.withType<Jar> { duplicatesStrategy = DuplicatesStrategy.INHERIT }
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.2.0")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.0")
 }
 
 afterEvaluate {
