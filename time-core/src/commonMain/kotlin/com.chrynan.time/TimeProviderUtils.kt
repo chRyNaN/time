@@ -10,24 +10,24 @@ import kotlin.time.ExperimentalTime
 expect val TimeProvider.elapsedSystemTime: Duration
 
 @ExperimentalTime
-fun TimeProvider.yesterdayAt(timeZone: TimeZone): LocalDate =
+fun TimeProvider.yesterdayIn(timeZone: TimeZone): LocalDate =
     (now() - 1.days).toLocalDateTime(timeZone = timeZone).date
 
 @ExperimentalTime
-fun TimeProvider.tomorrowAt(timeZone: TimeZone): LocalDate =
+fun TimeProvider.tomorrowIn(timeZone: TimeZone): LocalDate =
     (now() + 1.days).toLocalDateTime(timeZone = timeZone).date
 
 @ExperimentalTime
-fun TimeProvider.currentMonthAt(timeZone: TimeZone): Month =
-    todayAt(timeZone = timeZone).month
+fun TimeProvider.currentMonthIn(timeZone: TimeZone): Month =
+    todayIn(timeZone = timeZone).month
 
 @ExperimentalTime
-fun TimeProvider.currentYearAt(timeZone: TimeZone): Year =
-    Year(todayAt(timeZone = timeZone).year)
+fun TimeProvider.currentYearIn(timeZone: TimeZone): Year =
+    Year(todayIn(timeZone = timeZone).year)
 
 @ExperimentalTime
-fun TimeProvider.currentYearMonthAt(timeZone: TimeZone): YearMonth {
-    val today = todayAt(timeZone = timeZone)
+fun TimeProvider.currentYearMonthIn(timeZone: TimeZone): YearMonth {
+    val today = todayIn(timeZone = timeZone)
 
     return YearMonth(
         year = Year(today.year),
@@ -36,25 +36,25 @@ fun TimeProvider.currentYearMonthAt(timeZone: TimeZone): YearMonth {
 }
 
 @ExperimentalTime
-fun TimeProvider.isTodayAt(timeZone: TimeZone, localDate: LocalDate): Boolean =
-    todayAt(timeZone = timeZone) == localDate
+fun TimeProvider.isTodayIn(timeZone: TimeZone, localDate: LocalDate): Boolean =
+    todayIn(timeZone = timeZone) == localDate
 
 @ExperimentalTime
-fun TimeProvider.isYesterdayAt(timeZone: TimeZone, localDate: LocalDate): Boolean =
-    yesterdayAt(timeZone = timeZone) == localDate
+fun TimeProvider.isYesterdayIn(timeZone: TimeZone, localDate: LocalDate): Boolean =
+    yesterdayIn(timeZone = timeZone) == localDate
 
 @ExperimentalTime
-fun TimeProvider.isTomorrowAt(timeZone: TimeZone, localDate: LocalDate): Boolean =
-    yesterdayAt(timeZone = timeZone) == localDate
+fun TimeProvider.isTomorrowIn(timeZone: TimeZone, localDate: LocalDate): Boolean =
+    yesterdayIn(timeZone = timeZone) == localDate
 
 @ExperimentalTime
 fun TimeProvider.isToday(dateStamp: DateStamp): Boolean =
-    todayAt(timeZone = dateStamp.timeZone) == dateStamp.date
+    todayIn(timeZone = dateStamp.timeZone) == dateStamp.date
 
 @ExperimentalTime
 fun TimeProvider.isYesterday(dateStamp: DateStamp): Boolean =
-    yesterdayAt(timeZone = dateStamp.timeZone) == dateStamp.date
+    yesterdayIn(timeZone = dateStamp.timeZone) == dateStamp.date
 
 @ExperimentalTime
 fun TimeProvider.isTomorrow(dateStamp: DateStamp): Boolean =
-    tomorrowAt(timeZone = dateStamp.timeZone) == dateStamp.date
+    tomorrowIn(timeZone = dateStamp.timeZone) == dateStamp.date
