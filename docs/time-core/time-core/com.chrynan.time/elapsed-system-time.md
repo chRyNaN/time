@@ -16,7 +16,10 @@ expect val [TimeProvider](-time-provider/index.md).[elapsedSystemTime](elapsed-s
 actual val [TimeProvider](-time-provider/index.md#311984861%2FExtensions%2F219598131).[elapsedSystemTime](elapsed-system-time.md): [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)
 
 [ios]\
-actual val [TimeProvider](-time-provider/index.md#311984861%2FExtensions%2F74489539).[elapsedSystemTime](elapsed-system-time.md): [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)
+
+@[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
+
+actual val [TimeProvider](-time-provider/index.md#311984861%2FExtensions%2F-703660177).[elapsedSystemTime](elapsed-system-time.md): [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html)
 
 [js]\
 

@@ -5,7 +5,7 @@
 [common]\
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-data class [WeekFormat](index.md)(minimalDaysInFirstWeek: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html), firstDayOfWeek: DayOfWeek)
+data class [WeekFormat](index.md)(val minimalDaysInFirstWeek: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) = 4, val firstDayOfWeek: DayOfWeek = DayOfWeek.MONDAY)
 
 Represents the formatting for the counting of weeks within a month or year.
 

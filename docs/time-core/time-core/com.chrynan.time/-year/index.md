@@ -7,7 +7,7 @@
 
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-value class [Year](index.md)(value: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)) : [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)&lt;[Year](index.md)&gt; 
+value class [Year](index.md)(val value: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)) : [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)&lt;[Year](index.md)&gt; 
 
 Represents a year in a light-weight and type safe value class.
 
@@ -15,7 +15,7 @@ Note: This class contains no information about what type of calendar it belongs 
 
 Note that this is not a duration, this does not represent an amount of years, but rather, represents an exact year within a calendar.
 
-The reason for creating this wrapper value class was to provided type safety for operations that required a year, such as the [isLeap](../is-leap.md) and [days](../days.md) properties. Since the kotlinx datetime library doesn't provide a "Year" concept, this was created in this library. Note however that this is an [ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html) component and may be removed or updated in the future.
+The reason for creating this wrapper value class was to provided type safety for operations that required a year, such as the [isLeap](../is-leap.md) and [days](../days.md) properties. Since the kotlinx datetime library doesn't provide a &quot;Year&quot; concept, this was created in this library. Note however that this is an [ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html) component and may be removed or updated in the future.
 
 Note that for functions that take a [Year](index.md) as a parameter, there may be duplicates of those functions that take an [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) that represents a [Year](index.md). This is done for convenience.
 

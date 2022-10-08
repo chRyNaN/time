@@ -3,4 +3,4 @@
 # timeZone
 
 [common]\
-abstract val [timeZone](time-zone.md): TimeZone?
+abstract val [timeZone](time-zone.md): TimeZone

@@ -3,7 +3,7 @@
 # DateStamp
 
 [common]\
-data class [DateStamp](index.md)(date: LocalDate, timeZone: TimeZone)
+data class [DateStamp](index.md)(val date: LocalDate, val timeZone: TimeZone)
 
 Represents a LocalDate and its associated TimeZone. This class represents a single day without time information. This is similar to the [DateTimeStamp](../-date-time-stamp/index.md) class but without any associated time data, since it represents the entire day.
 

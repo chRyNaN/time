@@ -3,4 +3,4 @@
 # timeZone
 
 [common]\
-open override val [timeZone](time-zone.md): TimeZone? = null
+open override val [timeZone](time-zone.md): TimeZone

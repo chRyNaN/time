@@ -7,7 +7,7 @@
 
 @[JvmInline](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-inline/index.html)
 
-value class [UtcMillisSinceEpoch](index.md)(value: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)) : [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)&lt;[UtcMillisSinceEpoch](index.md)&gt; 
+value class [UtcMillisSinceEpoch](index.md)(val value: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)) : [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)&lt;[UtcMillisSinceEpoch](index.md)&gt; 
 
 A wrapper class for a [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html) value that represents milliseconds since the UTC Epoch.
 

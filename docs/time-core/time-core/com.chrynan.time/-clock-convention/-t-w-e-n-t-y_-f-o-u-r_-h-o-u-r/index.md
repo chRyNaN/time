@@ -3,11 +3,11 @@
 # TWENTY_FOUR_HOUR
 
 [common]\
-[TWENTY_FOUR_HOUR](index.md)()
+[TWENTY_FOUR_HOUR](index.md)
 
 ## Properties
 
 | Name | Summary |
 |---|---|
-| [name](../../-meridiem-period/-a-m/index.md#-372974862%2FProperties%2F-2124218425) | [common]<br>val [name](../../-meridiem-period/-a-m/index.md#-372974862%2FProperties%2F-2124218425): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
-| [ordinal](../../-meridiem-period/-a-m/index.md#-739389684%2FProperties%2F-2124218425) | [common]<br>val [ordinal](../../-meridiem-period/-a-m/index.md#-739389684%2FProperties%2F-2124218425): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
+| [name](../../-meridiem-period/-p-m/index.md#-372974862%2FProperties%2F-2124218425) | [common]<br>val [name](../../-meridiem-period/-p-m/index.md#-372974862%2FProperties%2F-2124218425): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [ordinal](../../-meridiem-period/-p-m/index.md#-739389684%2FProperties%2F-2124218425) | [common]<br>val [ordinal](../../-meridiem-period/-p-m/index.md#-739389684%2FProperties%2F-2124218425): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |

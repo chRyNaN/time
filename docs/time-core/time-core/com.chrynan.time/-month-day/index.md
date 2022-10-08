@@ -5,7 +5,7 @@
 [common]\
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-data class [MonthDay](index.md)(month: Month, dayOfMonth: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)) : [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)&lt;[MonthDay](index.md)&gt; 
+data class [MonthDay](index.md)(val month: Month, val dayOfMonth: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)) : [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)&lt;[MonthDay](index.md)&gt; 
 
 A class representing an association between a [month](month.md) and a [dayOfMonth](day-of-month.md).
 

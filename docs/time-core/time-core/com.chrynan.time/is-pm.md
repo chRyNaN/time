@@ -6,7 +6,7 @@
 
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-fun [LocalTime](-local-time/index.md).[isPm](is-pm.md)(isMidnightAM: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) = true): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
+fun LocalTime.[isPm](is-pm.md)(isMidnightAM: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) = true): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
 
 A convenience function for testing whether this [LocalTime.meridiemPeriod](meridiem-period.md) is [MeridiemPeriod.PM](-meridiem-period/-p-m/index.md).
 

@@ -31,7 +31,7 @@ Returns a [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-d
 
 | | |
 |---|---|
-| [kotlin.IllegalArgumentException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html) | if this Double value is NaN. |
+| [kotlin.IllegalArgumentException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html) | if this `Double` value is `NaN`. |
 
 [common]\
 

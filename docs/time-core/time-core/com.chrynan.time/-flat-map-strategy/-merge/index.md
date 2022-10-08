@@ -3,7 +3,7 @@
 # Merge
 
 [common]\
-data class [Merge](index.md)(limit: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)) : [FlatMapStrategy](../index.md)
+data class [Merge](index.md)(val limit: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) = DEFAULT_CONCURRENCY) : [FlatMapStrategy](../index.md)
 
 Equivalent to the Flow.flatMapMerge function.
 

@@ -8,9 +8,9 @@
 
 @[UnstableTimeApi](-unstable-time-api/index.md)
 
-val [LocalTime](-local-time/index.md).[hourInTwelveHourClock](hour-in-twelve-hour-clock.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+val LocalTime.[hourInTwelveHourClock](hour-in-twelve-hour-clock.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
 
-Retrieves the [LocalTime.hour](-local-time/hour.md) value within a [ClockConvention.TWELVE_HOUR](-clock-convention/-t-w-e-l-v-e_-h-o-u-r/index.md) clock. This will return a value between 1 and 12.
+Retrieves the LocalTime.hour value within a [ClockConvention.TWELVE_HOUR](-clock-convention/-t-w-e-l-v-e_-h-o-u-r/index.md) clock. This will return a value between 1 and 12.
 
 [common]\
 

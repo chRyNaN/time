@@ -5,7 +5,7 @@
 [common]\
 @[ExperimentalTime](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html)
 
-data class [YearMonth](index.md)(year: [Year](../-year/index.md), month: Month) : [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)&lt;[YearMonth](index.md)&gt; 
+data class [YearMonth](index.md)(val year: [Year](../-year/index.md), val month: Month) : [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)&lt;[YearMonth](index.md)&gt; 
 
 A class representing an association between a [year](year.md) and a [month](month.md).
 

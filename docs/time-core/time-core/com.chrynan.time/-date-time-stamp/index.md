@@ -25,7 +25,7 @@ To perform any operations on the [DateTimeStamp](index.md) class, first convert 
 
 | Name | Summary |
 |---|---|
-| [timeZone](time-zone.md) | [common]<br>abstract val [timeZone](time-zone.md): TimeZone? |
+| [timeZone](time-zone.md) | [common]<br>abstract val [timeZone](time-zone.md): TimeZone |
 | [value](value.md) | [common]<br>abstract val [value](value.md): [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html) |
 
 ## Inheritors
