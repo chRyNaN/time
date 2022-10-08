@@ -14,6 +14,25 @@ internal class JvmDateTimeFormatter(override val format: String) : DateTimeForma
     override fun invoke(value: Instant, timeZone: TimeZone): String =
         dateTimeFormatter.withZone(timeZone.toZoneId()).format(value.toJavaInstant())
 
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is JvmDateTimeFormatter) return false
+
+        if (format != other.format) return false
+        if (dateTimeFormatter != other.dateTimeFormatter) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = format.hashCode()
+        result = 31 * result + (dateTimeFormatter?.hashCode() ?: 0)
+        return result
+    }
+
+    override fun toString(): String =
+        "JvmDateTimeFormatter(format='$format', dateTimeFormatter=$dateTimeFormatter)"
+
     private fun TimeZone.toZoneId(): ZoneId = ZoneId.of(id)
 }
 

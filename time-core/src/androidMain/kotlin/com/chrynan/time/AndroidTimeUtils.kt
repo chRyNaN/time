@@ -10,12 +10,12 @@ import kotlin.time.ExperimentalTime
 private val utcTimezone = TimeZone.getTimeZone("UTC")
 
 private val iso8601DateFormat: SimpleDateFormat
-    get() = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", java.util.Locale.getDefault()).apply {
+    get() = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.getDefault()).apply {
         timeZone = utcTimezone
     }
 
 private val dateFormat: SimpleDateFormat
-    get() = SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault()).apply {
+    get() = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).apply {
         timeZone = utcTimezone
     }
 

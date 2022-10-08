@@ -17,6 +17,25 @@ internal class IosDateTimeFormatter(override val format: String) : DateTimeForma
         return getFormatter(timeZone = timeZone).stringFromDate(date)
     }
 
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is IosDateTimeFormatter) return false
+
+        if (format != other.format) return false
+        if (nsDateFormatter != other.nsDateFormatter) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = format.hashCode()
+        result = 31 * result + nsDateFormatter.hashCode()
+        return result
+    }
+
+    override fun toString(): String =
+        "IosDateTimeFormatter(format='$format', nsDateFormatter=$nsDateFormatter)"
+
     private fun getFormatter(timeZone: TimeZone, locale: NSLocale = NSLocale.currentLocale()) =
         nsDateFormatter.apply {
             setDateFormat(format)
