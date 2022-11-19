@@ -16,8 +16,20 @@ fun interface DurationFormatter {
     operator fun invoke(duration: Duration): String
 }
 
+/**
+ * A default [DurationFormatter] implementation that converts a provided [Duration] value to a colon separated time
+ * stamp [String]. For example, a duration of 1 hour, 30 minutes, and 10 seconds would be converted to the following
+ * [String] value: "01:30:10". The resulting [String] value will:
+ *     - Always have two digits for each part (ex: seconds), if a part value is less than ten, then a leading zero will
+ *     be added so that it contains two digits.
+ *     - Display at least two parts (minutes and seconds). If the provided [Duration] represents less than a minute, a
+ *     part of "00" will be added for the minutes.
+ *     - Display at most three parts (hours, minutes, and seconds) in this described format.
+ *     - If the provided [Duration] exceeds 24 hours, then the resulting [String] value will be the result of
+ *     [Duration.toString].
+ */
 @ExperimentalTime
-class DefaultDurationFormatter : DurationFormatter {
+class DefaultDurationTimeStampFormatter : DurationFormatter {
 
     override fun invoke(duration: Duration): String {
         val totalSeconds = duration.inWholeSeconds
